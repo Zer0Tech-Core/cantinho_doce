@@ -1,0 +1,729 @@
+{
+  "biscoitos-doces": [
+    {
+      "id": "casadinho",
+      "nome": "Casadinho",
+      "descricao": "Biscoito amanteigado tradicional com goiabada",
+      "imagem": "/imagens/produtos/biscoito-doce-casadinho.png",
+      "peso": "500g",
+      "preco": 25.00,
+      "destaque": true
+    },
+    {
+      "id": "chocolate-branco",
+      "nome": "Chocolate Branco",
+      "descricao": "Biscoito com gotas de chocolate branco",
+      "imagem": "/imagens/produtos/biscoito-doce-chocolate-branco.png",
+      "peso": "500g",
+      "preco": 25.00
+    },
+    {
+      "id": "casadinho-leite-condensado",
+      "nome": "Casadinho de Leite Condensado",
+      "descricao": "Biscoito recheado com leite condensado",
+      "imagem": "/imagens/produtos/biscoito-doce-casadinho-leite-condensado.png",
+      "peso": "500g",
+      "preco": 25.00
+    },
+    {
+      "id": "flocos",
+      "nome": "Flocos",
+      "descricao": "Biscoito com flocos de chocolate",
+      "imagem": "/imagens/produtos/biscoito-doce-flocos.png",
+      "peso": "500g",
+      "preco": 25.00,
+      "destaque": true
+    },
+    {
+      "id": "churros",
+      "nome": "Churros",
+      "descricao": "Biscoito sabor churros com canela",
+      "imagem": "/imagens/produtos/biscoito-doce-churros.png",
+      "peso": "500g",
+      "preco": 25.00
+    },
+    {
+      "id": "farinha-lactea",
+      "nome": "Farinha Láctea",
+      "descricao": "Biscoito com farinha láctea",
+      "imagem": "/imagens/produtos/biscoito-doce-farinha-lactea.png",
+      "peso": "500g",
+      "preco": 25.00
+    },
+    {
+      "id": "nata",
+      "nome": "Nata",
+      "descricao": "Biscoito com nata",
+      "imagem": "/imagens/produtos/biscoito-doce-nata.png",
+      "peso": "500g",
+      "preco": 25.00
+    },
+    {
+      "id": "choconata",
+      "nome": "Choconata",
+      "descricao": "Biscoito com chocolate e nata",
+      "imagem": "/imagens/produtos/biscoito-doce-choconata.png",
+      "peso": "500g",
+      "preco": 25.00
+    },
+    {
+      "id": "coco",
+      "nome": "Coco",
+      "descricao": "Biscoito com coco ralado",
+      "imagem": "/imagens/produtos/biscoito-doce-coco.png",
+      "peso": "500g",
+      "preco": 25.00
+    },
+    {
+      "id": "uga-uga",
+      "nome": "Uga Uga",
+      "descricao": "Biscoito crocante especial",
+      "imagem": "/imagens/produtos/biscoito-doce-uga-uga.png",
+      "peso": "500g",
+      "preco": 25.00
+    },
+    {
+      "id": "leitinho",
+      "nome": "Leitinho",
+      "descricao": "Biscoito com leite ninho",
+      "imagem": "/imagens/produtos/biscoito-doce-leitinho.png",
+      "peso": "500g",
+      "preco": 25.00,
+      "destaque": true
+    },
+    {
+      "id": "doce-de-leite-b",
+      "nome": "Doce de Leite",
+      "descricao": "Biscoito com doce de leite",
+      "imagem": "/imagens/produtos/biscoito-doce-doce-leite.png",
+      "peso": "500g",
+      "preco": 25.00
+    },
+    {
+      "id": "biscoito-chocolate",
+      "nome": "Chocolate",
+      "descricao": "Biscoito de chocolate",
+      "imagem": "/imagens/produtos/biscoito-doce-chocolate.png",
+      "peso": "500g",
+      "preco": 25.00
+    },
+    {
+      "id": "banana-com-canela",
+      "nome": "Banana com Canela",
+      "descricao": "Biscoito com banana e canela",
+      "imagem": "/imagens/produtos/biscoito-doce-banana-canela.png",
+      "peso": "500g",
+      "preco": 25.00
+    },
+    {
+      "id": "leite-condensado",
+      "nome": "Leite Condensado",
+      "descricao": "Biscoito com leite condensado",
+      "imagem": "/imagens/produtos/biscoito-doce-leite-condensado.png",
+      "peso": "500g",
+      "preco": 25.00
+    }
+  ],
+  "biscoitos-salgados": [
+    {
+      "id": "pizza",
+      "nome": "Pizza",
+      "descricao": "Biscoito sabor pizza",
+      "imagem": "/imagens/produtos/biscoito-salgado-pizza.png",
+      "peso": "400g",
+      "preco": 25.00
+    },
+    {
+      "id": "queijo",
+      "nome": "Queijo",
+      "descricao": "Biscoito com queijo",
+      "imagem": "/imagens/produtos/biscoito-salgado-queijo.png",
+      "peso": "400g",
+      "preco": 25.00,
+      "destaque": true
+    },
+    {
+      "id": "camarao",
+      "nome": "Camarão",
+      "descricao": "Biscoito sabor camarão",
+      "imagem": "/imagens/produtos/biscoito-salgado-camarao.png",
+      "peso": "400g",
+      "preco": 25.00
+    },
+    {
+      "id": "bacon",
+      "nome": "Bacon",
+      "descricao": "Biscoito com bacon",
+      "imagem": "/imagens/produtos/biscoito-salgado-bacon.png",
+      "peso": "400g",
+      "preco": 25.00
+    },
+    {
+      "id": "churrasco",
+      "nome": "Churrasco",
+      "descricao": "Biscoito sabor churrasco",
+      "imagem": "/imagens/produtos/biscoito-salgado-churrasco.png",
+      "peso": "400g",
+      "preco": 25.00
+    },
+    {
+      "id": "pimenta",
+      "nome": "Pimenta",
+      "descricao": "Biscoito com pimenta",
+      "imagem": "/imagens/produtos/biscoito-salgado-pimenta.png",
+      "peso": "400g",
+      "preco": 25.00
+    },
+    {
+      "id": "torradinha-alho",
+      "nome": "Torradinha de Alho",
+      "descricao": "Torradinha crocante com alho",
+      "imagem": "/imagens/produtos/torradinha-alho.png",
+      "peso": "300g",
+      "preco": 25.00
+    },
+    {
+      "id": "cheddar",
+      "nome": "Cheddar",
+      "descricao": "Biscoito sabor cheddar",
+      "imagem": "/imagens/produtos/biscoito-salgado-cheddar.png",
+      "peso": "400g",
+      "preco": 25.00
+    }
+  ],
+  "amendoins": [
+    {
+      "id": "amendoim-caramelizado",
+      "nome": "Amendoim Caramelizado",
+      "descricao": "Amendoim caramelizado crocante",
+      "imagem": "/imagens/produtos/amendoim-caramelizado.png",
+      "peso": "200g",
+      "preco": 15.00,
+      "destaque": true
+    },
+    {
+      "id": "amendoim-frito-natural-com-pele",
+      "nome": "Amendoim Frito Natural com Pele",
+      "descricao": "Amendoim frito natural com pele",
+      "imagem": "/imagens/produtos/amendoim-frito-natural-com-pele.png",
+      "peso": "200g",
+      "preco": 12.00
+    },
+    {
+      "id": "amendoim-torrado-natural-sem-pele",
+      "nome": "Amendoim Torrado Natural sem Pele",
+      "descricao": "Amendoim torrado natural sem pele",
+      "imagem": "/imagens/produtos/amendoim-torrado-natural-sem-pele.png",
+      "peso": "200g",
+      "preco": 12.00
+    },
+    {
+      "id": "amendoim-torrado-alho-bacon",
+      "nome": "Amendoim Torrado Alho e Bacon",
+      "descricao": "Amendoim torrado sabor alho e bacon",
+      "imagem": "/imagens/produtos/amendoim-torrado-alho-bacon.png",
+      "peso": "200g",
+      "preco": 14.00
+    },
+    {
+      "id": "amendoim-torrado-pimenta-mexicana",
+      "nome": "Amendoim Torrado Pimenta Mexicana",
+      "descricao": "Amendoim torrado sabor pimenta mexicana",
+      "imagem": "/imagens/produtos/amendoim-torrado-pimenta-mexicana.png",
+      "peso": "200g",
+      "preco": 14.00,
+      "destaque": true
+    },
+    {
+      "id": "amendoim-torrado-salsa-cebola",
+      "nome": "Amendoim Torrado Salsa e Cebola",
+      "descricao": "Amendoim torrado sabor salsa e cebola",
+      "imagem": "/imagens/produtos/amendoim-torrado-salsa-cebola.png",
+      "peso": "200g",
+      "preco": 14.00
+    },
+    {
+      "id": "amendoim-com-pele-frito-alho",
+      "nome": "Amendoim com Pele Frito com Alho",
+      "descricao": "Amendoim com pele frito com alho",
+      "imagem": "/imagens/produtos/amendoim-com-pele-frito-alho.png",
+      "peso": "200g",
+      "preco": 13.00
+    }
+  ],
+  "compotas-cocadas": [
+    {
+      "id": "cocada-cremosa",
+      "nome": "Cocada Cremosa",
+      "descricao": "Cocada cremosa tradicional",
+      "imagem": "/imagens/produtos/cocada-cremosa.png",
+      "peso": "650g",
+      "preco": 25.00,
+      "destaque": true
+    },
+    {
+      "id": "cocada-leite-condensado",
+      "nome": "Cocada com Leite Condensado",
+      "descricao": "Cocada com leite condensado",
+      "imagem": "/imagens/produtos/cocada-leite-condensado.png",
+      "peso": "650g",
+      "preco": 25.00
+    },
+    {
+      "id": "coco-abacaxi",
+      "nome": "Coco com Abacaxi",
+      "descricao": "Coco com geleia de abacaxi",
+      "imagem": "/imagens/produtos/coco-abacaxi.png",
+      "peso": "650g",
+      "preco": 25.00
+    },
+    {
+      "id": "coco-abobora",
+      "nome": "Coco com Abóbora",
+      "descricao": "Coco com abóbora",
+      "imagem": "/imagens/produtos/coco-abobora.png",
+      "peso": "650g",
+      "preco": 25.00
+    },
+    {
+      "id": "coco-ameixa",
+      "nome": "Coco com Ameixa",
+      "descricao": "Coco com geleia de ameixa",
+      "imagem": "/imagens/produtos/coco-ameixa.png",
+      "peso": "650g",
+      "preco": 25.00
+    },
+    {
+      "id": "coco-amendoim",
+      "nome": "Coco com Amendoim",
+      "descricao": "Coco com amendoim",
+      "imagem": "/imagens/produtos/coco-amendoim.png",
+      "peso": "650g",
+      "preco": 25.00
+    },
+    {
+      "id": "coco-brigadeiro",
+      "nome": "Coco com Brigadeiro",
+      "descricao": "Coco com brigadeiro",
+      "imagem": "/imagens/produtos/coco-brigadeiro.png",
+      "peso": "650g",
+      "preco": 25.00
+    },
+    {
+      "id": "coco-chocolate",
+      "nome": "Coco com Chocolate",
+      "descricao": "Coco com chocolate",
+      "imagem": "/imagens/produtos/coco-chocolate.png",
+      "peso": "650g",
+      "preco": 25.00
+    },
+    {
+      "id": "coco-maracuja",
+      "nome": "Coco com Maracujá",
+      "descricao": "Coco com geleia de maracujá",
+      "imagem": "/imagens/produtos/coco-maracuja.png",
+      "peso": "650g",
+      "preco": 25.00
+    },
+    {
+      "id": "coco-morango",
+      "nome": "Coco com Morango",
+      "descricao": "Coco com geleia de morango",
+      "imagem": "/imagens/produtos/coco-morango.png",
+      "peso": "650g",
+      "preco": 25.00
+    },
+    {
+      "id": "coco-nozes",
+      "nome": "Coco com Nozes",
+      "descricao": "Coco com nozes",
+      "imagem": "/imagens/produtos/coco-nozes.png",
+      "peso": "650g",
+      "preco": 25.00
+    }
+  ],
+  "compotas-doce-leite": [
+    {
+      "id": "doce-leite-compota",
+      "nome": "Doce de Leite Tradicional",
+      "descricao": "Doce de leite cremoso artesanal",
+      "imagem": "/imagens/produtos/doce-leite-compota.png",
+      "peso": "650g",
+      "preco": 25.00,
+      "destaque": true
+    },
+    {
+      "id": "doce-leite-maracuja",
+      "nome": "Doce de Leite com Maracujá",
+      "descricao": "Doce de leite com maracujá",
+      "imagem": "/imagens/produtos/doce-leite-maracuja.png",
+      "peso": "650g",
+      "preco": 25.00
+    },
+    {
+      "id": "doce-leite-ameixa",
+      "nome": "Doce de Leite com Ameixa",
+      "descricao": "Doce de leite com ameixa",
+      "imagem": "/imagens/produtos/doce-leite-ameixa.png",
+      "peso": "650g",
+      "preco": 25.00
+    },
+    {
+      "id": "doce-leite-nozes",
+      "nome": "Doce de Leite com Nozes",
+      "descricao": "Doce de leite com nozes",
+      "imagem": "/imagens/produtos/doce-leite-nozes.png",
+      "peso": "650g",
+      "preco": 25.00
+    },
+    {
+      "id": "doce-leite-cereja",
+      "nome": "Doce de Leite com Cereja",
+      "descricao": "Doce de leite com cereja",
+      "imagem": "/imagens/produtos/doce-leite-cereja.png",
+      "peso": "650g",
+      "preco": 25.00
+    },
+    {
+      "id": "doce-leite-chocolate",
+      "nome": "Doce de Leite com Chocolate",
+      "descricao": "Doce de leite com chocolate",
+      "imagem": "/imagens/produtos/doce-leite-chocolate.png",
+      "peso": "650g",
+      "preco": 25.00
+    },
+    {
+      "id": "doce-leite-amendoim",
+      "nome": "Doce de Leite com Amendoim",
+      "descricao": "Doce de leite com amendoim",
+      "imagem": "/imagens/produtos/doce-leite-amendoim.png",
+      "peso": "650g",
+      "preco": 25.00
+    },
+    {
+      "id": "doce-leite-morango",
+      "nome": "Doce de Leite com Morango",
+      "descricao": "Doce de leite com morango",
+      "imagem": "/imagens/produtos/doce-leite-morango.png",
+      "peso": "650g",
+      "preco": 25.00
+    },
+    {
+      "id": "doce-leite-coco",
+      "nome": "Doce de Leite com Coco",
+      "descricao": "Doce de leite com coco",
+      "imagem": "/imagens/produtos/doce-leite-coco.png",
+      "peso": "650g",
+      "preco": 25.00
+    },
+    {
+      "id": "doce-leite-chocolate-granulado",
+      "nome": "Doce de Leite com Chocolate e Granulado",
+      "descricao": "Doce de leite com chocolate e granulado",
+      "imagem": "/imagens/produtos/doce-leite-chocolate-granulado.png",
+      "peso": "650g",
+      "preco": 25.00
+    },
+    {
+      "id": "doce-leite-cafe",
+      "nome": "Doce de Leite com Café",
+      "descricao": "Doce de leite com café",
+      "imagem": "/imagens/produtos/doce-leite-cafe.png",
+      "peso": "650g",
+      "preco": 25.00
+    }
+  ],
+  "compotas-frutas": [
+    {
+      "id": "compota-goiabada",
+      "nome": "Goiabada Cascão",
+      "descricao": "Goiabada cascão artesanal",
+      "imagem": "/imagens/produtos/compota-goiabada.png",
+      "peso": "650g",
+      "preco": 25.00
+    },
+    {
+      "id": "compota-banana",
+      "nome": "Geleia de Banana",
+      "descricao": "Geleia de banana",
+      "imagem": "/imagens/produtos/compota-banana.png",
+      "peso": "650g",
+      "preco": 25.00
+    },
+    {
+      "id": "compota-abobora",
+      "nome": "Abóbora com Coco",
+      "descricao": "Abóbora com coco",
+      "imagem": "/imagens/produtos/compota-abobora.png",
+      "peso": "650g",
+      "preco": 25.00
+    },
+    {
+      "id": "compota-mamao-coco",
+      "nome": "Mamão Verde com Coco",
+      "descricao": "Mamão verde com coco",
+      "imagem": "/imagens/produtos/compota-mamao-coco.png",
+      "peso": "650g",
+      "preco": 25.00
+    }
+  ],
+  "doces-noponto": [
+    {
+      "id": "noponto-beijinho",
+      "nome": "Beijinho",
+      "descricao": "Beijinho tradicional",
+      "imagem": "/imagens/produtos/noponto-beijinho.png",
+      "peso": "200g",
+      "preco": 12.00
+    },
+    {
+      "id": "noponto-beijinho-moca",
+      "nome": "Beijinho de Moça",
+      "descricao": "Beijinho de moça gourmet",
+      "imagem": "/imagens/produtos/noponto-beijinho-moca.png",
+      "peso": "200g",
+      "preco": 12.00
+    },
+    {
+      "id": "noponto-beijinho-ninho",
+      "nome": "Beijinho de Ninho",
+      "descricao": "Beijinho de ninho gourmet",
+      "imagem": "/imagens/produtos/noponto-beijinho-ninho.png",
+      "peso": "200g",
+      "preco": 12.00
+    },
+    {
+      "id": "noponto-brigadeiro",
+      "nome": "Brigadeiro",
+      "descricao": "Brigadeiro gourmet",
+      "imagem": "/imagens/produtos/noponto-brigadeiro.png",
+      "peso": "200g",
+      "preco": 12.00
+    },
+    {
+      "id": "noponto-cajuzinho",
+      "nome": "Cajuzinho",
+      "descricao": "Cajuzinho tradicional",
+      "imagem": "/imagens/produtos/noponto-cajuzinho.png",
+      "peso": "200g",
+      "preco": 12.00
+    },
+    {
+      "id": "noponto-palha-italiana",
+      "nome": "Palha Italiana",
+      "descricao": "Palha italiana gourmet",
+      "imagem": "/imagens/produtos/noponto-palha-italiana.png",
+      "peso": "200g",
+      "preco": 12.00
+    },
+    {
+      "id": "noponto-pacoquinha",
+      "nome": "Paçoquinha",
+      "descricao": "Paçoquinha tradicional",
+      "imagem": "/imagens/produtos/noponto-pacoquinha.png",
+      "peso": "200g",
+      "preco": 12.00
+    },
+    {
+      "id": "noponto-pacoquinha-chocolate",
+      "nome": "Paçoquinha com Chocolate",
+      "descricao": "Paçoquinha coberta com chocolate",
+      "imagem": "/imagens/produtos/noponto-pacoquinha-chocolate.png",
+      "peso": "200g",
+      "preco": 12.00,
+      "destaque": true
+    },
+    {
+      "id": "noponto-pacocao",
+      "nome": "Paçocão",
+      "descricao": "Paçocão tradicional",
+      "imagem": "/imagens/produtos/noponto-pacocao.png",
+      "peso": "200g",
+      "preco": 12.00
+    },
+    {
+      "id": "noponto-pe-moca",
+      "nome": "Pé de Moça",
+      "descricao": "Pé de moça tradicional",
+      "imagem": "/imagens/produtos/noponto-pe-moca.png",
+      "peso": "200g",
+      "preco": 12.00
+    },
+    {
+      "id": "noponto-crocante",
+      "nome": "Crocante (Pé de Moleque)",
+      "descricao": "Crocante de amendoim",
+      "imagem": "/imagens/produtos/noponto-crocante.png",
+      "peso": "200g",
+      "preco": 12.00
+    }
+  ],
+  "provolone": [
+    {
+      "id": "provolone-tradicional",
+      "nome": "Provolone Tradicional",
+      "descricao": "Provolone desidratado tradicional",
+      "imagem": "/imagens/produtos/provolone-tradicional.png",
+      "peso": "150g",
+      "preco": 18.00
+    },
+    {
+      "id": "provolone-alho",
+      "nome": "Provolone com Alho",
+      "descricao": "Provolone desidratado sabor alho",
+      "imagem": "/imagens/produtos/provolone-alho.png",
+      "peso": "150g",
+      "preco": 18.00,
+      "destaque": true
+    },
+    {
+      "id": "provolone-hot",
+      "nome": "Provolone Hot",
+      "descricao": "Provolone desidratado sabor hot",
+      "imagem": "/imagens/produtos/provolone-hot.png",
+      "peso": "150g",
+      "preco": 18.00
+    },
+    {
+      "id": "provolone-lemon-pepper",
+      "nome": "Provolone Lemon Pepper",
+      "descricao": "Provolone desidratado sabor lemon pepper",
+      "imagem": "/imagens/produtos/provolone-lemon-pepper.png",
+      "peso": "150g",
+      "preco": 18.00
+    },
+    {
+      "id": "provolone-3em1",
+      "nome": "Provolone 3 em 1",
+      "descricao": "Provolone desidratado 3 em 1",
+      "imagem": "/imagens/produtos/provolone-3em1.png",
+      "peso": "150g",
+      "preco": 18.00
+    },
+    {
+      "id": "provolone-bola-tradicional",
+      "nome": "Provolone Bola Tradicional",
+      "descricao": "Provolone tipo bola tradicional",
+      "imagem": "/imagens/produtos/provolone-bola-tradicional.png",
+      "peso": "150g",
+      "preco": 18.00
+    },
+    {
+      "id": "provolone-bola-chimichurri",
+      "nome": "Provolone Bola Chimichurri",
+      "descricao": "Provolone tipo bola com chimichurri",
+      "imagem": "/imagens/produtos/provolone-bola-chimichurri.png",
+      "peso": "150g",
+      "preco": 18.00
+    }
+  ],
+  "doces-gourmet": [
+    {
+      "id": "fondant-tradicional",
+      "nome": "Fondant de Doce de Leite",
+      "descricao": "Fondant de doce de leite tradicional",
+      "imagem": "/imagens/produtos/fondant-tradicional.png",
+      "peso": "150g",
+      "preco": 15.00,
+      "destaque": true
+    },
+    {
+      "id": "fondant-abacaxi",
+      "nome": "Fondant de Doce de Leite com Abacaxi",
+      "descricao": "Fondant de doce de leite com abacaxi",
+      "imagem": "/imagens/produtos/fondant-abacaxi.png",
+      "peso": "150g",
+      "preco": 15.00
+    },
+    {
+      "id": "fondant-amendoim",
+      "nome": "Fondant de Doce de Leite com Amendoim",
+      "descricao": "Fondant de doce de leite com amendoim",
+      "imagem": "/imagens/produtos/fondant-amendoim.png",
+      "peso": "150g",
+      "preco": 15.00
+    },
+    {
+      "id": "fondant-chocolate",
+      "nome": "Fondant de Doce de Leite com Chocolate",
+      "descricao": "Fondant de doce de leite com chocolate",
+      "imagem": "/imagens/produtos/fondant-chocolate.png",
+      "peso": "150g",
+      "preco": 15.00
+    },
+    {
+      "id": "fondant-coco",
+      "nome": "Fondant de Doce de Leite com Coco",
+      "descricao": "Fondant de doce de leite com coco",
+      "imagem": "/imagens/produtos/fondant-coco.png",
+      "peso": "150g",
+      "preco": 15.00
+    },
+    {
+      "id": "cone-trufado-tradicional",
+      "nome": "Cone Trufado Tradicional",
+      "descricao": "Cone trufado sabor tradicional",
+      "imagem": "/imagens/produtos/cone-trufado-tradicional.png",
+      "peso": "100g",
+      "preco": 12.00
+    },
+    {
+      "id": "cone-trufado-leitinho",
+      "nome": "Cone Trufado Leitinho",
+      "descricao": "Cone trufado sabor leitinho",
+      "imagem": "/imagens/produtos/cone-trufado-leitinho.png",
+      "peso": "100g",
+      "preco": 12.00
+    },
+    {
+      "id": "cone-trufado-avelã",
+      "nome": "Cone Trufado Creme de Avelã",
+      "descricao": "Cone trufado sabor creme de avelã",
+      "imagem": "/imagens/produtos/cone-trufado-avelã.png",
+      "peso": "100g",
+      "preco": 12.00
+    },
+    {
+      "id": "palitos-chocolate",
+      "nome": "Palitos de Chocolate",
+      "descricao": "Palitos de chocolate",
+      "imagem": "/imagens/produtos/palitos-chocolate.png",
+      "peso": "100g",
+      "preco": 10.00
+    },
+    {
+      "id": "trufas",
+      "nome": "Trufas",
+      "descricao": "Trufas de chocolate",
+      "imagem": "/imagens/produtos/trufas.png",
+      "peso": "100g",
+      "preco": 12.00
+    }
+  ],
+  "pao-mel": [
+    {
+      "id": "pao-mel-coco",
+      "nome": "Pão de Mel com Coco",
+      "descricao": "Pão de mel com coco",
+      "imagem": "/imagens/produtos/pao-mel-coco.png",
+      "peso": "100g",
+      "preco": 10.00
+    },
+    {
+      "id": "pao-mel-doce-leite",
+      "nome": "Pão de Mel com Doce de Leite",
+      "descricao": "Pão de mel com doce de leite",
+      "imagem": "/imagens/produtos/pao-mel-doce-leite.png",
+      "peso": "100g",
+      "preco": 10.00
+    },
+    {
+      "id": "pao-mel-trufado",
+      "nome": "Pão de Mel Trufado",
+      "descricao": "Pão de mel trufado",
+      "imagem": "/imagens/produtos/pao-mel-trufado.png",
+      "peso": "100g",
+      "preco": 12.00
+    }
+  ]
+}

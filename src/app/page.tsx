@@ -1,66 +1,76 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client'
+
+import { useState } from 'react'
+import { PRODUTOS } from '@/data'
+import Header from '@/components/Header'
+import Categories from '@/components/Categories'
+import ProductGrid from '@/components/ProductGrid'
+import CartFloating from '@/components/CartFloating'
+import CheckoutModal from '@/components/CheckoutModal'
+import Footer from '@/components/Footer'
+import Search from '@/components/Search'
+import styles from './page.module.css'
 
 export default function Home() {
+  const [categoriaAtiva, setCategoriaAtiva] = useState(
+    PRODUTOS.categorias[0]?.id || 'biscoitos-doces'
+  )
+  const [searchTerm, setSearchTerm] = useState('')
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isSearching, setIsSearching] = useState(false)
+
+  const categoria = PRODUTOS.categorias.find(c => c.id === categoriaAtiva)
+  const produtos = categoria?.produtos || []
+
+  const filteredProducts = searchTerm
+    ? PRODUTOS.buscarProdutos(searchTerm)
+    : produtos
+
+  const handleSearch = (value: string) => {
+    setIsSearching(true)
+    setSearchTerm(value)
+    setTimeout(() => {
+      setIsSearching(false)
+    }, 300)
+  }
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <main>
+      <Header />
+      
+      {/* 🔧 Classe global 'search-container' para sincronizar sticky */}
+      <div className="search-container">
+        <Search
+          value={searchTerm}
+          onChange={handleSearch}
+          placeholder="Buscar produtos..."
+          isLoading={isSearching}
+          showClear={true}
+          showMic={false}
         />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+      </div>
+
+      <Categories
+        categorias={PRODUTOS.categorias}
+        categoriaAtiva={categoriaAtiva}
+        onCategoriaChange={setCategoriaAtiva}
+      />
+
+      <div className={styles.container}>
+        <ProductGrid
+          produtos={filteredProducts}
+          categoria={categoria}
+          isSearch={!!searchTerm}
+        />
+      </div>
+
+      <CartFloating onCheckout={() => setIsModalOpen(true)} />
+      <CheckoutModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
+
+      <Footer />
+    </main>
+  )
 }

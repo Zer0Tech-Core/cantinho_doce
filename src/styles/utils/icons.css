@@ -1,0 +1,56 @@
+/* ============================================= */
+/* 🎨 ÍCONES LUCIDE                            */
+/* ============================================= */
+
+.icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.icon-wrapper svg {
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  transition: var(--transition);
+}
+
+.btn-add .icon-wrapper,
+.btn-checkout .icon-wrapper,
+.btn-send-whatsapp .icon-wrapper {
+  margin-right: 4px;
+}
+
+.category-btn .icon-wrapper {
+  margin-right: 4px;
+}
+
+.product-peso .icon-wrapper {
+  margin-right: 4px;
+}
+
+.product-price .icon-wrapper {
+  margin-right: 4px;
+}
+
+.product-image .icon-wrapper svg {
+  width: 56px !important;
+  height: 56px !important;
+  stroke: var(--primary);
+  stroke-width: 1.5;
+}
+
+.product-card:hover .product-image .icon-wrapper svg {
+  transform: rotate(10deg) scale(1.05);
+}
+
+.destaque-tag .icon-wrapper svg {
+  width: 14px !important;
+  height: 14px !important;
+  fill: #FFD700;
+  stroke: #FFD700;
+}

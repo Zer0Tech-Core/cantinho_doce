@@ -1,0 +1,15 @@
+{
+  "nome": "Cantinho Doce",
+  "nomeCompleto": "Cantinho Doce - Biscoitos Artesanais",
+  "telefone": "5521972279173",
+  "whatsapp": "5521972279173",
+  "endereco": "Campo Grande - RJ",
+  "instagram": "@cantinho_doce.cg",
+  "email": "cantinhodoce399@gmail.com",
+  "horario": "Atendimento via Direct e WhatsApp",
+  "cores": {
+    "primaria": "#2E7D32",
+    "secundaria": "#FDF8F0",
+    "destaque": "#D4A574"
+  }
+}

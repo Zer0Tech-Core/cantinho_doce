@@ -1,0 +1,82 @@
+[
+  {
+    "id": "biscoitos-doces",
+    "nome": "Biscoitos Doces",
+    "descricao": "Potes de 500g",
+    "icone": "Cookie",
+    "cor": "#D4A574",
+    "destaque": true
+  },
+  {
+    "id": "biscoitos-salgados",
+    "nome": "Biscoitos Salgados",
+    "descricao": "Potes 400g / Torradinhas 300g",
+    "icone": "ChefHat",
+    "cor": "#E67E22",
+    "destaque": true
+  },
+  {
+    "id": "amendoins",
+    "nome": "Amendoins Especiais",
+    "descricao": "Potes e Saquinhos",
+    "icone": "Nut",
+    "cor": "#D4A574",
+    "destaque": true
+  },
+  {
+    "id": "compotas-cocadas",
+    "nome": "Cocadas em Compota",
+    "descricao": "Potes de 650g",
+    "icone": "Wine",
+    "cor": "#8B008B",
+    "destaque": true
+  },
+  {
+    "id": "compotas-doce-leite",
+    "nome": "Doce de Leite em Compota",
+    "descricao": "Potes de 650g",
+    "icone": "Wine",
+    "cor": "#D4A574",
+    "destaque": true
+  },
+  {
+    "id": "compotas-frutas",
+    "nome": "Compotas de Fruta",
+    "descricao": "Potes de 650g",
+    "icone": "Wine",
+    "cor": "#E74C3C",
+    "destaque": false
+  },
+  {
+    "id": "doces-noponto",
+    "nome": "Doces de Corte Noponto",
+    "descricao": "Saquinhos de 200g",
+    "icone": "Candy",
+    "cor": "#FF6B6B",
+    "destaque": false
+  },
+  {
+    "id": "provolone",
+    "nome": "Provolone Artesanal",
+    "descricao": "Queijos especiais",
+    "icone": "ChefHat",
+    "cor": "#E67E22",
+    "destaque": true
+  },
+  {
+    "id": "doces-gourmet",
+    "nome": "Doces Gourmet",
+    "descricao": "Fondant e Cones Trufados",
+    "icone": "Cake",
+    "cor": "#8B008B",
+    "destaque": true
+  },
+  {
+    "id": "pao-mel",
+    "nome": "Pão de Mel",
+    "descricao": "Pães de mel artesanais",
+    "icone": "Cake",
+    "cor": "#D4A574",
+    "destaque": false
+  }
+]

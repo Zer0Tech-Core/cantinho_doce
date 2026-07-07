@@ -1,0 +1,193 @@
+/* ============================================= */
+/* 📱 SMARTPHONES (max-width: 480px)            */
+/* ============================================= */
+
+@media (max-width: 480px) {
+  /* Header */
+  .header {
+    padding: 8px 12px;
+  }
+
+  .header-title h1 {
+    font-size: 14px;
+  }
+
+  .header-title small {
+    font-size: 9px;
+  }
+
+  .header-logo-img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .header-cart {
+    padding: 4px 10px;
+    gap: 6px;
+  }
+
+  .cart-total {
+    font-size: 11px;
+  }
+
+  .header-cart-icon-wrapper .cart-badge {
+    font-size: 8px;
+    min-width: 14px;
+    height: 14px;
+    top: -5px;
+    right: -6px;
+  }
+
+  /* Products */
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .product-image {
+    height: 180px;
+  }
+
+  .product-name {
+    font-size: 15px;
+  }
+
+  .product-desc {
+    font-size: 12px;
+    min-height: 32px;
+  }
+
+  .product-price {
+    font-size: 17px;
+  }
+
+  .product-price .preco-promocional {
+    font-size: 17px;
+  }
+
+  .btn-add {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  .btn-qty {
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+  }
+
+  .qty-display {
+    font-size: 14px;
+    min-width: 24px;
+  }
+
+  /* Cart */
+  .cart-info .items {
+    font-size: 13px;
+  }
+
+  .cart-info .total {
+    font-size: 17px;
+  }
+
+  .btn-checkout {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .btn-clear {
+    font-size: 11px;
+  }
+
+  /* Modal */
+  .modal {
+    padding: 14px;
+  }
+
+  .modal-header h2 {
+    font-size: 17px;
+  }
+
+  .modal-close {
+    width: 32px;
+    height: 32px;
+    font-size: 20px;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group .form-select {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  .btn-send-whatsapp {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  /* Footer */
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .footer-section:first-child {
+    grid-column: 1;
+  }
+
+  .footer-brand h3 {
+    font-size: 18px;
+  }
+
+  .footer-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .footer-social-link {
+    width: 36px;
+    height: 36px;
+  }
+
+  .footer-newsletter-btn {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+
+  .footer-bottom-content {
+    font-size: 12px;
+  }
+
+  .footer-scroll-top {
+    width: 40px;
+    height: 40px;
+    bottom: 72px;
+    right: 12px;
+  }
+
+  /* Icons */
+  .product-image .icon-wrapper svg {
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  .btn-add .icon-wrapper svg,
+  .btn-checkout .icon-wrapper svg,
+  .btn-send-whatsapp .icon-wrapper svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .container {
+    padding: 12px;
+  }
+
+  .product-card:hover {
+    transform: none;
+  }
+
+  .product-card:active {
+    transform: scale(0.98);
+  }
+}

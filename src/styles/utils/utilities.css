@@ -1,0 +1,46 @@
+/* ============================================= */
+/* ✨ UTILITÁRIOS                               */
+/* ============================================= */
+
+.empty-state {
+  text-align: center;
+  padding: 48px 20px;
+  color: var(--text-light);
+  grid-column: 1 / -1;
+}
+
+.empty-state .empty-icon {
+  font-size: 56px;
+  margin-bottom: 12px;
+  opacity: 0.4;
+  display: block;
+}
+
+.empty-state p {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.empty-state small {
+  color: var(--gray-200);
+  margin-top: 6px;
+  display: block;
+}
+
+.header-logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px;
+  transition: var(--transition);
+}
+
+.header-logo-img:hover {
+  transform: scale(1.05);
+}
+
+.header-logo {
+  animation: none !important;
+}
