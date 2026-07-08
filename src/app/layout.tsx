@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import { CartProvider } from '@/hooks/useCart'
 import { ToastProvider } from '@/context/ToastContext'
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: {
@@ -87,6 +88,7 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body>
         <ToastProvider>
+          <Analytics/>
           <CartProvider>
             {children}
           </CartProvider>
