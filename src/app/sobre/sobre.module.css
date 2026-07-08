@@ -6,7 +6,7 @@
 
 .banner {
   background: linear-gradient(135deg, #1a472a, #2E7D32);
-  padding: 60px 20px 50px;
+  padding: 80px 20px 60px;
   position: relative;
   overflow: hidden;
   text-align: center;
@@ -22,15 +22,16 @@
 .bannerBadge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background: rgba(255, 255, 255, 0.15);
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
   color: #F5A623;
-  padding: 6px 16px;
+  padding: 8px 20px;
   border-radius: 50px;
   font-size: 13px;
   font-weight: 600;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .bannerBadge svg {
@@ -38,32 +39,32 @@
 }
 
 .bannerTitle {
-  font-size: 42px;
-  font-weight: 700;
+  font-size: 48px;
+  font-weight: 800;
   color: white;
   margin-bottom: 12px;
-  letter-spacing: -0.5px;
+  letter-spacing: -1px;
 }
 
 .bannerSubtitle {
   font-size: 18px;
   color: rgba(255, 255, 255, 0.85);
   max-width: 600px;
-  margin: 0 auto 32px;
-  line-height: 1.6;
+  margin: 0 auto 40px;
+  line-height: 1.7;
 }
 
 .bannerStats {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 24px;
-  background: rgba(255, 255, 255, 0.08);
+  gap: 32px;
+  background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(10px);
-  padding: 16px 32px;
+  padding: 20px 40px;
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  max-width: 500px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  max-width: 520px;
   margin: 0 auto;
 }
 
@@ -74,35 +75,37 @@
 }
 
 .bannerStatNumber {
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 32px;
+  font-weight: 800;
   color: #F5A623;
+  line-height: 1.2;
 }
 
 .bannerStatLabel {
   font-size: 13px;
   color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
 }
 
 .bannerStatDivider {
   width: 1px;
-  height: 30px;
-  background: rgba(255, 255, 255, 0.15);
+  height: 36px;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .bannerDecoration {
   position: absolute;
-  right: -40px;
+  right: -60px;
   top: 50%;
   transform: translateY(-50%);
-  opacity: 0.08;
+  opacity: 0.05;
   z-index: 1;
 }
 
 .bannerCookie {
   color: white;
-  width: 200px;
-  height: 200px;
+  width: 240px;
+  height: 240px;
 }
 
 /* ============================================= */
@@ -113,22 +116,23 @@
   display: inline-block;
   background: var(--primary-fundo);
   color: var(--primary);
-  padding: 4px 16px;
+  padding: 6px 18px;
   border-radius: 50px;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 8px;
+  letter-spacing: 0.8px;
+  margin-bottom: 12px;
 }
 
 .sectionTagWhite {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   color: #F5A623;
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 /* ============================================= */
-/* 📖 SOBRE NÓS                                 */
+/* 📖 SOBRE - 2 COLUNAS                         */
 /* ============================================= */
 
 .sobre {
@@ -145,51 +149,184 @@
   align-items: center;
 }
 
-.sobreTexto {
-  padding-right: 20px;
+/* Coluna Esquerda - Poema */
+.sobrePoema {
+  padding-right: 10px;
 }
 
-.sobreTexto p {
-  font-size: 16px;
-  line-height: 1.8;
-  color: var(--text-gray);
-  margin-bottom: 16px;
-}
-
-.sobreTexto p strong {
+.sectionTitle {
+  font-size: 38px;
+  font-weight: 800;
+  text-align: left;
   color: var(--primary-dark);
+  margin-bottom: 12px;
+  line-height: 1.2;
 }
 
+.sectionTitleWhite {
+  color: white;
+  text-align: center;
+}
+
+.titleHighlight {
+  color: var(--secondary);
+}
+
+.sectionSubtitle {
+  text-align: center;
+  color: var(--text-gray);
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto 48px;
+  line-height: 1.6;
+}
+
+.sectionSubtitleWhite {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Poema em 2 colunas internas */
+.poemaGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 16px 0 20px;
+}
+
+.poemaColuna {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.verso {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-left: 14px;
+  border-left: 3px solid var(--secondary);
+  transition: all 0.3s ease;
+}
+
+.verso:hover {
+  border-color: var(--primary);
+}
+
+.versoGrande {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--primary-dark);
+  line-height: 1.3;
+}
+
+.versoDestaque {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.3;
+}
+
+.versoPequeno {
+  font-size: 14px;
+  color: var(--text-gray);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.versoDestaqueBox {
+  background: linear-gradient(135deg, var(--primary-fundo), #E8F5E9);
+  border-radius: 12px;
+  padding: 16px 18px;
+  border: 2px solid var(--primary);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transition: all 0.3s ease;
+}
+
+.versoDestaqueBox:hover {
+  transform: scale(1.01);
+  box-shadow: 0 4px 16px rgba(46, 125, 50, 0.1);
+}
+
+.versoDestaqueBox span {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--primary-dark);
+  line-height: 1.4;
+}
+
+.versoDestaqueBox span:first-child {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.versoFinal {
+  background: linear-gradient(135deg, var(--primary-dark), #0d2615);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-top: 8px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transition: all 0.3s ease;
+}
+
+.versoFinal:hover {
+  transform: scale(1.01);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.versoFinal span {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  line-height: 1.3;
+}
+
+.versoFinal span:last-child {
+  color: var(--secondary);
+  font-size: 20px;
+}
+
+/* Números */
 .sobreNumeros {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 32px;
+  gap: 12px;
+  margin-top: 20px;
 }
 
 .numeroItem {
   text-align: center;
   background: var(--primary-fundo);
-  padding: 16px;
-  border-radius: 12px;
+  padding: 12px 8px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.numeroItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.1);
 }
 
 .numero {
   display: block;
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 26px;
+  font-weight: 800;
   color: var(--primary);
+  line-height: 1.2;
 }
 
 .numeroLabel {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--text-gray);
+  font-weight: 500;
 }
 
-/* ============================================= */
-/* 🖼️ IMAGEM DA SEÇÃO SOBRE                    */
-/* ============================================= */
-
+/* Coluna Direita - Imagem */
 .sobreImagem {
   display: flex;
   justify-content: center;
@@ -198,7 +335,7 @@
 
 .imageWrapper {
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
   aspect-ratio: 1;
   border-radius: 20px;
   overflow: hidden;
@@ -206,11 +343,11 @@
   box-shadow: 0 8px 32px rgba(46, 125, 50, 0.15);
   position: relative;
   background: linear-gradient(135deg, var(--primary-fundo), #E8F5E9);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .imageWrapper:hover {
-  transform: scale(1.02);
+  transform: scale(1.02) rotate(-1deg);
   box-shadow: 0 12px 48px rgba(46, 125, 50, 0.25);
 }
 
@@ -223,6 +360,28 @@
 
 .imageWrapper:hover .imageWrapperImg {
   transform: scale(1.05);
+}
+
+.imageLabel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+  color: white;
+  padding: 32px 16px 14px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease;
+  font-style: italic;
+}
+
+.imageWrapper:hover .imageLabel {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ============================================= */
@@ -239,29 +398,6 @@
   margin: 0 auto;
 }
 
-.sectionTitle {
-  font-size: 36px;
-  font-weight: 700;
-  text-align: center;
-  color: var(--primary-dark);
-  margin-bottom: 8px;
-}
-
-.sectionTitleWhite {
-  color: white;
-}
-
-.titleHighlight {
-  color: var(--secondary);
-}
-
-.sectionSubtitle {
-  text-align: center;
-  color: var(--text-gray);
-  font-size: 16px;
-  margin-bottom: 48px;
-}
-
 .valoresGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -270,7 +406,7 @@
 
 .valorCard {
   background: var(--white);
-  padding: 32px 24px;
+  padding: 36px 24px;
   border-radius: 16px;
   text-align: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
@@ -279,14 +415,14 @@
 }
 
 .valorCard:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
   border-color: var(--primary);
 }
 
 .valorIcon {
-  width: 60px;
-  height: 60px;
+  width: 64px;
+  height: 64px;
   background: var(--primary-fundo);
   border-radius: 50%;
   display: flex;
@@ -300,11 +436,12 @@
 .valorCard:hover .valorIcon {
   background: var(--primary);
   color: white;
-  transform: scale(1.1) rotate(-5deg);
+  transform: scale(1.1) rotate(-8deg);
 }
 
 .valorCard h3 {
   font-size: 18px;
+  font-weight: 700;
   color: var(--primary-dark);
   margin-bottom: 8px;
 }
@@ -312,7 +449,7 @@
 .valorCard p {
   font-size: 14px;
   color: var(--text-gray);
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 /* ============================================= */
@@ -345,23 +482,24 @@
 }
 
 .timelineIcon {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   background: var(--primary-fundo);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--primary);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   border: 2px solid var(--primary);
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .timelineItem:hover .timelineIcon {
   background: var(--primary);
   color: white;
-  transform: scale(1.1) rotate(-10deg);
+  transform: scale(1.12) rotate(-12deg);
+  box-shadow: 0 4px 16px rgba(46, 125, 50, 0.2);
 }
 
 .timelineData {
@@ -380,12 +518,13 @@
 
 .timelineCard:hover {
   transform: translateY(-4px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   border-color: var(--primary);
 }
 
 .timelineCard h3 {
   font-size: 15px;
+  font-weight: 700;
   color: var(--primary-dark);
   margin-bottom: 6px;
 }
@@ -393,14 +532,14 @@
 .timelineCard p {
   font-size: 13px;
   color: var(--text-gray);
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .timelineLine {
   position: absolute;
-  top: 24px;
+  top: 26px;
   left: 100%;
-  width: calc(100% - 40px);
+  width: calc(100% - 44px);
   height: 2px;
   background: linear-gradient(to right, var(--primary-fundo), transparent);
 }
@@ -411,13 +550,24 @@
 
 .missao {
   padding: 80px 20px;
-  background: linear-gradient(135deg, #1a472a, #0d2615);
+  background: linear-gradient(135deg, #0d2615, #1a472a);
   color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.missao::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(245, 166, 35, 0.05), transparent 60%),
+              radial-gradient(circle at 80% 50%, rgba(46, 125, 50, 0.05), transparent 60%);
+  pointer-events: none;
 }
 
 .missao .container {
-  max-width: 1200px;
-  margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
 .missaoGrid {
@@ -430,18 +580,18 @@
 .missaoItem {
   text-align: center;
   padding: 40px 32px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.04);
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   backdrop-filter: blur(10px);
 }
 
 .missaoItem:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateY(-6px);
-  border-color: rgba(245, 166, 35, 0.3);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-8px);
+  border-color: rgba(245, 166, 35, 0.25);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
 }
 
 .missaoIcon {
@@ -452,23 +602,23 @@
 
 .missaoIcon svg {
   color: var(--secondary);
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .missaoItem:hover .missaoIcon svg {
-  transform: scale(1.1) rotate(-5deg);
+  transform: scale(1.12) rotate(-6deg);
 }
 
 .missaoItem h3 {
   font-size: 22px;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 12px;
 }
 
 .missaoItem p {
   font-size: 15px;
-  line-height: 1.6;
-  opacity: 0.9;
+  line-height: 1.7;
+  opacity: 0.85;
 }
 
 /* ============================================= */
@@ -498,13 +648,13 @@
   padding: 20px 24px;
   border-radius: 12px;
   border: 1px solid var(--gray-100);
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .diferencialItem:hover {
   border-color: var(--primary);
-  transform: translateY(-3px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
 .diferencialIcon {
@@ -523,11 +673,12 @@
 .diferencialItem:hover .diferencialIcon {
   background: var(--primary);
   color: white;
-  transform: scale(1.05) rotate(-5deg);
+  transform: scale(1.08) rotate(-6deg);
 }
 
 .diferencialItem h4 {
   font-size: 15px;
+  font-weight: 700;
   color: var(--primary-dark);
   margin-bottom: 2px;
 }
@@ -535,6 +686,7 @@
 .diferencialItem p {
   font-size: 13px;
   color: var(--text-gray);
+  line-height: 1.5;
 }
 
 /* ============================================= */
@@ -544,11 +696,6 @@
 .contato {
   padding: 80px 20px;
   background: var(--white);
-}
-
-.contato .container {
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .contatoGrid {
@@ -564,13 +711,13 @@
   border-radius: 16px;
   text-align: center;
   border: 1px solid var(--gray-100);
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .contatoCard:hover {
   border-color: var(--primary);
-  transform: translateY(-4px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
 .contatoCard svg {
@@ -580,6 +727,7 @@
 
 .contatoCard h4 {
   font-size: 16px;
+  font-weight: 700;
   color: var(--primary-dark);
   margin-bottom: 8px;
 }
@@ -595,39 +743,162 @@
 }
 
 .whatsappButton {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   background: #25D366;
   color: white;
-  padding: 14px 40px;
+  padding: 16px 44px;
   border-radius: 50px;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 16px;
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
 }
 
 .whatsappButton:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4);
 }
 
 .whatsappButton:active {
   transform: scale(0.95);
 }
 
+.whatsappHint {
+  font-size: 13px;
+  color: var(--text-gray);
+  margin-top: 14px;
+  text-align: center;
+}
+
 /* ============================================= */
-/* 📱 RESPONSIVIDADE                            */
+/* 🌙 DARK MODE                                 */
 /* ============================================= */
 
-/* Tablets */
+@media (prefers-color-scheme: dark) {
+  .sobre {
+    background: var(--white);
+  }
+
+  .valores {
+    background: var(--gray-100);
+  }
+
+  .valorCard {
+    background: var(--white);
+    border-color: var(--gray-200);
+  }
+
+  .timeline {
+    background: var(--white);
+  }
+
+  .timelineCard {
+    background: var(--gray-100);
+    border-color: var(--gray-200);
+  }
+
+  .diferenciais {
+    background: var(--gray-100);
+  }
+
+  .diferencialItem {
+    background: var(--white);
+    border-color: var(--gray-200);
+  }
+
+  .contato {
+    background: var(--white);
+  }
+
+  .contatoCard {
+    background: var(--gray-100);
+    border-color: var(--gray-200);
+  }
+
+  .imageWrapper {
+    border-color: var(--primary);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .versoGrande {
+    color: var(--text-dark);
+  }
+
+  .versoDestaque {
+    color: var(--primary-light);
+  }
+
+  .versoPequeno {
+    color: var(--gray-400);
+  }
+
+  .versoDestaqueBox {
+    background: linear-gradient(135deg, var(--gray-100), var(--gray-200));
+    border-color: var(--primary);
+  }
+
+  .versoDestaqueBox span {
+    color: var(--text-dark);
+  }
+
+  .versoDestaqueBox span:first-child {
+    color: var(--primary-light);
+  }
+
+  .sectionSubtitle {
+    color: var(--gray-400);
+  }
+
+  .valorCard p {
+    color: var(--gray-400);
+  }
+
+  .diferencialItem p {
+    color: var(--gray-400);
+  }
+
+  .contatoCard p {
+    color: var(--gray-400);
+  }
+
+  .timelineCard p {
+    color: var(--gray-400);
+  }
+
+  .whatsappHint {
+    color: var(--gray-400);
+  }
+
+  .imageLabel {
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+  }
+}
+
+/* ============================================= */
+/* 📱 RESPONSIVIDADE - TABLETS                  */
+/* ============================================= */
+
+@media (max-width: 992px) {
+  .valoresGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .poemaGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
 @media (max-width: 768px) {
   .banner {
-    padding: 40px 16px;
+    padding: 50px 16px 40px;
   }
 
   .bannerTitle {
-    font-size: 32px;
+    font-size: 34px;
   }
 
   .bannerSubtitle {
@@ -637,7 +908,7 @@
   .bannerStats {
     flex-direction: column;
     gap: 12px;
-    padding: 16px 24px;
+    padding: 18px 24px;
   }
 
   .bannerStatDivider {
@@ -646,7 +917,7 @@
 
   .bannerStat {
     flex-direction: row;
-    gap: 8px;
+    gap: 10px;
   }
 
   .bannerStatNumber {
@@ -654,12 +925,12 @@
   }
 
   .bannerDecoration {
-    right: -20px;
+    right: -30px;
   }
 
   .bannerCookie {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
   }
 
   .sobre {
@@ -671,8 +942,12 @@
     gap: 40px;
   }
 
-  .sobreTexto {
+  .sobrePoema {
     padding-right: 0;
+  }
+
+  .sectionTitle {
+    font-size: 30px;
   }
 
   .sobreNumeros {
@@ -680,7 +955,7 @@
   }
 
   .imageWrapper {
-    max-width: 300px;
+    max-width: 320px;
   }
 
   .valores {
@@ -731,27 +1006,60 @@
     gap: 16px;
   }
 
-  .sectionTitle {
-    font-size: 28px;
+  .versoGrande {
+    font-size: 18px;
+  }
+  
+  .versoDestaque {
+    font-size: 16px;
+  }
+  
+  .versoPequeno {
+    font-size: 14px;
+  }
+  
+  .versoDestaqueBox span {
+    font-size: 16px;
+  }
+  
+  .versoDestaqueBox span:first-child {
+    font-size: 18px;
+  }
+  
+  .versoFinal span {
+    font-size: 17px;
+  }
+  
+  .versoFinal span:last-child {
+    font-size: 19px;
   }
 }
 
-/* Smartphones */
+/* ============================================= */
+/* 📱 RESPONSIVIDADE - SMARTPHONES              */
+/* ============================================= */
+
 @media (max-width: 480px) {
   .banner {
-    padding: 32px 16px;
+    padding: 40px 16px 32px;
   }
 
   .bannerTitle {
-    font-size: 28px;
+    font-size: 26px;
+  }
+
+  .bannerBadge {
+    font-size: 11px;
+    padding: 6px 14px;
   }
 
   .bannerSubtitle {
     font-size: 14px;
+    margin-bottom: 28px;
   }
 
   .bannerStats {
-    padding: 12px 16px;
+    padding: 14px 16px;
     gap: 8px;
   }
 
@@ -776,11 +1084,18 @@
   }
 
   .numero {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .imageWrapper {
-    max-width: 250px;
+    max-width: 260px;
+  }
+
+  .imageLabel {
+    opacity: 1;
+    font-size: 12px;
+    padding: 24px 12px 10px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
   }
 
   .valores {
@@ -789,6 +1104,10 @@
 
   .valoresGrid {
     grid-template-columns: 1fr;
+  }
+
+  .valorCard {
+    padding: 24px 16px;
   }
 
   .timeline {
@@ -815,8 +1134,14 @@
   }
 
   .whatsappButton {
-    padding: 12px 32px;
+    padding: 14px 32px;
     font-size: 14px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .whatsappHint {
+    font-size: 12px;
   }
 
   .missao {
@@ -825,6 +1150,10 @@
 
   .missaoItem {
     padding: 24px 16px;
+  }
+
+  .missaoItem h3 {
+    font-size: 18px;
   }
 
   .diferenciais {
@@ -844,27 +1173,59 @@
     margin-bottom: 32px;
   }
 
-  .valorCard {
-    padding: 24px 16px;
+  .verso {
+    padding-left: 12px;
   }
 
-  .timelineCard {
-    padding: 16px 12px;
+  .versoGrande {
+    font-size: 16px;
   }
-
-  .timelineCard h3 {
-    font-size: 14px;
+  
+  .versoDestaque {
+    font-size: 15px;
   }
-
-  .timelineCard p {
-    font-size: 12px;
+  
+  .versoPequeno {
+    font-size: 13px;
+  }
+  
+  .versoDestaqueBox {
+    padding: 14px 14px;
+  }
+  
+  .versoDestaqueBox span {
+    font-size: 15px;
+  }
+  
+  .versoDestaqueBox span:first-child {
+    font-size: 17px;
+  }
+  
+  .versoFinal {
+    padding: 14px 14px;
+  }
+  
+  .versoFinal span {
+    font-size: 15px;
+  }
+  
+  .versoFinal span:last-child {
+    font-size: 17px;
   }
 }
 
-/* Telas muito pequenas */
+/* ============================================= */
+/* 📱 RESPONSIVIDADE - TELAS MUITO PEQUENAS    */
+/* ============================================= */
+
 @media (max-width: 360px) {
   .bannerTitle {
-    font-size: 24px;
+    font-size: 22px;
+  }
+
+  .bannerStats {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .sobreNumeros {
@@ -880,14 +1241,17 @@
   }
 }
 
-/* Telas grandes */
+/* ============================================= */
+/* 📱 RESPONSIVIDADE - TELAS GRANDES            */
+/* ============================================= */
+
 @media (min-width: 1400px) {
   .banner {
-    padding: 80px 20px 60px;
+    padding: 100px 20px 80px;
   }
 
   .bannerTitle {
-    font-size: 52px;
+    font-size: 56px;
   }
 
   .bannerSubtitle {
@@ -907,85 +1271,34 @@
   }
 
   .sectionTitle {
-    font-size: 42px;
+    font-size: 44px;
   }
 
   .missaoItem {
     padding: 48px 40px;
   }
-}
 
-/* ============================================= */
-/* 🌙 DARK MODE - SOBRE                        */
-/* ============================================= */
-
-@media (prefers-color-scheme: dark) {
-  .sobre {
-    background: var(--white);
+  .versoGrande {
+    font-size: 22px;
   }
-
-  .valores {
-    background: var(--gray-100);
+  
+  .versoDestaque {
+    font-size: 19px;
   }
-
-  .valorCard {
-    background: var(--white);
-    border-color: var(--gray-200);
+  
+  .versoDestaqueBox span {
+    font-size: 19px;
   }
-
-  .timeline {
-    background: var(--white);
+  
+  .versoDestaqueBox span:first-child {
+    font-size: 22px;
   }
-
-  .timelineCard {
-    background: var(--gray-100);
-    border-color: var(--gray-200);
+  
+  .versoFinal span {
+    font-size: 20px;
   }
-
-  .diferenciais {
-    background: var(--gray-100);
-  }
-
-  .diferencialItem {
-    background: var(--white);
-    border-color: var(--gray-200);
-  }
-
-  .contato {
-    background: var(--white);
-  }
-
-  .contatoCard {
-    background: var(--gray-100);
-    border-color: var(--gray-200);
-  }
-
-  .imageWrapper {
-    border-color: var(--primary);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  }
-
-  .sobreTexto p {
-    color: var(--gray-400);
-  }
-
-  .sectionSubtitle {
-    color: var(--gray-400);
-  }
-
-  .valorCard p {
-    color: var(--gray-400);
-  }
-
-  .diferencialItem p {
-    color: var(--gray-400);
-  }
-
-  .contatoCard p {
-    color: var(--gray-400);
-  }
-
-  .timelineCard p {
-    color: var(--gray-400);
+  
+  .versoFinal span:last-child {
+    font-size: 22px;
   }
 }

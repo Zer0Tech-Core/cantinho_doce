@@ -18,7 +18,8 @@ import {
   TrendingUp,
   Rocket,
   Flame,
-  MessageCircle
+  MessageCircle,
+  Cookie
 } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -31,22 +32,22 @@ export default function SobrePage() {
     {
       icone: <Heart size={28} />,
       titulo: 'Feito com Amor',
-      descricao: 'Cada receita é preparada com dedicação e ingredientes selecionados, levando sabor e carinho para sua mesa.'
+      descricao: 'Cada receita é preparada com dedicação e ingredientes selecionados.'
     },
     {
       icone: <Award size={28} />,
       titulo: 'Qualidade Artesanal',
-      descricao: 'Produzimos em pequena escala para garantir frescor e qualidade em cada produto que chega até você.'
+      descricao: 'Produzimos em pequena escala para garantir frescor e qualidade.'
     },
     {
       icone: <Users size={28} />,
       titulo: 'Atendimento Pessoal',
-      descricao: 'Valorizamos cada cliente. Atendemos com atenção e cuidado, como se fosse da nossa própria família.'
+      descricao: 'Valorizamos cada cliente com atenção e cuidado especial.'
     },
     {
       icone: <Clock size={28} />,
       titulo: 'Frescor Garantido',
-      descricao: 'Nossos produtos são feitos sob encomenda, garantindo que você receba sempre o mais fresco possível.'
+      descricao: 'Produtos feitos sob encomenda, sempre fresquinhos.'
     }
   ]
 
@@ -54,32 +55,31 @@ export default function SobrePage() {
     {
       data: 'Set 2025',
       titulo: 'O Sonho Começou',
-      descricao: 'Nasceu a ideia de compartilhar receitas caseiras que faziam sucesso entre amigos e familiares.',
+      descricao: 'A ideia de compartilhar receitas caseiras que faziam sucesso.',
       icone: <Sparkles size={20} />
     },
     {
       data: 'Dez 2025',
       titulo: 'Primeiros Pedidos',
-      descricao: 'Começamos a receber os primeiros pedidos de amigos e vizinhos. O boca a boca começou a funcionar!',
+      descricao: 'Amigos e vizinhos começaram a encomendar. O boca a boca funcionou!',
       icone: <MessageCircle size={20} />
     },
     {
       data: 'Mar 2026',
       titulo: 'Novos Sabores',
-      descricao: 'Expandimos nosso cardápio com novas linhas: compotas, amendoins especiais e doces caseiros.',
+      descricao: 'Expandimos com compotas, amendoins especiais e doces caseiros.',
       icone: <TrendingUp size={20} />
     },
     {
       data: 'Jun 2026',
       titulo: 'Onde Estamos Hoje',
-      descricao: 'Mais de 30 clientes confiam no Cantinho Doce. Um sonho que cresce a cada dia! 🚀',
+      descricao: '30+ clientes confiam no Cantinho Doce. Um sonho que cresce!',
       icone: <Rocket size={20} />
     }
   ]
 
   return (
     <main>
-      {/* 🔥 HEADER SEM CATEGORIAS */}
       <UnifiedHeader showCategories={false} />
 
       {/* ========== BANNER ========== */}
@@ -110,69 +110,92 @@ export default function SobrePage() {
           </div>
         </div>
         <div className={styles.bannerDecoration}>
-          <Image 
-            src="/imagens/sobre/bolinho.webp"
-            alt="Cantinho Doce - Nossa história"
-            width={400}
-            height={400}
-            className={styles.bannerCookie}
-            priority
-          />
+          <Cookie size={160} className={styles.bannerCookie} />
         </div>
       </section>
 
-      {/* ========== SOBRE NÓS ========== */}
+      {/* ========== SOBRE - 2 COLUNAS ========== */}
       <section className={styles.sobre}>
         <div className={styles.sobreContent}>
-          <div className={styles.sobreTexto}>
-            <span className={styles.sectionTag}>Nossa História</span>
+          
+          {/* Coluna Esquerda - Poema */}
+          <div className={styles.sobrePoema}>
+            <span className={styles.sectionTag}>🍪 Minha História</span>
             <h2 className={styles.sectionTitle}>
-              Um sonho que <span className={styles.titleHighlight}>nasceu na cozinha</span>
+              Um sonho que nasceu <span className={styles.titleHighlight}>de algo simples</span>
             </h2>
-            <p>
-              O <strong>Cantinho Doce</strong> começou com uma paixão: fazer doces e 
-              biscoitos que lembrassem os sabores da infância. O que era um hobby 
-              entre amigos e familiares, se transformou em um sonho de empreender.
-            </p>
-            <p>
-              Com receitas que foram aperfeiçoadas ao longo do tempo, decidimos 
-              compartilhar nosso cantinho doce com mais pessoas. Cada produto é 
-              feito com ingredientes selecionados e muito carinho.
-            </p>
-            <p>
-              Hoje, com <strong>9 meses de história</strong> e mais de 
-              <strong> 30 clientes</strong> que confiam no nosso trabalho, 
-              seguimos firmes no propósito de levar sabor e alegria para sua mesa.
-            </p>
             
+            <div className={styles.poemaGrid}>
+              <div className={styles.poemaColuna}>
+                <div className={styles.verso}>
+                  <span className={styles.versoDestaque}>Meu sonho nasceu</span>
+                  <span className={styles.versoDestaque}>de algo simples:</span>
+                  <span className={styles.versoGrande}>eu sempre gostei</span>
+                  <span className={styles.versoGrande}>de comer biscoito.</span>
+                </div>
+                
+                <div className={styles.verso}>
+                  <span className={styles.versoPequeno}>Não tinha receita mirabolante,</span>
+                  <span className={styles.versoPequeno}>nem segredo de família.</span>
+                  <span className={styles.versoPequeno}>Só o amor por um bom biscoito</span>
+                  <span className={styles.versoPequeno}>e a vontade de compartilhar.</span>
+                </div>
+              </div>
+              
+              <div className={styles.poemaColuna}>
+                <div className={styles.verso}>
+                  <span className={styles.versoDestaque}>Foi dessa paixão</span>
+                  <span className={styles.versoDestaque}>que surgiu o desejo</span>
+                  <span className={styles.versoGrande}>de compartilhar</span>
+                  <span className={styles.versoGrande}>o que eu mais amo:</span>
+                </div>
+                
+                <div className={styles.versoDestaqueBox}>
+                  <span>biscoitos deliciosos,</span>
+                  <span>feitos com carinho e</span>
+                  <span>selecionados com todo cuidado para você!</span>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.versoFinal}>
+              <span>Seja bem-vindo ao meu sonho,</span>
+              <span>que agora também é nosso! 🍪✨</span>
+            </div>
+
             <div className={styles.sobreNumeros}>
               <div className={styles.numeroItem}>
                 <span className={styles.numero}>9</span>
-                <span className={styles.numeroLabel}>meses de história</span>
+                <span className={styles.numeroLabel}>meses</span>
               </div>
               <div className={styles.numeroItem}>
                 <span className={styles.numero}>30+</span>
-                <span className={styles.numeroLabel}>clientes fiéis</span>
+                <span className={styles.numeroLabel}>clientes</span>
               </div>
               <div className={styles.numeroItem}>
                 <span className={styles.numero}>50+</span>
-                <span className={styles.numeroLabel}>produtos artesanais</span>
+                <span className={styles.numeroLabel}>produtos</span>
               </div>
             </div>
           </div>
-          
+
+          {/* Coluna Direita - Imagem/Logo */}
           <div className={styles.sobreImagem}>
             <div className={styles.imageWrapper}>
               <Image 
                 src="/logo.webp"
-                alt="Cantinho Doce - Nossa história"
+                alt="Cantinho Doce"
                 width={400}
                 height={400}
                 className={styles.imageWrapperImg}
                 priority
               />
+              <div className={styles.imageLabel}>
+                "Feito com amor, comido com prazer" 🤤
+              </div>
             </div>
           </div>
+
         </div>
       </section>
 
@@ -243,31 +266,21 @@ export default function SobrePage() {
                 <Target size={40} />
               </div>
               <h3>Missão</h3>
-              <p>
-                Levar sabor caseiro e qualidade artesanal para a mesa dos nossos 
-                clientes, com produtos feitos com ingredientes selecionados e muito amor.
-              </p>
+              <p>Levar sabor caseiro e qualidade artesanal para a mesa dos nossos clientes.</p>
             </div>
             <div className={styles.missaoItem}>
               <div className={styles.missaoIcon}>
                 <Eye size={40} />
               </div>
               <h3>Visão</h3>
-              <p>
-                Ser reconhecida em Campo Grande como referência em produtos 
-                artesanais de qualidade, crescendo com consistência e mantendo 
-                a essência caseira.
-              </p>
+              <p>Ser referência em produtos artesanais em Campo Grande, mantendo a essência caseira.</p>
             </div>
             <div className={styles.missaoItem}>
               <div className={styles.missaoIcon}>
                 <HeartHandshake size={40} />
               </div>
               <h3>Valores</h3>
-              <p>
-                Amor pelo que fazemos, qualidade em cada detalhe, atendimento 
-                próximo e respeito aos ingredientes e receitas tradicionais.
-              </p>
+              <p>Amor, qualidade, atendimento próximo e respeito às receitas tradicionais.</p>
             </div>
           </div>
         </div>
@@ -283,39 +296,31 @@ export default function SobrePage() {
           
           <div className={styles.diferenciaisGrid}>
             <div className={styles.diferencialItem}>
-              <div className={styles.diferencialIcon}>
-                <BadgeCheck size={32} />
-              </div>
+              <div className={styles.diferencialIcon}><BadgeCheck size={32} /></div>
               <div>
-                <h4>Feito com Ingredientes Naturais</h4>
-                <p>Selecionamos cuidadosamente cada ingrediente para garantir o melhor sabor</p>
+                <h4>Ingredientes Naturais</h4>
+                <p>Selecionados com cuidado para o melhor sabor</p>
               </div>
             </div>
             <div className={styles.diferencialItem}>
-              <div className={styles.diferencialIcon}>
-                <Gift size={32} />
-              </div>
+              <div className={styles.diferencialIcon}><Gift size={32} /></div>
               <div>
                 <h4>Receitas Caseiras</h4>
-                <p>Sabores que lembram os doces da infância, feitos com todo carinho</p>
+                <p>Sabores que lembram os doces da infância</p>
               </div>
             </div>
             <div className={styles.diferencialItem}>
-              <div className={styles.diferencialIcon}>
-                <MessageCircle size={32} />
-              </div>
+              <div className={styles.diferencialIcon}><MessageCircle size={32} /></div>
               <div>
                 <h4>Atendimento Personalizado</h4>
-                <p>Valorizamos cada cliente com atenção e cuidado especial</p>
+                <p>Cada cliente é único e especial</p>
               </div>
             </div>
             <div className={styles.diferencialItem}>
-              <div className={styles.diferencialIcon}>
-                <Heart size={32} />
-              </div>
+              <div className={styles.diferencialIcon}><Heart size={32} /></div>
               <div>
                 <h4>Produção Sob Encomenda</h4>
-                <p>Produtos feitos especialmente para você, sempre fresquinhos</p>
+                <p>Feito especialmente para você, sempre fresquinho</p>
               </div>
             </div>
           </div>
@@ -325,11 +330,12 @@ export default function SobrePage() {
       {/* ========== CONTATO ========== */}
       <section className={styles.contato}>
         <div className={styles.container}>
+          <span className={styles.sectionTag}>Contato</span>
           <h2 className={styles.sectionTitle}>
             Fale <span className={styles.titleHighlight}>Conosco</span>
           </h2>
           <p className={styles.sectionSubtitle}>
-            Adoramos ouvir nossos clientes! Entre em contato conosco.
+            Adoramos ouvir nossos clientes!
           </p>
           
           <div className={styles.contatoGrid}>
@@ -360,6 +366,7 @@ export default function SobrePage() {
               <MessageCircle size={20} />
               Fale conosco pelo WhatsApp
             </Link>
+            <p className={styles.whatsappHint}>Respondemos em até 5 minutos ⏱️</p>
           </div>
         </div>
       </section>
