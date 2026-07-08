@@ -357,12 +357,13 @@ export default function SobrePage() {
           
           <div className={styles.contatoWhatsapp}>
             <Link 
-              href="https://wa.me/5521972279173" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.whatsappButton}
-            >
-              Faça seu pedido pelo WhatsApp
+                href="https://wa.me/5521972279173?text=Olá!%20Visitei%20o%20site%20do%20Cantinho%20Doce%20e%20me%20interessei%20pelos%20produtos%20artesanais.%20Gostaria%20de%20saber%20mais%20informações!"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.whatsappButton}
+                >
+                <MessageCircle size={20} />
+                Fale conosco pelo WhatsApp
             </Link>
           </div>
         </div>
