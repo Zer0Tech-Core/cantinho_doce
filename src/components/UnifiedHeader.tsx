@@ -25,6 +25,7 @@ interface UnifiedHeaderProps {
   onCategoriaChange?: (id: string) => void
   isSearching?: boolean
   showCategories?: boolean
+  onCartClick?: () => void // 🔥 NOVO
 }
 
 export default function UnifiedHeader({
@@ -35,6 +36,7 @@ export default function UnifiedHeader({
   onCategoriaChange = () => {},
   isSearching = false,
   showCategories = true,
+  onCartClick, // 🔥 NOVO
 }: UnifiedHeaderProps) {
   const { totalItens, total } = useCart()
   const toast = useToast()
@@ -97,9 +99,14 @@ export default function UnifiedHeader({
       toast.aviso('🛒 Carrinho vazio! Adicione produtos.', 2500)
       return
     }
-    const cartElement = document.getElementById('cartFloating')
-    if (cartElement) {
-      cartElement.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    // 🔥 Usa onCartClick se existir, senão fallback para scroll
+    if (onCartClick) {
+      onCartClick()
+    } else {
+      const cartElement = document.getElementById('cartFloating')
+      if (cartElement) {
+        cartElement.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      }
     }
   }
 
@@ -126,9 +133,6 @@ export default function UnifiedHeader({
     return icons[icone] || <Cookie size={16} />
   }
 
-  // =============================================
-  // 🔧 MENU MOBILE - LINKS
-  // =============================================
   const menuLinks = [
     { href: '/', label: 'Início', active: false },
     { href: '/sobre', label: 'Sobre', active: true },
@@ -137,13 +141,9 @@ export default function UnifiedHeader({
   return (
     <header className={`unified-header ${isScrolled ? 'unified-header-scrolled' : ''}`}>
       
-      {/* ========================================== */}
-      {/* MODO NORMAL                               */}
-      {/* ========================================== */}
       {!isSearchMode && (
         <>
           <div className="unified-topbar">
-            {/* Menu Mobile */}
             <button 
               className="unified-menu-btn"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -152,7 +152,6 @@ export default function UnifiedHeader({
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
 
-            {/* Logo */}
             <div 
               className="unified-logo" 
               onClick={handleLogoClick} 
@@ -173,7 +172,6 @@ export default function UnifiedHeader({
               </div>
             </div>
 
-            {/* Search Desktop */}
             {!isMobile && (
               <div className="unified-search-wrapper">
                 <div className="unified-search-input-wrapper">
@@ -207,7 +205,6 @@ export default function UnifiedHeader({
               </div>
             )}
 
-            {/* Carrinho */}
             <div 
               className={`unified-cart ${totalItens > 0 ? 'has-items' : ''}`}
               onClick={handleCartClick}
@@ -228,7 +225,6 @@ export default function UnifiedHeader({
               </span>
             </div>
 
-            {/* Lupa - Mobile */}
             {isMobile && (
               <button
                 type="button"
@@ -241,7 +237,6 @@ export default function UnifiedHeader({
             )}
           </div>
 
-          {/* Categorias */}
           {showCategories && categorias.length > 0 && (
             <nav className="unified-categories" role="tablist">
               {categorias.map((cat) => (
@@ -262,9 +257,6 @@ export default function UnifiedHeader({
         </>
       )}
 
-      {/* ========================================== */}
-      {/* MODO BUSCA - Mobile                      */}
-      {/* ========================================== */}
       {isSearchMode && isMobile && (
         <>
           <div className="unified-search-mode">
@@ -310,7 +302,6 @@ export default function UnifiedHeader({
             </div>
           </div>
 
-          {/* Categorias no modo busca */}
           {showCategories && categorias.length > 0 && (
             <nav className="unified-categories" role="tablist">
               {categorias.map((cat) => (
@@ -334,13 +325,9 @@ export default function UnifiedHeader({
         </>
       )}
 
-      {/* ========================================== */}
-      {/* MENU MOBILE OVERLAY                       */}
-      {/* ========================================== */}
       {isMenuOpen && (
         <div className="unified-menu-overlay" onClick={() => setIsMenuOpen(false)}>
           <div className="unified-menu-content" onClick={(e) => e.stopPropagation()}>
-            {/* Header do Menu */}
             <div className="unified-menu-header">
               <div className="unified-menu-logo-wrapper">
                 <Image 
@@ -362,7 +349,6 @@ export default function UnifiedHeader({
               </button>
             </div>
 
-            {/* Navegação */}
             <nav className="unified-menu-nav">
               {menuLinks.map((link) => (
                 <Link
@@ -386,7 +372,6 @@ export default function UnifiedHeader({
               </a>
             </nav>
 
-            {/* Redes Sociais */}
             <div className="unified-menu-social">
               <a 
                 href="https://instagram.com/cantinho_doce.cg" 
@@ -418,7 +403,6 @@ export default function UnifiedHeader({
               </a>
             </div>
 
-            {/* Footer */}
             <div className="unified-menu-footer">
               <small>© 2026 Cantinho Doce</small>
             </div>

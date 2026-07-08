@@ -1,3 +1,4 @@
+// src/components/CartFloating.tsx
 'use client'
 
 import { ShoppingCart, Send, Percent, Trash2 } from 'lucide-react'

@@ -1,9 +1,11 @@
+// src/components/CheckoutModal.tsx
 'use client'
 
 import { useState, useEffect } from 'react'
 import { 
   X, Package, DollarSign, User, MapPin, 
-  Pencil, Send, CreditCard, Coins, Clipboard
+  Pencil, Send, CreditCard, Coins, Clipboard,
+  Trash2, Plus, Minus
 } from 'lucide-react'
 import { useCart } from '@/hooks/useCart'
 import { useToast } from '@/context/ToastContext'
@@ -15,7 +17,7 @@ interface CheckoutModalProps {
 }
 
 export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
-  const { carrinho, total, pesoTotal, limparCarrinho } = useCart()
+  const { carrinho, total, pesoTotal, limparCarrinho, alterarQuantidade, removerItem } = useCart()
   const toast = useToast()
   
   const [nome, setNome] = useState('')
@@ -93,10 +95,7 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
     limparCarrinho()
     onClose()
     
-    toast.sucesso('📱 Pedido enviado! Confira no WhatsApp.', 3500, {
-      botaoFechar: true,
-      barraProgresso: true
-    })
+    toast.sucesso('📱 Pedido enviado! Confira no WhatsApp.', 3500)
     
     // Reset form
     setNome('')
@@ -125,24 +124,56 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
             const preco = item.precoPromocional || item.preco
             return (
               <div key={item.id} className="modal-item">
-                <span className="item-name">
-                  <Package size={14} /> {item.quantidade}x {item.nome} ({item.peso})
-                </span>
-                <span className="item-price">
-                  {(preco * item.quantidade).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
-                </span>
+                <div className="modal-item-info">
+                  <span className="item-name">
+                    <Package size={14} /> {item.nome}
+                  </span>
+                  <span className="item-peso">{item.peso}</span>
+                </div>
+                <div className="modal-item-actions">
+                  <button 
+                    className="item-qty-btn"
+                    onClick={() => alterarQuantidade(item.id, -1)}
+                    aria-label="Remover um"
+                  >
+                    <Minus size={14} />
+                  </button>
+                  <span className="item-qty">{item.quantidade}</span>
+                  <button 
+                    className="item-qty-btn"
+                    onClick={() => alterarQuantidade(item.id, 1)}
+                    aria-label="Adicionar um"
+                  >
+                    <Plus size={14} />
+                  </button>
+                  <button 
+                    className="item-remove-btn"
+                    onClick={() => removerItem(item.id)}
+                    aria-label="Remover item"
+                  >
+                    <Trash2 size={14} />
+                  </button>
+                  <span className="item-price">
+                    {(preco * item.quantidade).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                  </span>
+                </div>
               </div>
             )
           })}
         </div>
 
         <div className="modal-total">
-          <span><DollarSign size={20} /> Total: {total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span>
-          {/* ✅ CORREÇÃO: Usar pesoTotal.gramas em vez de pesoTotal diretamente */}
+          <div className="modal-total-row">
+            <span><DollarSign size={20} /> Total</span>
+            <span className="modal-total-value">
+              {total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+            </span>
+          </div>
           {pesoTotal && pesoTotal.gramas > 0 && (
-            <small>
-              <Package size={14} /> Peso total: {pesoTotal.formatado}
-            </small>
+            <div className="modal-total-row modal-total-peso">
+              <span><Package size={14} /> Peso total</span>
+              <span>{pesoTotal.formatado}</span>
+            </div>
           )}
         </div>
 
@@ -184,6 +215,7 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
               className="form-select"
               value={metodoPagamento}
               onChange={(e) => setMetodoPagamento(e.target.value)}
+              required
             >
               <option value="">Selecione...</option>
               <option value="Pix">Pix</option>

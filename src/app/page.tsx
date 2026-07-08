@@ -6,7 +6,7 @@ import { PRODUTOS } from '@/data'
 import UnifiedHeader from '@/components/UnifiedHeader'
 import ProductGrid from '@/components/ProductGrid'
 import CartFloating from '@/components/CartFloating'
-import CheckoutModal from '@/components/CheckoutModal'
+import CartDrawer from '@/components/CartDrawer' // 🔥 NOVO
 import Footer from '@/components/Footer'
 import styles from './page.module.css'
 
@@ -15,7 +15,7 @@ export default function Home() {
     PRODUTOS.categorias[0]?.id || 'biscoitos-doces'
   )
   const [searchTerm, setSearchTerm] = useState('')
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false) // 🔥 NOVO
   const [isSearching, setIsSearching] = useState(false)
 
   const categoria = PRODUTOS.categorias.find(c => c.id === categoriaAtiva)
@@ -35,7 +35,6 @@ export default function Home() {
 
   return (
     <main>
-      {/* HEADER UNIFICADO COM TUDO */}
       <UnifiedHeader
         searchValue={searchTerm}
         onSearchChange={handleSearch}
@@ -43,6 +42,7 @@ export default function Home() {
         categoriaAtiva={categoriaAtiva}
         onCategoriaChange={setCategoriaAtiva}
         isSearching={isSearching}
+        onCartClick={() => setIsCartDrawerOpen(true)} // 🔥 NOVO
       />
 
       <div className={styles.container}>
@@ -53,11 +53,14 @@ export default function Home() {
         />
       </div>
 
-      <CartFloating onCheckout={() => setIsModalOpen(true)} />
-      <CheckoutModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
+      {/* 🔥 NOVO - CARRINHO DRAWER */}
+      <CartDrawer 
+        isOpen={isCartDrawerOpen} 
+        onClose={() => setIsCartDrawerOpen(false)} 
       />
+
+      {/* 🔥 CART FLUTUANTE - AGORA ABRE O DRAWER */}
+      <CartFloating onCheckout={() => setIsCartDrawerOpen(true)} />
 
       <Footer />
     </main>

@@ -1,3 +1,5 @@
+/* src/app/globals.css */
+
 /* ============================================= */
 /* 🌿 GLOBALS - CANTINHO DOCE                    */
 /* ============================================= */
@@ -13,6 +15,7 @@
 @import '../styles/components/footer.css';
 @import '../styles/components/products.css';
 @import '../styles/components/cart.css';
+@import '../styles/components/cart-drawer.css'; /* 🔥 NOVO */
 @import '../styles/components/modal.css';
 @import '../styles/components/toast.css';
 @import '../styles/components/categories.css';
