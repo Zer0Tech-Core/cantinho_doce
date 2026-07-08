@@ -1,7 +1,9 @@
+// src/components/ProductGrid.tsx
 'use client'
 
 import { Plus, Package, Star, Tag, Search } from 'lucide-react'
 import { useCart } from '@/hooks/useCart'
+import ProductImage from './ProductImage'
 
 interface Produto {
   id: string
@@ -42,22 +44,19 @@ export default function ProductGrid({ produtos, categoria, isSearch }: ProductGr
 
         return (
           <div key={produto.id} className="product-card">
-            <div className="product-image">
+            <div className="product-image-wrapper">
               {temImagem ? (
-                <img 
-                  src={produto.imagem} 
-                  alt={produto.nome}
-                  className="product-img"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none'
-                    const fallback = e.currentTarget.parentElement?.querySelector('.image-fallback')
-                    if (fallback) (fallback as HTMLElement).style.display = 'flex'
-                  }}
+                <ProductImage
+                  src={produto.imagem}
+                  name={produto.nome}
+                  width={300}
+                  height={300}
                 />
-              ) : null}
-              <div className="image-fallback" style={{ display: temImagem ? 'none' : 'flex' }}>
-                <span style={{ fontSize: 56 }}>🍪</span>
-              </div>
+              ) : (
+                <div className="image-fallback">
+                  <span style={{ fontSize: 56 }}>🍪</span>
+                </div>
+              )}
               {produto.destaque && (
                 <span className="destaque-tag">
                   <Star size={14} /> Destaque

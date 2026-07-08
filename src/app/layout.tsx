@@ -3,7 +3,6 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import { CartProvider } from '@/hooks/useCart'
 import { ToastProvider } from '@/context/ToastContext'
-import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: {
@@ -57,7 +56,7 @@ export const metadata: Metadata = {
     apple: '/icon/apple-touch-icon.png',
   },
   manifest: '/icon/site.webmanifest',
-  themeColor: '#2E7D32',
+  // 🔥 REMOVA themeColor daqui (foi movido para viewport)
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
@@ -69,8 +68,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://cantinhodoce.com.br',
   },
+  metadataBase: new URL('https://cantinhodoce.com.br'), // 🔥 ADICIONE isso
 }
 
+// 🔥 MOVENDO themeColor para viewport
 export const viewport: Viewport = {
   themeColor: '#2E7D32',
   width: 'device-width',
@@ -88,7 +89,6 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body>
         <ToastProvider>
-          <Analytics/>
           <CartProvider>
             {children}
           </CartProvider>
