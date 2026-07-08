@@ -21,6 +21,7 @@
 @import '../styles/components/categories.css';
 @import '../styles/components/search.css';
 @import '../styles/components/unified-header.css';
+@import '../styles/components/product-modal.css';
 
 /* 4. UTILITÁRIOS */
 @import '../styles/utils/icons.css';
