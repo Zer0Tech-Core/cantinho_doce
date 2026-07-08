@@ -17,6 +17,7 @@
 @import '../styles/components/toast.css';
 @import '../styles/components/categories.css';
 @import '../styles/components/search.css';
+@import '../styles/components/unified-header.css';
 
 /* 4. UTILITÁRIOS */
 @import '../styles/utils/icons.css';

@@ -1,3 +1,4 @@
+// src/components/Categories.tsx
 'use client'
 
 import { Package, Cookie, ChefHat, Wine, Candy, Cake, Nut } from 'lucide-react'

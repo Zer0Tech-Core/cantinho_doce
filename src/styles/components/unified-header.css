@@ -1,0 +1,846 @@
+/* ============================================= */
+/* 🚀 UNIFIED HEADER                            */
+/* ============================================= */
+
+.unified-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(135deg, #1a472a, #2E7D32);
+  border-bottom: 2px solid #F5A623;
+  transition: box-shadow 0.3s ease;
+}
+
+.unified-header-scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================= */
+/* 📱 TOP BAR - Menu, Logo, Cart, Lupa          */
+/* ============================================= */
+
+.unified-topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  min-height: 64px;
+}
+
+/* Menu */
+.unified-menu-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.unified-menu-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Logo */
+.unified-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.unified-logo:hover {
+  transform: scale(1.02);
+}
+
+.unified-logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px;
+}
+
+.unified-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.unified-logo-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.3px;
+}
+
+.unified-logo-sub {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 300;
+}
+
+/* ============================================= */
+/* 🔍 SEARCH - Desktop                          */
+/* ============================================= */
+
+.unified-search-wrapper {
+  flex: 1;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.unified-search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.12);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.unified-search-input-wrapper:focus-within {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #F5A623;
+  box-shadow: 0 0 0 4px rgba(245, 166, 35, 0.15);
+}
+
+.unified-search-icon {
+  position: absolute;
+  left: 14px;
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+}
+
+.unified-search-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #F5A623;
+  border-radius: 50%;
+  animation: unified-spin 0.8s linear infinite;
+}
+
+@keyframes unified-spin {
+  to { transform: rotate(360deg); }
+}
+
+.unified-search-input {
+  width: 100%;
+  padding: 10px 44px 10px 42px;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 14px;
+  outline: none;
+  font-family: inherit;
+}
+
+.unified-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.unified-search-clear {
+  position: absolute;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 0;
+}
+
+.unified-search-clear:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.1);
+}
+
+/* ============================================= */
+/* 🛒 CARRINHO                                  */
+/* ============================================= */
+
+.unified-cart {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  flex-shrink: 0;
+}
+
+.unified-cart:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.02);
+}
+
+.unified-cart.has-items {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #F5A623;
+}
+
+.unified-cart-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.unified-cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: #F5A623;
+  color: #1a472a;
+  border-radius: 50%;
+  padding: 1px 7px;
+  font-size: 10px;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.unified-cart-badge.pulse {
+  animation: unified-badge-pulse 0.4s ease;
+}
+
+@keyframes unified-badge-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.4); }
+}
+
+.unified-cart-total {
+  font-weight: 600;
+  font-size: 14px;
+  color: white;
+  white-space: nowrap;
+}
+
+/* ============================================= */
+/* 🔍 SEARCH TOGGLE - Mobile (Lupa)            */
+/* ============================================= */
+
+.unified-search-toggle {
+  display: none;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.unified-search-toggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ============================================= */
+/* 🚀 MODO BUSCA - Mobile (Fullscreen)         */
+/* ============================================= */
+
+.unified-search-mode {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  min-height: 64px;
+  background: linear-gradient(135deg, #1a472a, #2E7D32);
+  animation: unified-search-slide 0.25s ease;
+}
+
+@keyframes unified-search-slide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.unified-search-back {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.unified-search-back:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.unified-search-mode-wrapper {
+  flex: 1;
+}
+
+.unified-search-mode-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.unified-search-mode-input-wrapper:focus-within {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #F5A623;
+  box-shadow: 0 0 0 4px rgba(245, 166, 35, 0.15);
+}
+
+.unified-search-mode-icon {
+  position: absolute;
+  left: 14px;
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+}
+
+.unified-search-mode-input {
+  width: 100%;
+  padding: 10px 44px 10px 42px;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 16px;
+  outline: none;
+  font-family: inherit;
+}
+
+.unified-search-mode-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.unified-search-mode-clear {
+  position: absolute;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 0;
+}
+
+.unified-search-mode-clear:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.1);
+}
+
+/* ============================================= */
+/* 📂 CATEGORIAS (COLADAS ABAIXO)              */
+/* ============================================= */
+
+.unified-categories {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 8px 16px 10px;
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.unified-categories::-webkit-scrollbar {
+  display: none;
+}
+
+.unified-category-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  height: 32px;
+}
+
+.unified-category-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.unified-category-btn.active {
+  background: #F5A623;
+  color: #1a472a;
+  border-color: #F5A623;
+  box-shadow: 0 4px 12px rgba(245, 166, 35, 0.3);
+  font-weight: 600;
+}
+
+.unified-category-btn.active:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(245, 166, 35, 0.4);
+}
+
+.unified-category-weight {
+  font-size: 9px;
+  font-weight: 400;
+  opacity: 0.6;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1px 6px;
+  border-radius: 50px;
+}
+
+.unified-category-btn.active .unified-category-weight {
+  background: rgba(0, 0, 0, 0.15);
+  opacity: 0.8;
+}
+
+/* ============================================= */
+/* 📱 MENU MOBILE                               */
+/* ============================================= */
+
+.unified-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  animation: unified-fade-in 0.25s ease;
+}
+
+@keyframes unified-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.unified-menu-content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  max-width: 80%;
+  background: #1a1a1a;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: unified-slide-in 0.3s ease;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes unified-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.unified-menu-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.unified-menu-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #F5A623;
+  flex: 1;
+}
+
+.unified-menu-header button {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.2s;
+}
+
+.unified-menu-header button:hover {
+  color: white;
+}
+
+.unified-menu-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.unified-menu-link {
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.unified-menu-link:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+.unified-menu-link.active {
+  background: #F5A623;
+  color: #1a1a1a;
+}
+
+.unified-menu-link.unified-menu-whatsapp {
+  background: #25D366;
+  color: white;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.unified-menu-link.unified-menu-whatsapp:hover {
+  background: #128C7E;
+}
+
+.unified-menu-footer {
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 12px;
+  text-align: center;
+}
+
+/* ============================================= */
+/* 📱 RESPONSIVIDADE                            */
+/* ============================================= */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .unified-topbar {
+    padding: 8px 12px;
+    min-height: 56px;
+    gap: 8px;
+  }
+
+  /* Esconde a logo no mobile */
+  .unified-logo {
+    display: none;
+  }
+
+  /* Carrinho centralizado */
+  .unified-cart {
+    margin: 0 auto;
+    padding: 6px 14px;
+  }
+
+  .unified-cart-total {
+    font-size: 13px;
+  }
+
+  /* Lupa visível no mobile */
+  .unified-search-toggle {
+    display: flex;
+  }
+
+  /* Esconde o campo de busca no mobile */
+  .unified-search-wrapper {
+    display: none;
+  }
+
+  /* Modo busca */
+  .unified-search-mode {
+    min-height: 56px;
+    padding: 8px 12px;
+  }
+
+  .unified-search-mode-input {
+    font-size: 15px;
+    padding: 8px 40px 8px 38px;
+  }
+
+  .unified-search-mode-clear {
+    width: 24px;
+    height: 24px;
+  }
+
+  .unified-search-mode-clear svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .unified-search-back {
+    width: 36px;
+    height: 36px;
+  }
+
+  .unified-search-back svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .unified-categories {
+    padding: 6px 12px 8px;
+    gap: 4px;
+  }
+
+  .unified-category-btn {
+    font-size: 11px;
+    padding: 4px 10px;
+    height: 28px;
+  }
+
+  .unified-category-weight {
+    font-size: 8px;
+    padding: 1px 4px;
+  }
+}
+
+/* Smartphones */
+@media (max-width: 480px) {
+  .unified-topbar {
+    padding: 6px 10px;
+    min-height: 48px;
+    gap: 6px;
+  }
+
+  .unified-menu-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .unified-menu-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .unified-cart {
+    padding: 4px 10px;
+    gap: 6px;
+  }
+
+  .unified-cart-total {
+    font-size: 12px;
+  }
+
+  .unified-cart-icon-wrapper svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .unified-cart-badge {
+    top: -6px;
+    right: -8px;
+    font-size: 9px;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 5px;
+  }
+
+  .unified-search-toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .unified-search-toggle svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .unified-search-mode {
+    min-height: 48px;
+    padding: 6px 10px;
+    gap: 8px;
+  }
+
+  .unified-search-mode-input {
+    font-size: 14px;
+    padding: 6px 34px 6px 34px;
+  }
+
+  .unified-search-mode-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .unified-search-mode-clear {
+    width: 20px;
+    height: 20px;
+    right: 8px;
+  }
+
+  .unified-search-mode-clear svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .unified-search-back {
+    width: 32px;
+    height: 32px;
+  }
+
+  .unified-search-back svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .unified-categories {
+    padding: 4px 10px 6px;
+    gap: 3px;
+  }
+
+  .unified-category-btn {
+    font-size: 10px;
+    padding: 3px 8px;
+    height: 24px;
+    gap: 4px;
+  }
+
+  .unified-category-btn svg {
+    width: 12px !important;
+    height: 12px !important;
+  }
+
+  .unified-category-weight {
+    display: none;
+  }
+}
+
+/* Desktop - Esconde toggle e modo busca */
+@media (min-width: 769px) {
+  .unified-search-toggle {
+    display: none;
+  }
+
+  .unified-search-mode {
+    display: none !important;
+  }
+}
+
+/* Desktop Grande */
+@media (min-width: 1400px) {
+  .unified-topbar {
+    padding: 14px 24px;
+    min-height: 72px;
+  }
+
+  .unified-search-wrapper {
+    max-width: 600px;
+  }
+
+  .unified-search-input {
+    font-size: 16px;
+    padding: 12px 48px 12px 48px;
+  }
+
+  .unified-categories {
+    padding: 10px 24px 12px;
+    gap: 10px;
+  }
+
+  .unified-category-btn {
+    font-size: 14px;
+    padding: 8px 20px;
+    height: 38px;
+  }
+}
+
+/* ============================================= */
+/* 🍪 MENU MOBILE - LOGO                        */
+/* ============================================= */
+
+.unified-menu-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+/* Ajuste no header do menu */
+.unified-menu-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.unified-menu-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #F5A623;
+  flex: 1;
+}
+
+/* Responsivo para mobile */
+@media (max-width: 480px) {
+  .unified-menu-logo {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .unified-menu-title {
+    font-size: 16px;
+  }
+}

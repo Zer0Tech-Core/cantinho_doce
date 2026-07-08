@@ -9,13 +9,18 @@
   gap: 8px;
   overflow-x: auto;
   position: sticky;
-  top: 120px; /* Header (64px) + Search (56px) */
-  z-index: 98; /* Abaixo do search (99) */
+  top: 120px; /* 64px (Header) + 56px (Search com padding) */
+  z-index: 98;
   scrollbar-width: none;
   border-bottom: 2px solid var(--primary-fundo);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   min-height: 56px;
   align-items: center;
+  /* 🔥 ADICIONE ISSO - FUNDO SÓLIDO */
+  background-color: #1E1E1E;
+  /* 🔥 ADICIONE ISSO - EVITA SUMIR */
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 /* Esconde scrollbar */
@@ -131,7 +136,7 @@
 /* Tablets */
 @media (max-width: 768px) {
   .categories {
-    top: 104px; /* Header (56px) + Search (48px) */
+    top: 68px; /* Search menor em telas menores */
     padding: 8px 14px;
     gap: 6px;
     min-height: 48px;
@@ -157,7 +162,7 @@
 /* Smartphones */
 @media (max-width: 480px) {
   .categories {
-    top: 88px; /* Header (48px) + Search (40px) */
+    top: 56px; /* Search ainda menor */
     padding: 6px 12px;
     gap: 4px;
     min-height: 40px;

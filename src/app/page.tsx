@@ -1,14 +1,13 @@
+// src/app/page.tsx
 'use client'
 
 import { useState } from 'react'
 import { PRODUTOS } from '@/data'
-import Header from '@/components/Header'
-import Categories from '@/components/Categories'
+import UnifiedHeader from '@/components/UnifiedHeader'
 import ProductGrid from '@/components/ProductGrid'
 import CartFloating from '@/components/CartFloating'
 import CheckoutModal from '@/components/CheckoutModal'
 import Footer from '@/components/Footer'
-import Search from '@/components/Search'
 import styles from './page.module.css'
 
 export default function Home() {
@@ -36,24 +35,14 @@ export default function Home() {
 
   return (
     <main>
-      <Header />
-      
-      {/* 🔧 Classe global 'search-container' para sincronizar sticky */}
-      <div className="search-container">
-        <Search
-          value={searchTerm}
-          onChange={handleSearch}
-          placeholder="Buscar produtos..."
-          isLoading={isSearching}
-          showClear={true}
-          showMic={false}
-        />
-      </div>
-
-      <Categories
+      {/* HEADER UNIFICADO COM TUDO */}
+      <UnifiedHeader
+        searchValue={searchTerm}
+        onSearchChange={handleSearch}
         categorias={PRODUTOS.categorias}
         categoriaAtiva={categoriaAtiva}
         onCategoriaChange={setCategoriaAtiva}
+        isSearching={isSearching}
       />
 
       <div className={styles.container}>

@@ -58,8 +58,8 @@
   
   /* Z-Index */
   --z-header: 100;
-  --z-search: 89;
-  --z-categories: 90;
+  --z-search: 99;
+  --z-categories: 98;
   --z-cart: 200;
   --z-modal: 300;
   --z-toast: 400;
