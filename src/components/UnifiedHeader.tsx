@@ -1,3 +1,4 @@
+// src/components/UnifiedHeader.tsx
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
@@ -5,23 +6,35 @@ import { ShoppingCart, Menu, X, Cookie, Search as SearchIcon, ArrowLeft } from '
 import { useCart } from '@/hooks/useCart'
 import { useToast } from '@/context/ToastContext'
 import Image from 'next/image'
+import Link from 'next/link'
+
+interface Categoria {
+  id: string
+  nome: string
+  descricao: string
+  icone: string
+  cor: string
+  destaque: boolean
+}
 
 interface UnifiedHeaderProps {
-  searchValue: string
-  onSearchChange: (value: string) => void
-  categorias: Array<{ id: string; nome: string; descricao: string; icone: string; cor: string; destaque: boolean }>
-  categoriaAtiva: string
-  onCategoriaChange: (id: string) => void
+  searchValue?: string
+  onSearchChange?: (value: string) => void
+  categorias?: Categoria[]
+  categoriaAtiva?: string
+  onCategoriaChange?: (id: string) => void
   isSearching?: boolean
+  showCategories?: boolean
 }
 
 export default function UnifiedHeader({
-  searchValue,
-  onSearchChange,
-  categorias,
-  categoriaAtiva,
-  onCategoriaChange,
+  searchValue = '',
+  onSearchChange = () => {},
+  categorias = [],
+  categoriaAtiva = '',
+  onCategoriaChange = () => {},
   isSearching = false,
+  showCategories = true,
 }: UnifiedHeaderProps) {
   const { totalItens, total } = useCart()
   const toast = useToast()
@@ -52,7 +65,7 @@ export default function UnifiedHeader({
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Anima badge
+  // Anima badge do carrinho
   useEffect(() => {
     if (totalItens > prevTotalRef.current) {
       setBadgePulse(true)
@@ -92,7 +105,7 @@ export default function UnifiedHeader({
 
   const handleLogoClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
-    setIsMenuOpen(false) // Fecha menu ao clicar na logo
+    setIsMenuOpen(false)
   }
 
   const handleOpenSearch = () => {
@@ -113,11 +126,19 @@ export default function UnifiedHeader({
     return icons[icone] || <Cookie size={16} />
   }
 
+  // =============================================
+  // 🔧 MENU MOBILE - LINKS
+  // =============================================
+  const menuLinks = [
+    { href: '/', label: 'Início', active: false },
+    { href: '/sobre', label: 'Sobre', active: true },
+  ]
+
   return (
     <header className={`unified-header ${isScrolled ? 'unified-header-scrolled' : ''}`}>
       
       {/* ========================================== */}
-      {/* MODO NORMAL - Menu + Carrinho + Lupa     */}
+      {/* MODO NORMAL                               */}
       {/* ========================================== */}
       {!isSearchMode && (
         <>
@@ -131,16 +152,28 @@ export default function UnifiedHeader({
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
 
-            {/* Logo - Desktop apenas */}
-            <div className="unified-logo" onClick={handleLogoClick} role="button" tabIndex={0}>
-              <img src="/logo.png" alt="Cantinho Doce" className="unified-logo-img" />
+            {/* Logo */}
+            <div 
+              className="unified-logo" 
+              onClick={handleLogoClick} 
+              role="button" 
+              tabIndex={0}
+              aria-label="Voltar ao início"
+            >
+              <img 
+                src="/logo.png" 
+                alt="Cantinho Doce" 
+                className="unified-logo-img" 
+                width={40}
+                height={40}
+              />
               <div className="unified-logo-text">
                 <span className="unified-logo-title">Cantinho Doce</span>
                 <small className="unified-logo-sub">Biscoitos Artesanais</small>
               </div>
             </div>
 
-            {/* Search Desktop - Campo visível */}
+            {/* Search Desktop */}
             {!isMobile && (
               <div className="unified-search-wrapper">
                 <div className="unified-search-input-wrapper">
@@ -158,6 +191,7 @@ export default function UnifiedHeader({
                     value={searchValue}
                     onChange={(e) => onSearchChange(e.target.value)}
                     className="unified-search-input"
+                    aria-label="Buscar produtos"
                   />
                   {searchValue && (
                     <button
@@ -173,7 +207,7 @@ export default function UnifiedHeader({
               </div>
             )}
 
-            {/* Carrinho - Centralizado no mobile */}
+            {/* Carrinho */}
             <div 
               className={`unified-cart ${totalItens > 0 ? 'has-items' : ''}`}
               onClick={handleCartClick}
@@ -194,7 +228,7 @@ export default function UnifiedHeader({
               </span>
             </div>
 
-            {/* Lupa - Mobile apenas */}
+            {/* Lupa - Mobile */}
             {isMobile && (
               <button
                 type="button"
@@ -207,27 +241,29 @@ export default function UnifiedHeader({
             )}
           </div>
 
-          {/* Categorias - Visíveis no modo normal */}
-          <nav className="unified-categories">
-            {categorias.map((cat) => (
-              <button
-                key={cat.id}
-                className={`unified-category-btn ${cat.id === categoriaAtiva ? 'active' : ''}`}
-                onClick={() => onCategoriaChange(cat.id)}
-                role="tab"
-                aria-selected={cat.id === categoriaAtiva}
-              >
-                {getIcon(cat.icone)}
-                {cat.nome}
-                <span className="unified-category-weight">{cat.descricao}</span>
-              </button>
-            ))}
-          </nav>
+          {/* Categorias */}
+          {showCategories && categorias.length > 0 && (
+            <nav className="unified-categories" role="tablist">
+              {categorias.map((cat) => (
+                <button
+                  key={cat.id}
+                  className={`unified-category-btn ${cat.id === categoriaAtiva ? 'active' : ''}`}
+                  onClick={() => onCategoriaChange(cat.id)}
+                  role="tab"
+                  aria-selected={cat.id === categoriaAtiva}
+                >
+                  {getIcon(cat.icone)}
+                  {cat.nome}
+                  <span className="unified-category-weight">{cat.descricao}</span>
+                </button>
+              ))}
+            </nav>
+          )}
         </>
       )}
 
       {/* ========================================== */}
-      {/* MODO BUSCA - Mobile apenas               */}
+      {/* MODO BUSCA - Mobile                      */}
       {/* ========================================== */}
       {isSearchMode && isMobile && (
         <>
@@ -258,6 +294,7 @@ export default function UnifiedHeader({
                   onChange={(e) => onSearchChange(e.target.value)}
                   className="unified-search-mode-input"
                   autoFocus
+                  aria-label="Buscar produtos"
                 />
                 {searchValue && (
                   <button
@@ -273,52 +310,71 @@ export default function UnifiedHeader({
             </div>
           </div>
 
-          {/* Categorias - Mantidas visíveis no modo busca */}
-          <nav className="unified-categories">
-            {categorias.map((cat) => (
-              <button
-                key={cat.id}
-                className={`unified-category-btn ${cat.id === categoriaAtiva ? 'active' : ''}`}
-                onClick={() => {
-                  onCategoriaChange(cat.id)
-                  handleCloseSearch()
-                }}
-                role="tab"
-                aria-selected={cat.id === categoriaAtiva}
-              >
-                {getIcon(cat.icone)}
-                {cat.nome}
-                <span className="unified-category-weight">{cat.descricao}</span>
-              </button>
-            ))}
-          </nav>
+          {/* Categorias no modo busca */}
+          {showCategories && categorias.length > 0 && (
+            <nav className="unified-categories" role="tablist">
+              {categorias.map((cat) => (
+                <button
+                  key={cat.id}
+                  className={`unified-category-btn ${cat.id === categoriaAtiva ? 'active' : ''}`}
+                  onClick={() => {
+                    onCategoriaChange(cat.id)
+                    handleCloseSearch()
+                  }}
+                  role="tab"
+                  aria-selected={cat.id === categoriaAtiva}
+                >
+                  {getIcon(cat.icone)}
+                  {cat.nome}
+                  <span className="unified-category-weight">{cat.descricao}</span>
+                </button>
+              ))}
+            </nav>
+          )}
         </>
       )}
 
-      {/* ========== MENU MOBILE OVERLAY ========== */}
+      {/* ========================================== */}
+      {/* MENU MOBILE OVERLAY                       */}
+      {/* ========================================== */}
       {isMenuOpen && (
         <div className="unified-menu-overlay" onClick={() => setIsMenuOpen(false)}>
           <div className="unified-menu-content" onClick={(e) => e.stopPropagation()}>
+            {/* Header do Menu */}
             <div className="unified-menu-header">
-              {/* 🔥 SUBSTITUÍDO Cookie PELA LOGO */}
-              <Image 
-                src="/logo.png" 
-                alt="Cantinho Doce" 
-                width={40}
-                height={40}
-                className="unified-menu-logo"
-                priority
-              />
-              <span className="unified-menu-title">Cantinho Doce</span>
-              <button onClick={() => setIsMenuOpen(false)} aria-label="Fechar menu">
+              <div className="unified-menu-logo-wrapper">
+                <Image 
+                  src="/logo.png" 
+                  alt="Cantinho Doce" 
+                  width={40}
+                  height={40}
+                  className="unified-menu-logo"
+                  priority
+                />
+                <span className="unified-menu-title">Cantinho Doce</span>
+              </div>
+              <button 
+                onClick={() => setIsMenuOpen(false)} 
+                aria-label="Fechar menu"
+                className="unified-menu-close"
+              >
                 <X size={24} />
               </button>
             </div>
+
+            {/* Navegação */}
             <nav className="unified-menu-nav">
-              <a href="#" className="unified-menu-link active" onClick={() => setIsMenuOpen(false)}>Início</a>
-              <a href="#produtos" className="unified-menu-link" onClick={() => setIsMenuOpen(false)}>Produtos</a>
-              <a href="/sobre" className="unified-menu-link" onClick={() => setIsMenuOpen(false)}>Sobre</a>
-              <a href="#contato" className="unified-menu-link" onClick={() => setIsMenuOpen(false)}>Contato</a>
+              {menuLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`unified-menu-link ${link.active ? 'active' : ''}`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              
               <a 
                 href="https://wa.me/5521972279173" 
                 target="_blank" 
@@ -329,6 +385,40 @@ export default function UnifiedHeader({
                 WhatsApp
               </a>
             </nav>
+
+            {/* Redes Sociais */}
+            <div className="unified-menu-social">
+              <a 
+                href="https://instagram.com/cantinho_doce.cg" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="unified-menu-social-link"
+              >
+                <Image 
+                  src="/icon/instagram.svg" 
+                  alt="Instagram" 
+                  width={24} 
+                  height={24}
+                />
+              </a>
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="unified-menu-social-link"
+              >
+                <Image 
+                  src="/icon/facebook.svg" 
+                  alt="Facebook" 
+                  width={24} 
+                  height={24}
+                />
+              </a>
+            </div>
+
+            {/* Footer */}
             <div className="unified-menu-footer">
               <small>© 2026 Cantinho Doce</small>
             </div>

@@ -6,8 +6,6 @@ import {
   Award, 
   Users, 
   Clock, 
-  Coffee, 
-  Cookie, 
   Mail, 
   MapPin, 
   Phone, 
@@ -19,14 +17,12 @@ import {
   Sparkles,
   TrendingUp,
   Rocket,
-  Star,
-  CheckCircle,
   Flame,
   MessageCircle
 } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
-import Header from '@/components/Header'
+import UnifiedHeader from '@/components/UnifiedHeader'
 import Footer from '@/components/Footer'
 import styles from './sobre.module.css'
 
@@ -83,7 +79,8 @@ export default function SobrePage() {
 
   return (
     <main>
-      <Header />
+      {/* 🔥 HEADER SEM CATEGORIAS */}
+      <UnifiedHeader showCategories={false} />
 
       {/* ========== BANNER ========== */}
       <section className={styles.banner}>
@@ -113,15 +110,14 @@ export default function SobrePage() {
           </div>
         </div>
         <div className={styles.bannerDecoration}>
-          {/*<Bolinho size={120} className={styles.bannerCookie} /> */}
           <Image 
-                src="/imagens/sobre/bolinho.webp"
-                alt="Cantinho Doce - Nossa história"
-                width={400}
-                height={400}
-                className={styles.imageWrapperImg}
-                priority
-                />
+            src="/imagens/sobre/bolinho.webp"
+            alt="Cantinho Doce - Nossa história"
+            width={400}
+            height={400}
+            className={styles.bannerCookie}
+            priority
+          />
         </div>
       </section>
 
@@ -165,19 +161,18 @@ export default function SobrePage() {
             </div>
           </div>
           
-        <div className={styles.sobreImagem}>
+          <div className={styles.sobreImagem}>
             <div className={styles.imageWrapper}>
-                <Image 
+              <Image 
                 src="/logo.webp"
                 alt="Cantinho Doce - Nossa história"
                 width={400}
                 height={400}
                 className={styles.imageWrapperImg}
                 priority
-                />
+              />
             </div>
-        </div>
-
+          </div>
         </div>
       </section>
 
@@ -357,13 +352,13 @@ export default function SobrePage() {
           
           <div className={styles.contatoWhatsapp}>
             <Link 
-                href="https://wa.me/5521972279173?text=Olá!%20Visitei%20o%20site%20do%20Cantinho%20Doce%20e%20me%20interessei%20pelos%20produtos%20artesanais.%20Gostaria%20de%20saber%20mais%20informações!"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.whatsappButton}
-                >
-                <MessageCircle size={20} />
-                Fale conosco pelo WhatsApp
+              href="https://wa.me/5521972279173?text=Olá!%20Visitei%20o%20site%20do%20Cantinho%20Doce%20e%20me%20interessei%20pelos%20produtos%20artesanais.%20Gostaria%20de%20saber%20mais%20informações!"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.whatsappButton}
+            >
+              <MessageCircle size={20} />
+              Fale conosco pelo WhatsApp
             </Link>
           </div>
         </div>

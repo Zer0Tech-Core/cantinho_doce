@@ -844,3 +844,107 @@
     font-size: 16px;
   }
 }
+
+/* ============================================= */
+/* 📱 MENU MOBILE - VERSÃO MELHORADA           */
+/* ============================================= */
+
+/* Logo e título do menu */
+.unified-menu-logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.unified-menu-close {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.unified-menu-close:hover {
+  color: white;
+}
+
+/* Redes Sociais no menu */
+.unified-menu-social {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.unified-menu-social-link {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  transition: all 0.2s ease;
+  color: rgba(255, 255, 255, 0.7); /* 🔥 Cor do ícone */
+}
+
+.unified-menu-social-link:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
+  color: white; /* 🔥 Fica branco no hover */
+}
+
+
+
+/* Ajuste do header do menu */
+.unified-menu-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.unified-menu-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #F5A623;
+}
+
+/* Ajuste do footer */
+.unified-menu-footer {
+  padding-top: 12px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 12px;
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+  .unified-menu-logo {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .unified-menu-title {
+    font-size: 16px;
+  }
+
+  .unified-menu-social-link {
+    width: 36px;
+    height: 36px;
+  }
+
+  .unified-menu-social-link img {
+    width: 18px;
+    height: 18px;
+  }
+}
