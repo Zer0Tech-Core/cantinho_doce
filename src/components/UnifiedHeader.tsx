@@ -317,7 +317,7 @@ export default function UnifiedHeader({
             <nav className="unified-menu-nav">
               <a href="#" className="unified-menu-link active" onClick={() => setIsMenuOpen(false)}>Início</a>
               <a href="#produtos" className="unified-menu-link" onClick={() => setIsMenuOpen(false)}>Produtos</a>
-              <a href="#sobre" className="unified-menu-link" onClick={() => setIsMenuOpen(false)}>Sobre</a>
+              <a href="/sobre" className="unified-menu-link" onClick={() => setIsMenuOpen(false)}>Sobre</a>
               <a href="#contato" className="unified-menu-link" onClick={() => setIsMenuOpen(false)}>Contato</a>
               <a 
                 href="https://wa.me/5521972279173" 
