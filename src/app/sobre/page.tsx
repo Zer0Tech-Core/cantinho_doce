@@ -110,7 +110,15 @@ export default function SobrePage() {
           </div>
         </div>
         <div className={styles.bannerDecoration}>
-          <Cookie size={160} className={styles.bannerCookie} />
+          {/*<Cookie size={160} className={styles.bannerCookie} />*/}
+          <Image 
+            src='/imagens/sobre/Flork.webp' 
+            alt='Cantinho Doce' 
+            width={220} 
+            height={220} 
+            className={styles.bannerCake}
+            priority
+          />
         </div>
       </section>
 
