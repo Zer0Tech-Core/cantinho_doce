@@ -5,7 +5,7 @@
 /* ============================================= */
 
 .banner {
-  background: linear-gradient(135deg, var(--banner-bg-start), var(--banner-bg-end));
+  background: linear-gradient(135deg, var(--banner-bg-start), #f4fbf7);
   padding: 80px 20px 60px;
   position: relative;
   overflow: hidden;
@@ -96,11 +96,21 @@
 
 .bannerDecoration {
   position: absolute;
-  right: -60px;
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 0.05;
+  right: 60px;
+  bottom: 20px;
   z-index: 1;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(2deg); }
+}
+
+.bannerCake {
+  width: 220px;
+  height: auto;
+  object-fit: contain;
 }
 
 .bannerCookie {
@@ -174,7 +184,7 @@
 
 .sectionSubtitle {
   text-align: center;
-  color: var(--text-black);
+  color: var(--text-dark);
   font-size: 16px;
   max-width: 600px;
   margin: 0 auto 48px;
@@ -354,7 +364,6 @@
   transition: var(--transition-bounce);
 }
 
-
 .imageWrapperImg {
   width: 100%;
   height: 100%;
@@ -405,7 +414,7 @@
 }
 
 .valorCard {
-  background: var(--text-black);
+  background: var(--white);
   padding: 36px 24px;
   border-radius: var(--radius-lg);
   text-align: center;
@@ -435,7 +444,7 @@
 
 .valorCard:hover .valorIcon {
   background: var(--primary);
-  color: var(--text-black);
+  color: var(--text-white);
   transform: scale(1.1) rotate(-8deg);
 }
 
@@ -448,7 +457,7 @@
 
 .valorCard p {
   font-size: 14px;
-  color: var(--text-black);
+  color: var(--text-dark);
   line-height: 1.7;
 }
 
@@ -531,7 +540,7 @@
 
 .timelineCard p {
   font-size: 13px;
-  color: var(--text-black);
+  color: var(--text-dark);
   line-height: 1.6;
 }
 
@@ -672,7 +681,7 @@
 
 .diferencialItem:hover .diferencialIcon {
   background: var(--primary);
-  color: var(--text-dark);
+  color: var(--text-white);
   transform: scale(1.08) rotate(-6deg);
 }
 
@@ -774,7 +783,7 @@
 }
 
 /* ============================================= */
-/* 📱 RESPONSIVIDADE                            */
+/* 📱 RESPONSIVIDADE - TABLETS                  */
 /* ============================================= */
 
 @media (max-width: 992px) {
@@ -788,9 +797,13 @@
   }
 }
 
+/* ============================================= */
+/* 📱 RESPONSIVIDADE - MOBILE 768px             */
+/* ============================================= */
+
 @media (max-width: 768px) {
   .banner {
-    padding: 50px 16px 40px;
+    padding: 50px 16px 160px; /* 🔥 Espaço extra para o Flork não cobrir o texto */
   }
 
   .bannerTitle {
@@ -805,6 +818,7 @@
     flex-direction: column;
     gap: var(--radius-sm);
     padding: 18px 24px;
+    margin-bottom: 24px; /* 🔥 Espaço para o Flork */
   }
 
   .bannerStatDivider {
@@ -820,13 +834,34 @@
     font-size: 24px;
   }
 
+  /* 🔥 FLORK AGORA EM RELATIVE - SEGUE O FLUXO */
   .bannerDecoration {
-    right: -30px;
+    position: relative;
+    right: auto;
+    bottom: auto;
+    transform: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    z-index: 1;
+    animation: floatMobile 4s ease-in-out infinite;
   }
 
   .bannerCookie {
     width: 140px;
     height: 140px;
+  }
+
+  .bannerCake {
+    width: 130px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* 🔥 NOVA ANIMAÇÃO MOBILE - SEM TRANSLATE X */
+  @keyframes floatMobile {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
   }
 
   .sobre {
@@ -931,9 +966,13 @@
   }
 }
 
+/* ============================================= */
+/* 📱 RESPONSIVIDADE - SMARTPHONES              */
+/* ============================================= */
+
 @media (max-width: 480px) {
   .banner {
-    padding: 40px 16px 32px;
+    padding: 40px 16px 140px;
   }
 
   .bannerTitle {
@@ -961,6 +1000,10 @@
 
   .bannerStatLabel {
     font-size: 11px;
+  }
+
+  .bannerCake {
+    width: 100px;
   }
 
   .sobre {
@@ -1107,6 +1150,10 @@
 }
 
 @media (max-width: 360px) {
+  .banner {
+    padding: 40px 16px 120px;
+  }
+
   .bannerTitle {
     font-size: 22px;
   }
@@ -1114,6 +1161,10 @@
   .bannerStats {
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .bannerCake {
+    width: 80px;
   }
 
   .sobreNumeros {
@@ -1258,7 +1309,7 @@
   }
 
   .sectionSubtitle {
-    color: var(--text-black);
+    color: var(--text-dark);
   }
 
   .valorCard p {
