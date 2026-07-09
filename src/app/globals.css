@@ -30,6 +30,7 @@
 @import '../styles/responsive/tablet.css';
 @import '../styles/responsive/mobile.css';
 @import '../styles/responsive/desktop.css';
+@import '../styles/components/share-menu.css';
 
 /* ============================================= */
 /* 🎯 ESTILOS GLOBAIS                           */
