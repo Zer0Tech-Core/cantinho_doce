@@ -24,7 +24,10 @@
   right: 0;
   width: 100%;
   max-width: 480px;
-  height: 100vh;
+  
+  /* 🔄 Altere de 100vh para 100dvh */
+  height: 100dvh; 
+  
   background: var(--white);
   box-shadow: -8px 0 40px rgba(0, 0, 0, 0.15);
   display: flex;
@@ -659,6 +662,9 @@
   .cart-drawer-actions {
     flex-direction: column;
     padding: 10px 16px;
+    
+    /* 🔥 Garante que não fique colado ou abaixo da barra de gestos do celular */
+    padding-bottom: calc(12px + env(safe-area-inset-bottom)); 
   }
 
   .cart-drawer-checkout-btn {
