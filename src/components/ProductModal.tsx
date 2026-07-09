@@ -120,58 +120,32 @@ export default function ProductModal({ produto, isOpen, onClose }: ProductModalP
     setIsLoading(false)
   }
 
-  // 🔥 VERSÃO SEM EMOJIS - 100% LIMPA
   const handleCompartilhar = () => {
-    const precoFinal = produto.precoPromocional || produto.preco
+    // 🔥 LINK DA PÁGINA DO PRODUTO (COM OG TAGS PARA PREVIEW)
+    const produtoUrl = `https://cantinho-docecg.vercel.app/produto/${produto.id}`
     
-    // 🔥 CONSTRÓI A URL DA IMAGEM
-    const getImagemUrl = () => {
-      if (!produto.imagem) return ''
-      const nomeArquivo = produto.imagem.split('/').pop() || produto.imagem
-      const nomeSemExtensao = nomeArquivo.replace(/\.[^.]+$/, '')
-      return `https://cantinho-docecg.vercel.app/imagens/produtos/${nomeSemExtensao}.webp`
-    }
-
-    const imagemUrl = getImagemUrl()
-    
-    // 🔥 MENSAGEM SEM EMOJIS - APENAS TEXTO PURO
+    // 🔥 MENSAGEM CURTA E PROFISSIONAL COM O LINK
     const linhas: string[] = []
 
-    // Título em negrito
-    linhas.push(`*${produto.nome}*`)
-    // Descrição em itálico
+    linhas.push(`🍪 *${produto.nome}*`)
     linhas.push(`_${produto.descricao}_`)
     linhas.push('')
-
-    // Peso
-    linhas.push(`Peso: ${produto.peso}`)
     
-    // Preço
     if (produto.precoPromocional) {
-      linhas.push(`Preco: ${precoFinal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} (de R$ ${produto.preco.toFixed(2)})`)
+      linhas.push(`💰 Preço: R$ ${produto.precoPromocional.toFixed(2)} (de R$ ${produto.preco.toFixed(2)})`)
     } else {
-      linhas.push(`Preco: ${precoFinal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`)
+      linhas.push(`💰 Preço: R$ ${produto.preco.toFixed(2)}`)
     }
-    
-    // Tags
-    if (produto.tags && produto.tags.length > 0) {
-      linhas.push(`Tags: ${produto.tags.slice(0, 3).join(' | ')}`)
-    }
-    
+    linhas.push(`📦 Peso: ${produto.peso}`)
     linhas.push('')
     
-    // Imagem
-    if (imagemUrl) {
-      linhas.push(`Veja a foto do produto:`)
-      linhas.push(imagemUrl)
-      linhas.push('')
-    }
-    
-    // WhatsApp
-    linhas.push(`Peça agora pelo nosso WhatsApp!`)
+    // 🔥 O LINK É O QUE GERA O PREVIEW NO WHATSAPP
+    linhas.push(`👀 Veja mais detalhes:`)
+    linhas.push(produtoUrl)
+    linhas.push('')
+    linhas.push(`🛒 Peça agora pelo WhatsApp:`)
     linhas.push(`https://wa.me/5521972279173`)
 
-    // Junta todas as linhas e codifica
     const mensagem = linhas.join('\n')
     const url = `https://wa.me/5521972279173?text=${encodeURIComponent(mensagem)}`
     
