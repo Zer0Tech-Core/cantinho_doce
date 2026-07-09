@@ -1,5 +1,4 @@
 /* src/app/globals.css */
-
 /* ============================================= */
 /* 🌿 GLOBALS - CANTINHO DOCE                    */
 /* ============================================= */
@@ -10,17 +9,18 @@
 /* 2. RESET E BASE */
 @import '../styles/reset.css';
 
-/* 3. COMPONENTES */
+/* 3. COMPONENTES - UM DE CADA */
 @import '../styles/components/header.css';
 @import '../styles/components/footer.css';
 @import '../styles/components/products.css';
 @import '../styles/components/cart.css';
-@import '../styles/components/cart-drawer.css'; /* 🔥 NOVO */
+@import '../styles/components/cart-drawer.css';
 @import '../styles/components/modal.css';
 @import '../styles/components/toast.css';
 @import '../styles/components/categories.css';
 @import '../styles/components/search.css';
 @import '../styles/components/unified-header.css';
+@import '../styles/components/product-modal.css';
 
 /* 4. UTILITÁRIOS */
 @import '../styles/utils/icons.css';
@@ -32,172 +32,88 @@
 @import '../styles/responsive/desktop.css';
 
 /* ============================================= */
-/* 🎨 DARK MODE                                 */
+/* 🎯 ESTILOS GLOBAIS                           */
 /* ============================================= */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-creme: #1A1A1A;
-    --white: #1E1E1E;
-    --gray-50: #1E1E1E;
-    --gray-100: #2D2D2D;
-    --gray-200: #3D3D3D;
-    --gray-400: #888888;
-    --gray-600: #AAAAAA;
-    --text-dark: #F0F0F0;
-    --text-gray: #AAAAAA;
-    --text-light: #888888;
-    --primary-fundo: #1E2A1E;
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
-    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.6);
-  }
+body {
+  background: var(--bg-creme);
+  color: var(--text-dark);
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  .header {
-    background: linear-gradient(135deg, #1A1A1A, #1E2A1E);
-  }
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
 
-  .product-card {
-    background: var(--white);
-    border-color: var(--gray-200);
-  }
+a:hover {
+  color: var(--primary-dark);
+}
 
-  .product-card:hover {
-    border-color: var(--primary);
-  }
+::selection {
+  background: var(--primary);
+  color: var(--text-white);
+}
 
-  .product-name {
-    color: var(--text-dark);
-  }
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
 
-  .product-desc {
-    color: var(--gray-400);
-  }
+::-webkit-scrollbar-track {
+  background: var(--gray-50);
+}
 
-  .product-peso {
-    background: var(--gray-100);
-    color: var(--gray-400);
-  }
+::-webkit-scrollbar-thumb {
+  background: var(--gray-300);
+  border-radius: var(--radius-full);
+}
 
-  .product-price {
-    color: var(--text-dark);
-  }
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-400);
+}
 
-  .cart-floating {
-    background: rgba(26, 26, 26, 0.95);
-    border-top-color: var(--primary);
-  }
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
-  .cart-info .items,
-  .cart-info .total {
-    color: var(--text-dark);
-  }
+/* ============================================= */
+/* 🔄 ANIMAÇÕES GLOBAIS                         */
+/* ============================================= */
 
-  .btn-checkout:disabled {
-    background: var(--gray-800);
-    color: var(--gray-400);
-    opacity: 0.5;
-  }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-  .btn-clear {
-    color: var(--gray-400);
-  }
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
 
-  .btn-clear:hover {
-    color: var(--erro);
-  }
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
 
-  .modal {
-    background: var(--white);
-  }
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
 
-  .modal-header {
-    border-bottom-color: var(--gray-200);
-  }
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
 
-  .modal-header h2 {
-    color: var(--text-dark);
-  }
-
-  .modal-item {
-    border-bottom-color: var(--gray-200);
-    color: var(--text-dark);
-  }
-
-  .modal-item:hover {
-    background: var(--gray-100);
-  }
-
-  .modal-item .item-price {
-    color: var(--primary-light);
-  }
-
-  .modal-total {
-    border-top-color: var(--gray-600);
-  }
-
-  .modal-total small {
-    color: var(--gray-400);
-  }
-
-  .form-group label {
-    color: var(--text-dark);
-  }
-
-  .form-group input,
-  .form-group textarea,
-  .form-group .form-select {
-    background: var(--gray-100);
-    border-color: var(--gray-200);
-    color: var(--text-dark);
-  }
-
-  .form-group input:focus,
-  .form-group textarea:focus,
-  .form-group .form-select:focus {
-    border-color: var(--primary);
-  }
-
-  .form-select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-  }
-
-  .empty-state {
-    color: var(--gray-400);
-  }
-
-  .empty-state small {
-    color: var(--gray-200);
-  }
-
-  .toast-custom {
-    background: var(--gray-100);
-    color: var(--text-dark);
-  }
-
-  .footer {
-    background: linear-gradient(180deg, #0d1a0d, #1a1a1a);
-  }
-
-  .footer-scroll-top {
-    background: var(--secondary-dark);
-    color: var(--primary-dark);
-  }
-
-  .footer-social-link:hover {
-    background: rgba(255, 255, 255, 0.15);
-  }
-
-  .footer-newsletter-btn {
-    background: #128C7E;
-  }
-
-  .footer-newsletter-btn:hover {
-    background: #0d6b60;
-  }
-
-  .footer-social-icon {
-    filter: brightness(0.8) invert(1);
-  }
+.shimmer {
+  background: linear-gradient(90deg, var(--gray-50) 25%, var(--gray-100) 50%, var(--gray-50) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
 }

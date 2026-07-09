@@ -1,10 +1,11 @@
+/* src/styles/components/footer.css */
 /* ============================================= */
-/* 📌 FOOTER                                     */
+/* 📌 FOOTER - TEMA CLARO                       */
 /* ============================================= */
 
 .footer {
   background: linear-gradient(180deg, var(--primary-dark), var(--primary));
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--text-white);
   padding: 48px 20px 0;
   margin-top: 40px;
   position: relative;
@@ -33,9 +34,9 @@
   border: none;
   width: 48px;
   height: 48px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-md);
   transition: var(--transition-bounce);
   display: flex;
   align-items: center;
@@ -46,7 +47,7 @@
 
 .footer-scroll-top:hover {
   transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-lg);
 }
 
 .footer-scroll-top:active {
@@ -71,20 +72,19 @@
 .footer-section {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--radius-sm);
 }
 
 .footer-brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--radius-sm);
 }
 
 .footer-logo {
   width: 48px;
   height: 48px;
   object-fit: contain;
-  background: rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-sm);
   padding: 4px;
 }
@@ -92,7 +92,7 @@
 .footer-brand h3 {
   font-size: 20px;
   font-weight: 700;
-  color: white;
+  color: var(--text-white);
   letter-spacing: -0.5px;
 }
 
@@ -116,13 +116,11 @@
 .footer-social-link {
   width: 40px;
   height: 40px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
+  border-radius: var(--radius-full);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: var(--transition);
+  transition: var(--transition-bounce);
   text-decoration: none;
 }
 
@@ -140,14 +138,28 @@
 }
 
 .footer-social-icon {
-  filter: brightness(0) invert(1);
-  transition: var(--transition);
   width: 20px;
   height: 20px;
+  transition: var(--transition);
+  /* 🔥 REMOVA O FILTRO E USE COR BRANCA */
+  filter: none;
+  color: white;
+}
+
+.footer-social-link svg {
+  color: white;
+  fill: white;
 }
 
 .footer-social-link:hover .footer-social-icon {
   transform: scale(1.1);
+}
+
+.footer-social-link .footer-social-icon path,
+.footer-social-link .footer-social-icon circle,
+.footer-social-link .footer-social-icon rect {
+  fill: white;
+  stroke: white;
 }
 
 /* ============================================= */
@@ -157,7 +169,7 @@
 .footer-section-title {
   font-size: 16px;
   font-weight: 700;
-  color: white;
+  color: var(--text-white);
   margin-bottom: 4px;
 }
 
@@ -212,7 +224,7 @@
   align-items: center;
   gap: 10px;
   background: #25D366;
-  color: white;
+  color: var(--text-white);
   padding: 10px 20px;
   border-radius: var(--radius-full);
   text-decoration: none;
@@ -247,7 +259,7 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: var(--radius-sm);
   font-size: 13px;
   opacity: 0.7;
 }
@@ -270,4 +282,113 @@
 @keyframes heartBeat {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.2); }
+}
+
+/* ============================================= */
+/* 📱 RESPONSIVIDADE - FOOTER                   */
+/* ============================================= */
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 32px 16px 0;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .footer-section:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .footer-description {
+    max-width: 100%;
+  }
+
+  .footer-newsletter-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footer-bottom-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .footer-scroll-top {
+    bottom: 80px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 24px 12px 0;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .footer-section:first-child {
+    grid-column: 1;
+  }
+
+  .footer-brand h3 {
+    font-size: 18px;
+  }
+
+  .footer-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .footer-social-link {
+    width: 36px;
+    height: 36px;
+  }
+
+  .footer-social-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .footer-scroll-top {
+    width: 40px;
+    height: 40px;
+    bottom: 72px;
+    right: 12px;
+  }
+
+  .footer-bottom-content {
+    font-size: 12px;
+  }
+
+  .footer-newsletter-btn {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .footer {
+    padding: 64px 20px 0;
+  }
+
+  .footer-container {
+    gap: 48px;
+  }
+
+  .footer-brand h3 {
+    font-size: 24px;
+  }
+
+  .footer-description {
+    font-size: 15px;
+  }
 }

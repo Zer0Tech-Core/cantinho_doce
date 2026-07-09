@@ -195,7 +195,7 @@
 
 .product-desc {
   font-size: 13px;
-  color: var(--text-gray);
+  color: var(--text-dark);
   margin-bottom: 8px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -216,7 +216,7 @@
 
 .product-peso {
   font-size: 12px;
-  color: var(--text-gray);
+  color: var(--text-dark);
   font-weight: 500;
   background: var(--primary-fundo);
   padding: 2px 12px;
@@ -472,12 +472,12 @@
   }
 
   .product-desc {
-    color: var(--gray-400);
+    color: var(--text-dark);
   }
 
   .product-peso {
     background: var(--gray-100);
-    color: var(--gray-400);
+    color: var(--text-dark);
   }
 
   .product-price {
