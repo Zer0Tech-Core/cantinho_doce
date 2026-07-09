@@ -1,0 +1,236 @@
+/* src/styles/components/share-menu.css */
+
+.share-menu-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.share-menu-trigger {
+  background: rgba(0, 0, 0, 0.45);
+  border: none;
+  color: white;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  backdrop-filter: blur(4px);
+}
+
+.share-menu-trigger:hover {
+  background: rgba(0, 0, 0, 0.65);
+  transform: scale(1.05);
+}
+
+.share-menu-dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: var(--shadow-xl);
+  min-width: 230px;
+  padding: 8px;
+  z-index: 50;
+  animation: shareMenuSlide 0.25s ease;
+  border: 1px solid var(--border-light);
+}
+
+@keyframes shareMenuSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.share-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px 12px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.share-menu-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+.share-menu-close {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.share-menu-close:hover {
+  background: var(--gray-50);
+  color: var(--text-dark);
+}
+
+.share-menu-options {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 0;
+}
+
+.share-menu-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border: none;
+  background: transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+  text-align: left;
+}
+
+.share-menu-option:hover {
+  background: var(--gray-50);
+}
+
+.share-menu-option:active {
+  transform: scale(0.97);
+}
+
+.share-menu-option-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--gray-50);
+  flex-shrink: 0;
+}
+
+.share-menu-svg-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.share-menu-option-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-dark);
+  flex: 1;
+}
+
+.share-menu-option-badge {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--sucesso);
+  background: var(--sucesso-fundo);
+  padding: 2px 10px;
+  border-radius: 50px;
+}
+
+.share-menu-footer {
+  padding: 12px 14px 8px;
+  border-top: 1px solid var(--border-light);
+}
+
+.share-menu-url {
+  font-size: 11px;
+  color: var(--text-light);
+  word-break: break-all;
+  display: block;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .share-menu-dropdown {
+    background: var(--white);
+    border-color: var(--gray-200);
+  }
+
+  .share-menu-title {
+    color: var(--text-dark);
+  }
+
+  .share-menu-option:hover {
+    background: var(--gray-100);
+  }
+
+  .share-menu-option-label {
+    color: var(--text-dark);
+  }
+
+  .share-menu-option-icon {
+    background: var(--gray-100);
+  }
+
+  .share-menu-footer {
+    border-color: var(--gray-200);
+  }
+
+  .share-menu-url {
+    color: var(--gray-400);
+  }
+
+  .share-menu-svg-icon {
+    filter: brightness(0) invert(1);
+  }
+}
+
+/* Mobile - Bottom Sheet */
+@media (max-width: 480px) {
+  .share-menu-dropdown {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    transform: none;
+    border-radius: 20px 20px 0 0;
+    animation: shareMenuSlideUp 0.3s ease;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  @keyframes shareMenuSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .share-menu-header {
+    padding: 16px 16px 12px;
+  }
+
+  .share-menu-options {
+    padding: 8px 4px;
+  }
+
+  .share-menu-option {
+    padding: 14px 16px;
+  }
+}

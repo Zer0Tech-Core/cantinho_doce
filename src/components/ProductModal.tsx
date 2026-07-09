@@ -16,6 +16,7 @@ import {
 import Image from 'next/image'
 import { useCart } from '@/hooks/useCart'
 import { useToast } from '@/context/ToastContext'
+import ShareMenu from './ShareMenu'
 
 interface Produto {
   id: string
@@ -164,13 +165,19 @@ export default function ProductModal({ produto, isOpen, onClose }: ProductModalP
           >
             <X size={22} />
           </button>
-          <button 
-            className="product-modal-share"
-            onClick={handleCompartilhar}
-            aria-label="Compartilhar no WhatsApp"
-          >
-            <Share2 size={18} />
-          </button>
+          {produto && (
+            <ShareMenu 
+              produto={{
+                id: produto.id,
+                nome: produto.nome,
+                descricao: produto.descricao,
+                preco: produto.preco,
+                precoPromocional: produto.precoPromocional,
+                imagem: produto.imagem,
+                peso: produto.peso
+              }}
+            />
+          )}
         </div>
 
         {/* Conteúdo principal em grid */}
