@@ -9,7 +9,7 @@
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(6px);
-  z-index: 1000;
+  z-index: var(--z-modal);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,12 +24,12 @@
 
 .product-modal {
   background: var(--white);
-  border-radius: 20px;
+  border-radius: var(--radius-xl);
   max-width: 520px;
   width: 100%;
   max-height: 90vh;
   overflow: hidden;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--shadow-xl);
   animation: productModalSlide 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   position: relative;
 }
@@ -64,15 +64,15 @@
 .product-modal-share {
   background: rgba(0, 0, 0, 0.45);
   border: none;
-  color: white;
+  color: var(--text-white);
   width: 38px;
   height: 38px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s;
+  transition: var(--transition);
   backdrop-filter: blur(4px);
 }
 
@@ -118,7 +118,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
 }
 
 .product-modal-image-fallback {
@@ -141,13 +141,13 @@
 
 .product-modal-badge {
   padding: 3px 10px;
-  border-radius: 50px;
+  border-radius: var(--radius-full);
   font-size: 10px;
   font-weight: 700;
   display: flex;
   align-items: center;
   gap: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--shadow-sm);
   letter-spacing: 0.3px;
 }
 
@@ -158,7 +158,7 @@
 
 .product-modal-badge.promocao {
   background: var(--erro);
-  color: white;
+  color: var(--text-white);
 }
 
 /* ============================================= */
@@ -180,7 +180,7 @@
 
 .product-modal-info::-webkit-scrollbar-thumb {
   background: var(--gray-300);
-  border-radius: 50px;
+  border-radius: var(--radius-full);
 }
 
 .product-modal-info-header {
@@ -202,13 +202,13 @@
   color: var(--text-light);
   background: var(--gray-50);
   padding: 2px 10px;
-  border-radius: 50px;
+  border-radius: var(--radius-full);
   align-self: flex-start;
 }
 
 .product-modal-desc {
   font-size: 13px;
-  color: var(--text-gray);
+  color: var(--text-black);
   line-height: 1.6;
   margin: 2px 0 4px;
   display: -webkit-box;
@@ -229,10 +229,10 @@
   align-items: center;
   gap: 4px;
   font-size: 12px;
-  color: var(--text-gray);
+  color: var(--text-black);
   background: var(--gray-50);
   padding: 3px 10px;
-  border-radius: 50px;
+  border-radius: var(--radius-full);
 }
 
 .product-modal-meta-item svg {
@@ -249,10 +249,10 @@
 
 .product-modal-tag {
   font-size: 10px;
-  color: var(--text-light);
+  color: var(--text-black);
   background: var(--gray-50);
   padding: 2px 8px;
-  border-radius: 50px;
+  border-radius: var(--radius-full);
 }
 
 .product-modal-price {
@@ -290,9 +290,9 @@
   align-items: center;
   gap: 2px;
   background: var(--gray-50);
-  border-radius: 50px;
+  border-radius: var(--radius-full);
   padding: 3px;
-  border: 1px solid var(--gray-200);
+  border: 1px solid var(--border-light);
   flex-shrink: 0;
 }
 
@@ -301,13 +301,13 @@
   height: 32px;
   border: none;
   background: transparent;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   color: var(--text-gray);
-  transition: all 0.2s;
+  transition: var(--transition);
 }
 
 .product-modal-qty-btn:hover:not(:disabled) {
@@ -336,13 +336,13 @@
   gap: 6px;
   padding: 10px 16px;
   background: var(--primary);
-  color: white;
+  color: var(--text-white);
   border: none;
-  border-radius: 50px;
+  border-radius: var(--radius-full);
   font-weight: 700;
   font-size: 13px;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: var(--transition-bounce);
   box-shadow: 0 3px 12px rgba(46, 125, 50, 0.2);
   min-height: 44px;
 }
@@ -370,7 +370,7 @@
   color: var(--text-gray);
   padding: 6px;
   background: var(--primary-fundo);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
 }
 
 /* ============================================= */
@@ -381,8 +381,8 @@
   width: 20px;
   height: 20px;
   border: 2px solid rgba(255, 255, 255, 0.2);
-  border-top-color: white;
-  border-radius: 50%;
+  border-top-color: var(--text-white);
+  border-radius: var(--radius-full);
   animation: productModalSpin 0.6s linear infinite;
 }
 
@@ -398,6 +398,7 @@
   .product-modal {
     max-width: 480px;
     max-height: 92vh;
+    border-radius: var(--radius-lg);
   }
 
   .product-modal-grid {
@@ -405,12 +406,22 @@
   }
 
   .product-modal-image {
-    min-height: 200px;
-    padding: 16px;
+    min-height: auto; /* 🔥 Remove a altura mínima rígida */
+    padding: 0;       /* 🔥 Remove o padding para a imagem encostar nas bordas */
+    width: 100%;
+    aspect-ratio: 16 / 10; /* Garante uma proporção retangular agradável */
   }
 
   .product-modal-image-wrapper {
-    max-width: 160px;
+    max-width: 100%; /* 🔥 Permite expandir por toda a largura do modal */
+    width: 100%;
+    height: 100%;
+  }
+
+  .product-modal-image-img {
+    object-fit: cover; /* 🔥 Preenche o espaço cortando as rebarbas transparentes */
+    width: 100%;
+    height: 100%;
   }
 
   .product-modal-image-fallback {
@@ -464,17 +475,27 @@
   }
 
   .product-modal {
-    border-radius: 16px;
+    border-radius: var(--radius-md);
     max-height: 95vh;
   }
 
   .product-modal-image {
-    min-height: 160px;
-    padding: 12px;
+    min-height: auto; /* 🔥 Remove o limite antigo */
+    padding: 0;       /* 🔥 Encosta a foto nas laterais */
+    aspect-ratio: 4 / 3; /* 🔥 Define uma proporção perfeita para o produto aparecer grande */
   }
 
   .product-modal-image-wrapper {
-    max-width: 120px;
+    max-width: 100%;  /* 🔥 Ocupa o topo inteiro do modal */
+    width: 100%;
+    height: 100%;
+  }
+
+  .product-modal-image-img {
+    object-fit: contain; /* 🔥 Mantém o "contain" se as suas imagens tiverem fundo transparente, ou "cover" se tiverem cenário */
+    padding: 12px;       /* Um leve respiro apenas para o pote não colar no teto */
+    width: 100%;
+    height: 100%;
   }
 
   .product-modal-image-fallback {
@@ -488,7 +509,11 @@
   }
 
   .product-modal-name {
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 800;
+    white-space: normal; /* 🔥 Permite que o nome quebre linha se for grande */
+    overflow: visible;
+    text-overflow: clip;
   }
 
   .product-modal-desc {
@@ -572,51 +597,6 @@
   }
 }
 
-/* ============================================= */
-/* 📱 RESPONSIVO - TELAS MUITO PEQUENAS        */
-/* ============================================= */
-
-@media (max-width: 360px) {
-  .product-modal-image {
-    min-height: 120px;
-    padding: 8px;
-  }
-
-  .product-modal-image-wrapper {
-    max-width: 90px;
-  }
-
-  .product-modal-image-fallback {
-    font-size: 32px;
-  }
-
-  .product-modal-info {
-    padding: 10px 12px 14px;
-  }
-
-  .product-modal-name {
-    font-size: 14px;
-  }
-
-  .product-modal-price-current {
-    font-size: 18px;
-  }
-
-  .product-modal-qty-btn {
-    width: 30px;
-    height: 30px;
-  }
-
-  .product-modal-qty-btn svg {
-    width: 14px;
-    height: 14px;
-  }
-
-  .product-modal-qty-display {
-    font-size: 14px;
-    min-width: 24px;
-  }
-}
 
 /* ============================================= */
 /* 🌙 DARK MODE                                 */
@@ -632,17 +612,17 @@
   }
 
   .product-modal-desc {
-    color: var(--gray-400);
+    color: var(--text-black);
   }
 
   .product-modal-meta-item {
     background: var(--gray-100);
-    color: var(--gray-400);
+    color: var(--text-black);
   }
 
   .product-modal-tag {
     background: var(--gray-100);
-    color: var(--gray-400);
+    color: var(--text-black);
   }
 
   .product-modal-qty {
