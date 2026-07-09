@@ -1,15 +1,16 @@
 /* src/app/sobre/sobre.module.css */
 
 /* ============================================= */
-/* 🎯 BANNER                                    */
+/* 🎯 BANNER - TEMA CLARO                       */
 /* ============================================= */
 
 .banner {
-  background: linear-gradient(135deg, #1a472a, #2E7D32);
+  background: linear-gradient(135deg, var(--banner-bg-start), var(--banner-bg-end));
   padding: 80px 20px 60px;
   position: relative;
   overflow: hidden;
   text-align: center;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .bannerContent {
@@ -22,33 +23,33 @@
 .bannerBadge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #F5A623;
+  gap: var(--radius-sm);
+  background: var(--banner-badge-bg);
+  color: var(--banner-badge-text);
   padding: 8px 20px;
-  border-radius: 50px;
+  border-radius: var(--radius-full);
   font-size: 13px;
   font-weight: 600;
   margin-bottom: 20px;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(27, 94, 32, 0.06);
 }
 
 .bannerBadge svg {
-  color: #F5A623;
+  color: var(--banner-badge-text);
 }
 
 .bannerTitle {
   font-size: 48px;
   font-weight: 800;
-  color: white;
+  color: var(--banner-text);
   margin-bottom: 12px;
   letter-spacing: -1px;
 }
 
 .bannerSubtitle {
   font-size: 18px;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--banner-text-sub);
   max-width: 600px;
   margin: 0 auto 40px;
   line-height: 1.7;
@@ -59,13 +60,13 @@
   justify-content: center;
   align-items: center;
   gap: 32px;
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(10px);
+  background: var(--white);
   padding: 20px 40px;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-medium);
   max-width: 520px;
   margin: 0 auto;
+  box-shadow: var(--shadow-sm);
 }
 
 .bannerStat {
@@ -77,20 +78,20 @@
 .bannerStatNumber {
   font-size: 32px;
   font-weight: 800;
-  color: #F5A623;
+  color: var(--secondary);
   line-height: 1.2;
 }
 
 .bannerStatLabel {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-gray);
   font-weight: 400;
 }
 
 .bannerStatDivider {
   width: 1px;
   height: 36px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--border-medium);
 }
 
 .bannerDecoration {
@@ -103,7 +104,7 @@
 }
 
 .bannerCookie {
-  color: white;
+  color: var(--primary-light);
   width: 240px;
   height: 240px;
 }
@@ -117,17 +118,17 @@
   background: var(--primary-fundo);
   color: var(--primary);
   padding: 6px 18px;
-  border-radius: 50px;
+  border-radius: var(--radius-full);
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.8px;
-  margin-bottom: 12px;
+  margin-bottom: var(--radius-sm);
 }
 
 .sectionTagWhite {
   background: rgba(255, 255, 255, 0.08);
-  color: #F5A623;
+  color: var(--secondary);
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
@@ -149,7 +150,6 @@
   align-items: center;
 }
 
-/* Coluna Esquerda - Poema */
 .sobrePoema {
   padding-right: 10px;
 }
@@ -159,12 +159,12 @@
   font-weight: 800;
   text-align: left;
   color: var(--primary-dark);
-  margin-bottom: 12px;
+  margin-bottom: var(--radius-sm);
   line-height: 1.2;
 }
 
 .sectionTitleWhite {
-  color: white;
+  color: var(--text-white);
   text-align: center;
 }
 
@@ -174,7 +174,7 @@
 
 .sectionSubtitle {
   text-align: center;
-  color: var(--text-gray);
+  color: var(--text-black);
   font-size: 16px;
   max-width: 600px;
   margin: 0 auto 48px;
@@ -185,7 +185,10 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* Poema em 2 colunas internas */
+/* ============================================= */
+/* 📖 POEMA EM 2 COLUNAS                        */
+/* ============================================= */
+
 .poemaGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -205,7 +208,7 @@
   gap: 2px;
   padding-left: 14px;
   border-left: 3px solid var(--secondary);
-  transition: all 0.3s ease;
+  transition: var(--transition);
 }
 
 .verso:hover {
@@ -228,25 +231,25 @@
 
 .versoPequeno {
   font-size: 14px;
-  color: var(--text-gray);
+  color: var(--text-dark);
   line-height: 1.6;
   font-weight: 400;
 }
 
 .versoDestaqueBox {
-  background: linear-gradient(135deg, var(--primary-fundo), #E8F5E9);
-  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary-fundo), var(--gray-50));
+  border-radius: var(--radius-md);
   padding: 16px 18px;
   border: 2px solid var(--primary);
   display: flex;
   flex-direction: column;
   gap: 2px;
-  transition: all 0.3s ease;
+  transition: var(--transition-bounce);
 }
 
 .versoDestaqueBox:hover {
   transform: scale(1.01);
-  box-shadow: 0 4px 16px rgba(46, 125, 50, 0.1);
+  box-shadow: var(--shadow-sm);
 }
 
 .versoDestaqueBox span {
@@ -263,26 +266,26 @@
 }
 
 .versoFinal {
-  background: linear-gradient(135deg, var(--primary-dark), #0d2615);
-  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary-dark), var(--gray-900));
+  border-radius: var(--radius-md);
   padding: 16px 20px;
   margin-top: 8px;
   text-align: center;
   display: flex;
   flex-direction: column;
   gap: 2px;
-  transition: all 0.3s ease;
+  transition: var(--transition-bounce);
 }
 
 .versoFinal:hover {
   transform: scale(1.01);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-md);
 }
 
 .versoFinal span {
   font-size: 18px;
   font-weight: 700;
-  color: white;
+  color: var(--text-white);
   line-height: 1.3;
 }
 
@@ -291,25 +294,28 @@
   font-size: 20px;
 }
 
-/* Números */
+/* ============================================= */
+/* 📊 NÚMEROS                                   */
+/* ============================================= */
+
 .sobreNumeros {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  gap: var(--radius-sm);
   margin-top: 20px;
 }
 
 .numeroItem {
   text-align: center;
   background: var(--primary-fundo);
-  padding: 12px 8px;
-  border-radius: 10px;
-  transition: all 0.3s ease;
+  padding: var(--radius-sm) 8px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-bounce);
 }
 
 .numeroItem:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.1);
+  box-shadow: var(--shadow-sm);
 }
 
 .numero {
@@ -326,7 +332,10 @@
   font-weight: 500;
 }
 
-/* Coluna Direita - Imagem */
+/* ============================================= */
+/* 🖼️ IMAGEM                                    */
+/* ============================================= */
+
 .sobreImagem {
   display: flex;
   justify-content: center;
@@ -337,19 +346,14 @@
   width: 100%;
   max-width: 420px;
   aspect-ratio: 1;
-  border-radius: 20px;
+  border-radius: var(--radius-xl);
   overflow: hidden;
-  border: 3px solid var(--primary);
-  box-shadow: 0 8px 32px rgba(46, 125, 50, 0.15);
+  box-shadow: var(--shadow-md);
   position: relative;
-  background: linear-gradient(135deg, var(--primary-fundo), #E8F5E9);
-  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  background: linear-gradient(135deg, var(--primary-fundo), var(--gray-50));
+  transition: var(--transition-bounce);
 }
 
-.imageWrapper:hover {
-  transform: scale(1.02) rotate(-1deg);
-  box-shadow: 0 12px 48px rgba(46, 125, 50, 0.25);
-}
 
 .imageWrapperImg {
   width: 100%;
@@ -358,24 +362,20 @@
   transition: transform 0.6s ease;
 }
 
-.imageWrapper:hover .imageWrapperImg {
-  transform: scale(1.05);
-}
-
 .imageLabel {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
-  color: white;
+  color: var(--text-white);
   padding: 32px 16px 14px;
   text-align: center;
   font-size: 14px;
   font-weight: 500;
   opacity: 0;
   transform: translateY(10px);
-  transition: all 0.4s ease;
+  transition: var(--transition-slow);
   font-style: italic;
 }
 
@@ -405,18 +405,18 @@
 }
 
 .valorCard {
-  background: var(--white);
+  background: var(--text-black);
   padding: 36px 24px;
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  border: 1px solid var(--gray-100);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-bounce);
+  border: 1px solid var(--border-light);
 }
 
 .valorCard:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-md);
   border-color: var(--primary);
 }
 
@@ -424,18 +424,18 @@
   width: 64px;
   height: 64px;
   background: var(--primary-fundo);
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 16px;
   color: var(--primary);
-  transition: all 0.3s ease;
+  transition: var(--transition-bounce);
 }
 
 .valorCard:hover .valorIcon {
   background: var(--primary);
-  color: white;
+  color: var(--text-black);
   transform: scale(1.1) rotate(-8deg);
 }
 
@@ -448,7 +448,7 @@
 
 .valorCard p {
   font-size: 14px;
-  color: var(--text-gray);
+  color: var(--text-black);
   line-height: 1.7;
 }
 
@@ -478,28 +478,28 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: var(--radius-sm);
 }
 
 .timelineIcon {
   width: 52px;
   height: 52px;
   background: var(--primary-fundo);
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--primary);
   margin-bottom: 8px;
   border: 2px solid var(--primary);
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: var(--transition-bounce);
 }
 
 .timelineItem:hover .timelineIcon {
   background: var(--primary);
-  color: white;
+  color: var(--text-white);
   transform: scale(1.12) rotate(-12deg);
-  box-shadow: 0 4px 16px rgba(46, 125, 50, 0.2);
+  box-shadow: var(--shadow-sm);
 }
 
 .timelineData {
@@ -511,14 +511,14 @@
 .timelineCard {
   background: var(--gray-50);
   padding: 20px 16px;
-  border-radius: 12px;
-  border: 1px solid var(--gray-100);
-  transition: all 0.3s ease;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  transition: var(--transition-bounce);
 }
 
 .timelineCard:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-sm);
   border-color: var(--primary);
 }
 
@@ -531,7 +531,7 @@
 
 .timelineCard p {
   font-size: 13px;
-  color: var(--text-gray);
+  color: var(--text-black);
   line-height: 1.6;
 }
 
@@ -550,8 +550,8 @@
 
 .missao {
   padding: 80px 20px;
-  background: linear-gradient(135deg, #0d2615, #1a472a);
-  color: white;
+  background: linear-gradient(135deg, var(--gray-900), var(--primary-dark));
+  color: var(--text-white);
   position: relative;
   overflow: hidden;
 }
@@ -581,9 +581,9 @@
   text-align: center;
   padding: 40px 32px;
   background: rgba(255, 255, 255, 0.04);
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: var(--transition-bounce);
   backdrop-filter: blur(10px);
 }
 
@@ -591,7 +591,7 @@
   background: rgba(255, 255, 255, 0.08);
   transform: translateY(-8px);
   border-color: rgba(245, 166, 35, 0.25);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-md);
 }
 
 .missaoIcon {
@@ -602,7 +602,7 @@
 
 .missaoIcon svg {
   color: var(--secondary);
-  transition: all 0.3s ease;
+  transition: var(--transition-bounce);
 }
 
 .missaoItem:hover .missaoIcon svg {
@@ -612,7 +612,7 @@
 .missaoItem h3 {
   font-size: 22px;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: var(--radius-sm);
 }
 
 .missaoItem p {
@@ -646,33 +646,33 @@
   gap: 16px;
   background: var(--white);
   padding: 20px 24px;
-  border-radius: 12px;
-  border: 1px solid var(--gray-100);
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  transition: var(--transition-bounce);
 }
 
 .diferencialItem:hover {
   border-color: var(--primary);
   transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-sm);
 }
 
 .diferencialIcon {
   width: 48px;
   height: 48px;
   background: var(--primary-fundo);
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--primary);
   flex-shrink: 0;
-  transition: all 0.3s ease;
+  transition: var(--transition-bounce);
 }
 
 .diferencialItem:hover .diferencialIcon {
   background: var(--primary);
-  color: white;
+  color: var(--text-dark);
   transform: scale(1.08) rotate(-6deg);
 }
 
@@ -685,7 +685,7 @@
 
 .diferencialItem p {
   font-size: 13px;
-  color: var(--text-gray);
+  color: var(--text-dark);
   line-height: 1.5;
 }
 
@@ -708,21 +708,21 @@
 .contatoCard {
   background: var(--gray-50);
   padding: 32px 24px;
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   text-align: center;
-  border: 1px solid var(--gray-100);
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 1px solid var(--border-light);
+  transition: var(--transition-bounce);
 }
 
 .contatoCard:hover {
   border-color: var(--primary);
   transform: translateY(-6px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-sm);
 }
 
 .contatoCard svg {
   color: var(--primary);
-  margin-bottom: 12px;
+  margin-bottom: var(--radius-sm);
 }
 
 .contatoCard h4 {
@@ -734,7 +734,7 @@
 
 .contatoCard p {
   font-size: 14px;
-  color: var(--text-gray);
+  color: var(--text-dark);
 }
 
 .contatoWhatsapp {
@@ -747,13 +747,13 @@
   align-items: center;
   gap: 10px;
   background: #25D366;
-  color: white;
+  color: var(--text-white);
   padding: 16px 44px;
-  border-radius: 50px;
+  border-radius: var(--radius-full);
   font-weight: 700;
   font-size: 16px;
   text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: var(--transition-bounce);
   box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
 }
 
@@ -774,111 +774,7 @@
 }
 
 /* ============================================= */
-/* 🌙 DARK MODE                                 */
-/* ============================================= */
-
-@media (prefers-color-scheme: dark) {
-  .sobre {
-    background: var(--white);
-  }
-
-  .valores {
-    background: var(--gray-100);
-  }
-
-  .valorCard {
-    background: var(--white);
-    border-color: var(--gray-200);
-  }
-
-  .timeline {
-    background: var(--white);
-  }
-
-  .timelineCard {
-    background: var(--gray-100);
-    border-color: var(--gray-200);
-  }
-
-  .diferenciais {
-    background: var(--gray-100);
-  }
-
-  .diferencialItem {
-    background: var(--white);
-    border-color: var(--gray-200);
-  }
-
-  .contato {
-    background: var(--white);
-  }
-
-  .contatoCard {
-    background: var(--gray-100);
-    border-color: var(--gray-200);
-  }
-
-  .imageWrapper {
-    border-color: var(--primary);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  }
-
-  .versoGrande {
-    color: var(--text-dark);
-  }
-
-  .versoDestaque {
-    color: var(--primary-light);
-  }
-
-  .versoPequeno {
-    color: var(--gray-400);
-  }
-
-  .versoDestaqueBox {
-    background: linear-gradient(135deg, var(--gray-100), var(--gray-200));
-    border-color: var(--primary);
-  }
-
-  .versoDestaqueBox span {
-    color: var(--text-dark);
-  }
-
-  .versoDestaqueBox span:first-child {
-    color: var(--primary-light);
-  }
-
-  .sectionSubtitle {
-    color: var(--gray-400);
-  }
-
-  .valorCard p {
-    color: var(--gray-400);
-  }
-
-  .diferencialItem p {
-    color: var(--gray-400);
-  }
-
-  .contatoCard p {
-    color: var(--gray-400);
-  }
-
-  .timelineCard p {
-    color: var(--gray-400);
-  }
-
-  .whatsappHint {
-    color: var(--gray-400);
-  }
-
-  .imageLabel {
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
-  }
-}
-
-/* ============================================= */
-/* 📱 RESPONSIVIDADE - TABLETS                  */
+/* 📱 RESPONSIVIDADE                            */
 /* ============================================= */
 
 @media (max-width: 992px) {
@@ -888,7 +784,7 @@
 
   .poemaGrid {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: var(--radius-sm);
   }
 }
 
@@ -907,7 +803,7 @@
 
   .bannerStats {
     flex-direction: column;
-    gap: 12px;
+    gap: var(--radius-sm);
     padding: 18px 24px;
   }
 
@@ -1034,10 +930,6 @@
     font-size: 19px;
   }
 }
-
-/* ============================================= */
-/* 📱 RESPONSIVIDADE - SMARTPHONES              */
-/* ============================================= */
 
 @media (max-width: 480px) {
   .banner {
@@ -1174,7 +1066,7 @@
   }
 
   .verso {
-    padding-left: 12px;
+    padding-left: var(--radius-sm);
   }
 
   .versoGrande {
@@ -1190,7 +1082,7 @@
   }
   
   .versoDestaqueBox {
-    padding: 14px 14px;
+    padding: 14px;
   }
   
   .versoDestaqueBox span {
@@ -1202,7 +1094,7 @@
   }
   
   .versoFinal {
-    padding: 14px 14px;
+    padding: 14px;
   }
   
   .versoFinal span {
@@ -1213,10 +1105,6 @@
     font-size: 17px;
   }
 }
-
-/* ============================================= */
-/* 📱 RESPONSIVIDADE - TELAS MUITO PEQUENAS    */
-/* ============================================= */
 
 @media (max-width: 360px) {
   .bannerTitle {
@@ -1240,10 +1128,6 @@
     max-width: 200px;
   }
 }
-
-/* ============================================= */
-/* 📱 RESPONSIVIDADE - TELAS GRANDES            */
-/* ============================================= */
 
 @media (min-width: 1400px) {
   .banner {
@@ -1300,5 +1184,104 @@
   
   .versoFinal span:last-child {
     font-size: 22px;
+  }
+}
+
+/* ============================================= */
+/* 🌙 DARK MODE                                 */
+/* ============================================= */
+
+@media (prefers-color-scheme: dark) {
+  .sobre {
+    background: var(--white);
+  }
+
+  .valores {
+    background: var(--gray-100);
+  }
+
+  .valorCard {
+    background: var(--white);
+    border-color: var(--gray-200);
+  }
+
+  .timeline {
+    background: var(--white);
+  }
+
+  .timelineCard {
+    background: var(--gray-100);
+    border-color: var(--gray-200);
+  }
+
+  .diferenciais {
+    background: var(--gray-100);
+  }
+
+  .diferencialItem {
+    background: var(--white);
+    border-color: var(--gray-200);
+  }
+
+  .contato {
+    background: var(--white);
+  }
+
+  .contatoCard {
+    background: var(--gray-100);
+    border-color: var(--gray-200);
+  }
+
+  .versoGrande {
+    color: var(--text-dark);
+  }
+
+  .versoDestaque {
+    color: var(--primary-light);
+  }
+
+  .versoPequeno {
+    color: var(--text-dark);
+  }
+
+  .versoDestaqueBox {
+    background: linear-gradient(135deg, var(--gray-100), var(--gray-200));
+    border-color: var(--primary);
+  }
+
+  .versoDestaqueBox span {
+    color: var(--text-dark);
+  }
+
+  .versoDestaqueBox span:first-child {
+    color: var(--primary-light);
+  }
+
+  .sectionSubtitle {
+    color: var(--text-black);
+  }
+
+  .valorCard p {
+    color: var(--text-dark);
+  }
+
+  .diferencialItem p {
+    color: var(--text-dark);
+  }
+
+  .contatoCard p {
+    color: var(--text-dark);
+  }
+
+  .timelineCard p {
+    color: var(--text-dark);
+  }
+
+  .whatsappHint {
+    color: var(--text-dark);
+  }
+
+  .imageLabel {
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
   }
 }

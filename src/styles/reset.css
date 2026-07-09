@@ -12,7 +12,7 @@ body {
   font-family: var(--font-family);
   background: var(--bg-creme);
   color: var(--text-dark);
-  padding-bottom: 90px;
+  padding-bottom: 0;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

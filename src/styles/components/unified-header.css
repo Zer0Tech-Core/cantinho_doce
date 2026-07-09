@@ -1,18 +1,19 @@
+/* src/styles/components/unified-header.css */
 /* ============================================= */
-/* 🚀 UNIFIED HEADER                            */
+/* 🚀 UNIFIED HEADER - TEMA CLARO               */
 /* ============================================= */
 
 .unified-header {
   position: sticky;
   top: 0;
-  z-index: 100;
-  background: linear-gradient(135deg, #1a472a, #2E7D32);
-  border-bottom: 2px solid #F5A623;
-  transition: box-shadow 0.3s ease;
+  z-index: var(--z-header);
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  border-bottom: 3px solid var(--secondary);
+  transition: box-shadow var(--transition-slow);
 }
 
 .unified-header-scrolled {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-md);
 }
 
 /* ============================================= */
@@ -22,29 +23,29 @@
 .unified-topbar {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--radius-sm);
   padding: 10px 16px;
   min-height: 64px;
 }
 
 /* Menu */
 .unified-menu-btn {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
   border: none;
-  color: white;
+  color: var(--text-white);
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s;
+  transition: background var(--transition);
   flex-shrink: 0;
 }
 
 .unified-menu-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 /* Logo */
@@ -54,7 +55,7 @@
   gap: 10px;
   cursor: pointer;
   flex-shrink: 0;
-  transition: transform 0.3s ease;
+  transition: transform var(--transition-bounce);
 }
 
 .unified-logo:hover {
@@ -65,8 +66,8 @@
   width: 40px;
   height: 40px;
   object-fit: contain;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.12);
   padding: 4px;
 }
 
@@ -79,7 +80,7 @@
 .unified-logo-title {
   font-size: 18px;
   font-weight: 700;
-  color: white;
+  color: var(--text-white);
   letter-spacing: -0.3px;
 }
 
@@ -105,15 +106,15 @@
   align-items: center;
   background: rgba(255, 255, 255, 0.12);
   border: 2px solid rgba(255, 255, 255, 0.15);
-  border-radius: 50px;
-  transition: all 0.3s ease;
+  border-radius: var(--radius-full);
+  transition: all var(--transition);
   backdrop-filter: blur(10px);
 }
 
 .unified-search-input-wrapper:focus-within {
   background: rgba(255, 255, 255, 0.2);
-  border-color: #F5A623;
-  box-shadow: 0 0 0 4px rgba(245, 166, 35, 0.15);
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 4px rgba(249, 168, 37, 0.15);
 }
 
 .unified-search-icon {
@@ -129,8 +130,8 @@
   width: 18px;
   height: 18px;
   border: 2px solid rgba(255, 255, 255, 0.2);
-  border-top-color: #F5A623;
-  border-radius: 50%;
+  border-top-color: var(--secondary);
+  border-radius: var(--radius-full);
   animation: unified-spin 0.8s linear infinite;
 }
 
@@ -143,10 +144,10 @@
   padding: 10px 44px 10px 42px;
   border: none;
   background: transparent;
-  color: white;
+  color: var(--text-white);
   font-size: 14px;
   outline: none;
-  font-family: inherit;
+  font-family: var(--font-family);
 }
 
 .unified-search-input::placeholder {
@@ -163,10 +164,10 @@
   height: 24px;
   border: none;
   background: rgba(255, 255, 255, 0.15);
-  border-radius: 50%;
-  color: white;
+  border-radius: var(--radius-full);
+  color: var(--text-white);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all var(--transition);
   padding: 0;
 }
 
@@ -182,9 +183,9 @@
 .unified-cart {
   background: rgba(255, 255, 255, 0.1);
   padding: 8px 16px;
-  border-radius: 50px;
+  border-radius: var(--radius-full);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all var(--transition-bounce);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -200,23 +201,23 @@
 
 .unified-cart.has-items {
   background: rgba(255, 255, 255, 0.15);
-  border-color: #F5A623;
+  border-color: var(--secondary);
 }
 
 .unified-cart-icon-wrapper {
   position: relative;
   display: flex;
   align-items: center;
-  color: white;
+  color: var(--text-white);
 }
 
 .unified-cart-badge {
   position: absolute;
   top: -8px;
   right: -10px;
-  background: #F5A623;
-  color: #1a472a;
-  border-radius: 50%;
+  background: var(--secondary);
+  color: var(--primary-dark);
+  border-radius: var(--radius-full);
   padding: 1px 7px;
   font-size: 10px;
   font-weight: 700;
@@ -239,7 +240,7 @@
 .unified-cart-total {
   font-weight: 600;
   font-size: 14px;
-  color: white;
+  color: var(--text-white);
   white-space: nowrap;
 }
 
@@ -251,14 +252,14 @@
   display: none;
   background: rgba(255, 255, 255, 0.1);
   border: none;
-  color: white;
+  color: var(--text-white);
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   cursor: pointer;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s;
+  transition: background var(--transition);
   flex-shrink: 0;
 }
 
@@ -273,10 +274,10 @@
 .unified-search-mode {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--radius-sm);
   padding: 10px 16px;
   min-height: 64px;
-  background: linear-gradient(135deg, #1a472a, #2E7D32);
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
   animation: unified-search-slide 0.25s ease;
 }
 
@@ -294,15 +295,15 @@
 .unified-search-back {
   background: rgba(255, 255, 255, 0.1);
   border: none;
-  color: white;
+  color: var(--text-white);
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s;
+  transition: background var(--transition);
   flex-shrink: 0;
 }
 
@@ -320,14 +321,14 @@
   align-items: center;
   background: rgba(255, 255, 255, 0.15);
   border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 50px;
-  transition: all 0.3s ease;
+  border-radius: var(--radius-full);
+  transition: all var(--transition);
 }
 
 .unified-search-mode-input-wrapper:focus-within {
   background: rgba(255, 255, 255, 0.2);
-  border-color: #F5A623;
-  box-shadow: 0 0 0 4px rgba(245, 166, 35, 0.15);
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 4px rgba(249, 168, 37, 0.15);
 }
 
 .unified-search-mode-icon {
@@ -344,10 +345,10 @@
   padding: 10px 44px 10px 42px;
   border: none;
   background: transparent;
-  color: white;
+  color: var(--text-white);
   font-size: 16px;
   outline: none;
-  font-family: inherit;
+  font-family: var(--font-family);
 }
 
 .unified-search-mode-input::placeholder {
@@ -364,10 +365,10 @@
   height: 28px;
   border: none;
   background: rgba(255, 255, 255, 0.15);
-  border-radius: 50%;
-  color: white;
+  border-radius: var(--radius-full);
+  color: var(--text-white);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all var(--transition);
   padding: 0;
 }
 
@@ -385,7 +386,7 @@
   gap: 6px;
   overflow-x: auto;
   padding: 8px 16px 10px;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.15);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
@@ -396,16 +397,16 @@
 }
 
 .unified-category-btn {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 6px 14px;
-  border-radius: 50px;
+  border-radius: var(--radius-full);
   font-size: 12px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all var(--transition-bounce);
   white-space: nowrap;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.75);
   display: flex;
   align-items: center;
   gap: 6px;
@@ -415,21 +416,21 @@
 
 .unified-category-btn:hover {
   background: rgba(255, 255, 255, 0.12);
-  color: white;
+  color: var(--text-white);
   transform: translateY(-1px);
 }
 
 .unified-category-btn.active {
-  background: #F5A623;
-  color: #1a472a;
-  border-color: #F5A623;
-  box-shadow: 0 4px 12px rgba(245, 166, 35, 0.3);
+  background: var(--secondary);
+  color: var(--primary-dark);
+  border-color: var(--secondary);
+  box-shadow: 0 4px 12px rgba(249, 168, 37, 0.3);
   font-weight: 600;
 }
 
 .unified-category-btn.active:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(245, 166, 35, 0.4);
+  box-shadow: 0 6px 16px rgba(249, 168, 37, 0.4);
 }
 
 .unified-category-weight {
@@ -438,7 +439,7 @@
   opacity: 0.6;
   background: rgba(0, 0, 0, 0.2);
   padding: 1px 6px;
-  border-radius: 50px;
+  border-radius: var(--radius-full);
 }
 
 .unified-category-btn.active .unified-category-weight {
@@ -471,13 +472,13 @@
   bottom: 0;
   width: 300px;
   max-width: 80%;
-  background: #1a1a1a;
+  background: var(--primary-bg-gr);
   padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
   animation: unified-slide-in 0.3s ease;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+  box-shadow: var(--shadow-xl);
 }
 
 @keyframes unified-slide-in {
@@ -494,30 +495,30 @@
 .unified-menu-header {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--radius-sm);
   padding-bottom: 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  color: white;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-dark);
 }
 
 .unified-menu-title {
   font-size: 18px;
   font-weight: 700;
-  color: #F5A623;
+  color: var(--white);
   flex: 1;
 }
 
 .unified-menu-header button {
   background: none;
   border: none;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-light);
   cursor: pointer;
   padding: 4px;
-  transition: color 0.2s;
+  transition: color var(--transition);
 }
 
 .unified-menu-header button:hover {
-  color: white;
+  color: var(--erro);
 }
 
 .unified-menu-nav {
@@ -529,29 +530,29 @@
 
 .unified-menu-link {
   padding: 12px 16px;
-  border-radius: 8px;
-  color: rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-sm);
+  color: var(--white);
   text-decoration: none;
   font-weight: 500;
-  transition: all 0.2s;
+  transition: all var(--transition);
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
 .unified-menu-link:hover {
-  background: rgba(255, 255, 255, 0.05);
-  color: white;
+  background: var(--primary-fundo);
+  color: var(--primary);
 }
 
 .unified-menu-link.active {
-  background: #F5A623;
-  color: #1a1a1a;
+  background: var(--primary);
+  color: var(--text-white);
 }
 
 .unified-menu-link.unified-menu-whatsapp {
   background: #25D366;
-  color: white;
+  color: var(--text-white);
   justify-content: center;
   margin-top: 8px;
 }
@@ -562,8 +563,8 @@
 
 .unified-menu-footer {
   padding-top: 12px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  color: rgba(255, 255, 255, 0.3);
+  border-top: 1px solid var(--border-light);
+  color: var(--white);
   font-size: 12px;
   text-align: center;
 }
@@ -580,12 +581,10 @@
     gap: 8px;
   }
 
-  /* Esconde a logo no mobile */
   .unified-logo {
     display: none;
   }
 
-  /* Carrinho centralizado */
   .unified-cart {
     margin: 0 auto;
     padding: 6px 14px;
@@ -595,17 +594,14 @@
     font-size: 13px;
   }
 
-  /* Lupa visível no mobile */
   .unified-search-toggle {
     display: flex;
   }
 
-  /* Esconde o campo de busca no mobile */
   .unified-search-wrapper {
     display: none;
   }
 
-  /* Modo busca */
   .unified-search-mode {
     min-height: 56px;
     padding: 8px 12px;
@@ -810,67 +806,34 @@
   width: 40px;
   height: 40px;
   object-fit: contain;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   background: rgba(255, 255, 255, 0.1);
   padding: 4px;
   flex-shrink: 0;
 }
 
-/* Ajuste no header do menu */
-.unified-menu-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  color: white;
-}
-
-.unified-menu-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: #F5A623;
-  flex: 1;
-}
-
-/* Responsivo para mobile */
-@media (max-width: 480px) {
-  .unified-menu-logo {
-    width: 32px;
-    height: 32px;
-  }
-  
-  .unified-menu-title {
-    font-size: 16px;
-  }
-}
-
-/* ============================================= */
-/* 📱 MENU MOBILE - VERSÃO MELHORADA           */
-/* ============================================= */
-
 /* Logo e título do menu */
 .unified-menu-logo-wrapper {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--radius-sm);
   flex: 1;
 }
 
 .unified-menu-close {
   background: none;
   border: none;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-light);
   cursor: pointer;
   padding: 4px;
-  transition: color 0.2s;
+  transition: color var(--transition);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .unified-menu-close:hover {
-  color: white;
+  color: var(--erro);
 }
 
 /* Redes Sociais no menu */
@@ -879,8 +842,8 @@
   justify-content: center;
   gap: 16px;
   padding: 16px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .unified-menu-social-link {
@@ -889,42 +852,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  transition: all 0.2s ease;
-  color: rgba(255, 255, 255, 0.7); /* 🔥 Cor do ícone */
+  border-radius: var(--radius-full);
+  background: var(--gray-50);
+  transition: all var(--transition-bounce);
+  color: var(--text-gray);
 }
 
 .unified-menu-social-link:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--primary-fundo);
   transform: scale(1.05);
-  color: white; /* 🔥 Fica branco no hover */
-}
-
-
-
-/* Ajuste do header do menu */
-.unified-menu-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  color: white;
-}
-
-.unified-menu-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: #F5A623;
-}
-
-/* Ajuste do footer */
-.unified-menu-footer {
-  padding-top: 12px;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.3);
-  font-size: 12px;
+  color: var(--primary);
 }
 
 /* Responsivo */
