@@ -76,6 +76,238 @@
 }
 
 /* ============================================= */
+/* 🎯 AÇÕES DO PRODUTO (NOVO)                   */
+/* ============================================= */
+
+.actionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* Quantidade */
+.qtyContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.qtyLabel {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.qtyControls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--gray-50);
+  border-radius: var(--radius-full);
+  padding: 4px;
+  border: 1px solid var(--border-light);
+}
+
+.qtyBtn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-gray);
+  transition: var(--transition);
+}
+
+.qtyBtn:hover:not(:disabled) {
+  background: var(--primary-fundo);
+  color: var(--primary);
+}
+
+.qtyBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.qtyDisplay {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary-dark);
+  min-width: 36px;
+  text-align: center;
+}
+
+/* Botão Adicionar ao Carrinho */
+.addToCartBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 24px;
+  background: var(--primary);
+  color: var(--text-white);
+  border: none;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: var(--transition-bounce);
+  box-shadow: 0 4px 16px rgba(46, 125, 50, 0.2);
+  width: 100%;
+}
+
+.addToCartBtn:hover:not(:disabled) {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(46, 125, 50, 0.3);
+}
+
+.addToCartBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.addToCartBtn.added {
+  background: #4CAF50;
+}
+
+/* Total */
+.totalPrice {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary);
+  padding: 8px;
+  background: var(--primary-fundo);
+  border-radius: var(--radius-sm);
+}
+
+/* Divisor */
+.divider {
+  height: 1px;
+  background: var(--border-light);
+  margin: 4px 0;
+}
+
+/* WhatsApp Direct */
+.whatsappDirectBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: #25D366;
+  color: var(--text-white);
+  border: none;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: var(--transition-bounce);
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.2);
+  width: 100%;
+}
+
+.whatsappDirectBtn:hover {
+  background: #128C7E;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.3);
+}
+
+/* Indicador do carrinho */
+.cartIndicator {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-gray);
+  padding: 8px;
+  background: var(--primary-fundo);
+  border-radius: var(--radius-sm);
+}
+
+/* Spinner */
+.spinner {
+  width: 22px;
+  height: 22px;
+  border: 2px solid rgba(255,255,255,0.2);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Shipping Info */
+.shippingInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px;
+  background: var(--gray-50);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--text-gray);
+  margin-top: 8px;
+}
+
+.shippingInfo span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ============================================= */
+/* 📱 RESPONSIVO - AÇÕES                        */
+/* ============================================= */
+
+@media (max-width: 768px) {
+  .qtyContainer {
+    justify-content: space-between;
+  }
+
+  .addToCartBtn {
+    padding: 16px 24px;
+    font-size: 17px;
+  }
+
+  .whatsappDirectBtn {
+    padding: 14px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .qtyContainer {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .qtyControls {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .addToCartBtn {
+    padding: 14px 20px;
+    font-size: 15px;
+  }
+
+  .totalPrice {
+    font-size: 16px;
+  }
+
+  .shippingInfo {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+}
+
+/* ============================================= */
 /* 📦 PRODUTO PRINCIPAL                         */
 /* ============================================= */
 

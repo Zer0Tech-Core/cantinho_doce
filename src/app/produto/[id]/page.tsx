@@ -5,7 +5,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import UnifiedHeader from '@/components/UnifiedHeader'
 import Footer from '@/components/Footer'
-import { ArrowLeft, Package, Star, Tag, ShoppingCart, ChevronRight } from 'lucide-react'
+import ProductActions from '@/components/ProductActions'
+import { ArrowLeft, Package, Star, Tag, ChevronRight } from 'lucide-react'
 import styles from './page.module.css'
 
 interface PageProps {
@@ -34,14 +35,14 @@ export default async function ProdutoPage({ params }: PageProps) {
 
   const imagemPath = getImagemPath()
 
-  // 🔥 PRODUTOS RECOMENDADOS - MESMA CATEGORIA
+  // Produtos da mesma categoria
   const produtosRecomendados = PRODUTOS.categorias
     .find(c => c.id === produto.categoriaId)
     ?.produtos
     .filter(p => p.id !== produto.id)
     .slice(0, 4) || []
 
-  // 🔥 PRODUTOS RELACIONADOS - OUTRA CATEGORIA
+  // Produtos de outras categorias
   const produtosRelacionados = PRODUTOS.categorias
     .filter(c => c.id !== produto.categoriaId)
     .flatMap(c => c.produtos)
@@ -71,6 +72,7 @@ export default async function ProdutoPage({ params }: PageProps) {
 
         {/* Produto Principal */}
         <div className={styles.productContainer}>
+          {/* Lado Esquerdo - Imagem */}
           <div className={styles.imageContainer}>
             {temImagem && imagemPath ? (
               <Image
@@ -97,16 +99,15 @@ export default async function ProdutoPage({ params }: PageProps) {
             )}
           </div>
 
+          {/* Lado Direito - Informações + Ações */}
           <div className={styles.infoContainer}>
             <div className={styles.breadcrumbMobile}>
               <Link href={`/?categoria=${produto.categoriaId}`}>
                 {produto.categoriaNome || 'Produtos'}
               </Link>
             </div>
+
             <h1 className={styles.productName}>{produto.nome}</h1>
-            {produto.categoriaNome && (
-              <span className={styles.categoriaTag}>{produto.categoriaNome}</span>
-            )}
             
             <div className={styles.ratingContainer}>
               <div className={styles.stars}>
@@ -119,6 +120,19 @@ export default async function ProdutoPage({ params }: PageProps) {
               <span className={styles.ratingCount}>5.0 (12 avaliações)</span>
             </div>
             
+            <div className={styles.priceContainer}>
+              {produto.precoPromocional ? (
+                <>
+                  <span className={styles.priceOld}>R$ {produto.preco.toFixed(2)}</span>
+                  <span className={styles.priceCurrent}>R$ {produto.precoPromocional.toFixed(2)}</span>
+                </>
+              ) : (
+                <span className={styles.priceCurrent}>R$ {produto.preco.toFixed(2)}</span>
+              )}
+            </div>
+
+            <div className={styles.divider} />
+
             <p className={styles.productDesc}>{produto.descricao}</p>
             
             <div className={styles.productMeta}>
@@ -134,35 +148,19 @@ export default async function ProdutoPage({ params }: PageProps) {
               )}
             </div>
 
-            <div className={styles.priceContainer}>
-              {produto.precoPromocional ? (
-                <>
-                  <span className={styles.priceOld}>R$ {produto.preco.toFixed(2)}</span>
-                  <span className={styles.priceCurrent}>R$ {produto.precoPromocional.toFixed(2)}</span>
-                </>
-              ) : (
-                <span className={styles.priceCurrent}>R$ {produto.preco.toFixed(2)}</span>
-              )}
-            </div>
+            <div className={styles.divider} />
 
-            <div className={styles.actions}>
-              <a
-                href={`https://wa.me/5521972279173?text=Olá!%20Gostaria%20de%20comprar%20o%20*${produto.nome}*%20por%20R$%20${precoFinal.toFixed(2)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.whatsappButton}
-              >
-                <ShoppingCart size={18} />
-                Comprar pelo WhatsApp
-              </a>
-              <Link href="/" className={styles.continueButton}>
-                Continuar comprando
-              </Link>
+            {/* 🔥 BOTÃO DE ADICIONAR AO CARRINHO + WHATSAPP */}
+            <ProductActions produto={produto} />
+
+            <div className={styles.shippingInfo}>
+              <span>🚚 Entrega em Campo Grande - RJ</span>
+              <span>📦 Retirada disponível</span>
             </div>
           </div>
         </div>
 
-        {/* 🔥 PRODUTOS RECOMENDADOS - MESMA CATEGORIA */}
+        {/* Produtos Recomendados */}
         {produtosRecomendados.length > 0 && (
           <section className={styles.recommendedSection}>
             <div className={styles.recommendedHeader}>
@@ -197,9 +195,6 @@ export default async function ProdutoPage({ params }: PageProps) {
                         <span className={styles.recommendedCurrentPrice}>R$ {p.preco.toFixed(2)}</span>
                       )}
                     </div>
-                    {p.destaque && (
-                      <span className={styles.recommendedBadge}>⭐ Destaque</span>
-                    )}
                   </div>
                 </Link>
               ))}
@@ -207,7 +202,7 @@ export default async function ProdutoPage({ params }: PageProps) {
           </section>
         )}
 
-        {/* 🔥 VOCÊ TAMBÉM PODE GOSTAR */}
+        {/* Você Também Pode Gostar */}
         {produtosRelacionados.length > 0 && (
           <section className={styles.relatedSection}>
             <h2 className={styles.relatedTitle}>
