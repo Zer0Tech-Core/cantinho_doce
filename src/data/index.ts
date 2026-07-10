@@ -1,15 +1,11 @@
+// src/data/index.ts
 // =============================================
 // 📦 DATA - Arquivo Principal
 // =============================================
 
-// Importa os JSONs
 import lojaData from './loja.json'
 import categoriasData from './categorias.json'
 import produtosData from './produtos.json'
-
-// ===========================================
-// 📦 TIPAGEM (exportadas diretamente)
-// ===========================================
 
 export interface Produto {
   id: string
@@ -66,6 +62,18 @@ const categorias: Categoria[] = categoriasData.map((cat: any) => ({
 }))
 
 // ===========================================
+// 🔧 FUNÇÃO AUXILIAR PARA NORMALIZAR IDs
+// ===========================================
+
+function normalizarId(id: string): string {
+  return id
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9-]/g, "")
+}
+
+// ===========================================
 // 📦 OBJETO PRINCIPAL
 // ===========================================
 
@@ -78,16 +86,20 @@ export const PRODUTOS = {
   // 🔍 MÉTODOS UTILITÁRIOS
   // ===========================================
 
+  // 🔥 CORRIGIDO: Busca normalizada
   getProdutoPorId(id: string): ProdutoComCategoria | null {
     if (!id || typeof id !== 'string') return null
     
+    const idNormalizado = normalizarId(id)
+    
     for (const categoria of this.categorias) {
-      const produto = categoria.produtos.find(p => p.id === id)
-      if (produto) {
-        return {
-          ...produto,
-          categoriaId: categoria.id,
-          categoriaNome: categoria.nome
+      for (const produto of categoria.produtos) {
+        if (normalizarId(produto.id) === idNormalizado) {
+          return {
+            ...produto,
+            categoriaId: categoria.id,
+            categoriaNome: categoria.nome
+          }
         }
       }
     }
@@ -129,6 +141,7 @@ export const PRODUTOS = {
     return this.categorias.reduce((total, cat) => total + cat.produtos.length, 0)
   },
 
+  // 🔥 CORRIGIDO: Busca normalizada
   buscarProdutos(termo: string): ProdutoComCategoria[] {
     if (!termo || typeof termo !== 'string' || termo.trim() === '') return []
     
@@ -147,7 +160,7 @@ export const PRODUTOS = {
           .replace(/[\u0300-\u036f]/g, "")
         
         if (nomeNormalizado.includes(termoNormalizado) || 
-            produto.id.includes(termoNormalizado)) {
+            normalizarId(produto.id).includes(termoNormalizado)) {
           resultados.push({
             ...produto,
             categoriaId: categoria.id,

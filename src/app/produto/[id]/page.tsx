@@ -1,66 +1,24 @@
 // src/app/produto/[id]/page.tsx
+// 🔥 SEM 'use client' - É um Server Component
 import { notFound } from 'next/navigation'
 import { PRODUTOS } from '@/data'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Metadata } from 'next'
-import UnifiedHeader from '@/components/UnifiedHeader'
+import ClientHeader from '@/components/ClientHeader' // 🔥 NOVO
 import Footer from '@/components/Footer'
-import { ArrowLeft, Package, Star, Tag, ShoppingCart } from 'lucide-react'
-import styles from './produtoId.module.css'
+import ProductActions from '@/components/ProductActions'
+import { ArrowLeft, Package, Star, Tag, ChevronRight } from 'lucide-react'
+import styles from './page.module.css'
 
 interface PageProps {
-  params: {
+  params: Promise<{
     id: string
-  }
-}
-
-// 🔥 GERANDO METADADOS DINÂMICOS PARA PREVIEW NO WHATSAPP
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const produto = PRODUTOS.getProdutoPorId(params.id)
-  
-  if (!produto) {
-    return {
-      title: 'Produto não encontrado - Cantinho Doce'
-    }
-  }
-
-  // 🔥 CONSTRÓI A URL DA IMAGEM
-  const nomeArquivo = produto.imagem.split('/').pop() || produto.imagem
-  const nomeSemExtensao = nomeArquivo.replace(/\.[^.]+$/, '')
-  const imagemUrl = `https://cantinho-docecg.vercel.app/imagens/produtos/${nomeSemExtensao}.webp`
-  const precoFinal = produto.precoPromocional || produto.preco
-
-  return {
-    title: `${produto.nome} - Cantinho Doce 🍪`,
-    description: produto.descricao,
-    openGraph: {
-      title: `${produto.nome} - Cantinho Doce 🍪`,
-      description: `${produto.descricao} | Peso: ${produto.peso} | Preço: R$ ${precoFinal.toFixed(2)}`,
-      images: [
-        {
-          url: imagemUrl,
-          width: 800,
-          height: 800,
-          alt: produto.nome,
-        }
-      ],
-      type: 'website',
-      url: `https://cantinho-docecg.vercel.app/produto/${produto.id}`,
-      siteName: 'Cantinho Doce',
-      locale: 'pt_BR',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: `${produto.nome} - Cantinho Doce 🍪`,
-      description: produto.descricao,
-      images: [imagemUrl],
-    },
-  }
+  }>
 }
 
 export default async function ProdutoPage({ params }: PageProps) {
-  const produto = PRODUTOS.getProdutoPorId(params.id)
+  const { id } = await params
+  const produto = PRODUTOS.getProdutoPorId(id)
   
   if (!produto) {
     notFound()
@@ -69,7 +27,6 @@ export default async function ProdutoPage({ params }: PageProps) {
   const precoFinal = produto.precoPromocional || produto.preco
   const temImagem = produto.imagem && produto.imagem !== ''
 
-  // 🔥 CONSTRÓI A URL DA IMAGEM
   const getImagemPath = () => {
     if (!temImagem) return null
     const nomeArquivo = produto.imagem.split('/').pop() || produto.imagem
@@ -79,18 +36,42 @@ export default async function ProdutoPage({ params }: PageProps) {
 
   const imagemPath = getImagemPath()
 
+  const produtosRecomendados = PRODUTOS.categorias
+    .find(c => c.id === produto.categoriaId)
+    ?.produtos
+    .filter(p => p.id !== produto.id)
+    .slice(0, 4) || []
+
+  const produtosRelacionados = PRODUTOS.categorias
+    .filter(c => c.id !== produto.categoriaId)
+    .flatMap(c => c.produtos)
+    .filter(p => p.id !== produto.id)
+    .slice(0, 4)
+
   return (
     <main>
-      <UnifiedHeader showCategories={false} />
+      {/* 🔥 USANDO O CLIENT HEADER */}
+      <ClientHeader showCategories={false} />
       
       <div className={styles.pageContainer}>
+        {/* Breadcrumb */}
+        <div className={styles.breadcrumb}>
+          <Link href="/">Home</Link>
+          <ChevronRight size={14} />
+          <Link href={`/?categoria=${produto.categoriaId}`}>
+            {produto.categoriaNome || 'Produtos'}
+          </Link>
+          <ChevronRight size={14} />
+          <span>{produto.nome}</span>
+        </div>
+
         <Link href="/" className={styles.backButton}>
           <ArrowLeft size={18} />
           Voltar para loja
         </Link>
 
+        {/* Produto Principal */}
         <div className={styles.productContainer}>
-          {/* Imagem */}
           <div className={styles.imageContainer}>
             {temImagem && imagemPath ? (
               <Image
@@ -102,9 +83,7 @@ export default async function ProdutoPage({ params }: PageProps) {
                 priority
               />
             ) : (
-              <div className={styles.imageFallback}>
-                <span>🍪</span>
-              </div>
+              <div className={styles.imageFallback}>🍪</div>
             )}
             {produto.destaque && (
               <span className={styles.badgeDestaque}>
@@ -119,13 +98,39 @@ export default async function ProdutoPage({ params }: PageProps) {
             )}
           </div>
 
-          {/* Informações */}
           <div className={styles.infoContainer}>
+            <div className={styles.breadcrumbMobile}>
+              <Link href={`/?categoria=${produto.categoriaId}`}>
+                {produto.categoriaNome || 'Produtos'}
+              </Link>
+            </div>
+
             <h1 className={styles.productName}>{produto.nome}</h1>
-            {produto.categoriaNome && (
-              <span className={styles.categoriaTag}>{produto.categoriaNome}</span>
-            )}
             
+            <div className={styles.ratingContainer}>
+              <div className={styles.stars}>
+                <span className={styles.star}>★</span>
+                <span className={styles.star}>★</span>
+                <span className={styles.star}>★</span>
+                <span className={styles.star}>★</span>
+                <span className={styles.star}>★</span>
+              </div>
+              <span className={styles.ratingCount}>5.0 (12 avaliações)</span>
+            </div>
+            
+            <div className={styles.priceContainer}>
+              {produto.precoPromocional ? (
+                <>
+                  <span className={styles.priceOld}>R$ {produto.preco.toFixed(2)}</span>
+                  <span className={styles.priceCurrent}>R$ {produto.precoPromocional.toFixed(2)}</span>
+                </>
+              ) : (
+                <span className={styles.priceCurrent}>R$ {produto.preco.toFixed(2)}</span>
+              )}
+            </div>
+
+            <div className={styles.divider} />
+
             <p className={styles.productDesc}>{produto.descricao}</p>
             
             <div className={styles.productMeta}>
@@ -141,33 +146,86 @@ export default async function ProdutoPage({ params }: PageProps) {
               )}
             </div>
 
-            <div className={styles.priceContainer}>
-              {produto.precoPromocional ? (
-                <>
-                  <span className={styles.priceOld}>R$ {produto.preco.toFixed(2)}</span>
-                  <span className={styles.priceCurrent}>R$ {produto.precoPromocional.toFixed(2)}</span>
-                </>
-              ) : (
-                <span className={styles.priceCurrent}>R$ {produto.preco.toFixed(2)}</span>
-              )}
-            </div>
+            <div className={styles.divider} />
 
-            <div className={styles.actions}>
-              <a
-                href={`https://wa.me/5521972279173?text=Olá!%20Gostaria%20de%20comprar%20o%20*${produto.nome}*%20por%20R$%20${precoFinal.toFixed(2)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.whatsappButton}
-              >
-                <ShoppingCart size={18} />
-                Comprar pelo WhatsApp
-              </a>
-              <Link href="/" className={styles.continueButton}>
-                Continuar comprando
-              </Link>
+            <ProductActions produto={produto} />
+
+            <div className={styles.shippingInfo}>
+              <span>🚚 Entrega em Campo Grande - RJ</span>
+              <span>📦 Retirada disponível</span>
             </div>
           </div>
         </div>
+
+        {/* Produtos Recomendados */}
+        {produtosRecomendados.length > 0 && (
+          <section className={styles.recommendedSection}>
+            <div className={styles.recommendedHeader}>
+              <h2 className={styles.recommendedTitle}>
+                Produtos <span className={styles.titleHighlight}>Relacionados</span>
+              </h2>
+              <Link href={`/?categoria=${produto.categoriaId}`} className={styles.viewAllLink}>
+                Ver todos <ChevronRight size={16} />
+              </Link>
+            </div>
+            <div className={styles.recommendedGrid}>
+              {produtosRecomendados.map((p) => (
+                <Link href={`/produto/${p.id}`} key={p.id} className={styles.recommendedCard}>
+                  <div className={styles.recommendedImage}>
+                    <Image
+                      src={`/imagens/produtos/${p.imagem.split('/').pop()?.replace(/\.[^.]+$/, '')}.webp`}
+                      alt={p.nome}
+                      width={150}
+                      height={150}
+                      className={styles.recommendedImg}
+                    />
+                  </div>
+                  <div className={styles.recommendedInfo}>
+                    <h3 className={styles.recommendedName}>{p.nome}</h3>
+                    <div className={styles.recommendedPrice}>
+                      {p.precoPromocional ? (
+                        <>
+                          <span className={styles.recommendedOldPrice}>R$ {p.preco.toFixed(2)}</span>
+                          <span className={styles.recommendedCurrentPrice}>R$ {p.precoPromocional.toFixed(2)}</span>
+                        </>
+                      ) : (
+                        <span className={styles.recommendedCurrentPrice}>R$ {p.preco.toFixed(2)}</span>
+                      )}
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Você Também Pode Gostar */}
+        {produtosRelacionados.length > 0 && (
+          <section className={styles.relatedSection}>
+            <h2 className={styles.relatedTitle}>
+              Você também pode <span className={styles.titleHighlight}>gostar</span>
+            </h2>
+            <div className={styles.relatedGrid}>
+              {produtosRelacionados.map((p) => (
+                <Link href={`/produto/${p.id}`} key={p.id} className={styles.relatedCard}>
+                  <div className={styles.relatedImage}>
+                    <Image
+                      src={`/imagens/produtos/${p.imagem.split('/').pop()?.replace(/\.[^.]+$/, '')}.webp`}
+                      alt={p.nome}
+                      width={120}
+                      height={120}
+                      className={styles.relatedImg}
+                    />
+                  </div>
+                  <div className={styles.relatedInfo}>
+                    <h4 className={styles.relatedName}>{p.nome}</h4>
+                    <span className={styles.relatedPrice}>R$ {p.preco.toFixed(2)}</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
       </div>
       
       <Footer />

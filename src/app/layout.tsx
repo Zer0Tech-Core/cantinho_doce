@@ -56,7 +56,6 @@ export const metadata: Metadata = {
     apple: '/icon/apple-touch-icon.png',
   },
   manifest: '/icon/site.webmanifest',
-  // 🔥 REMOVA themeColor daqui (foi movido para viewport)
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
@@ -68,10 +67,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://cantinhodoce.com.br',
   },
-  metadataBase: new URL('https://cantinhodoce.com.br'), // 🔥 ADICIONE isso
+  metadataBase: new URL('https://cantinhodoce.com.br'),
 }
 
-// 🔥 MOVENDO themeColor para viewport
 export const viewport: Viewport = {
   themeColor: '#2E7D32',
   width: 'device-width',
@@ -86,7 +84,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR">
+    // 🔥 ADICIONADO: data-scroll-behavior="smooth"
+    <html lang="pt-BR" data-scroll-behavior="smooth">
       <body>
         <ToastProvider>
           <CartProvider>
