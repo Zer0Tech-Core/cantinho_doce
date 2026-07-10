@@ -1,9 +1,10 @@
 // src/app/produto/[id]/page.tsx
+// 🔥 SEM 'use client' - É um Server Component
 import { notFound } from 'next/navigation'
 import { PRODUTOS } from '@/data'
 import Image from 'next/image'
 import Link from 'next/link'
-import UnifiedHeader from '@/components/UnifiedHeader'
+import ClientHeader from '@/components/ClientHeader' // 🔥 NOVO
 import Footer from '@/components/Footer'
 import ProductActions from '@/components/ProductActions'
 import { ArrowLeft, Package, Star, Tag, ChevronRight } from 'lucide-react'
@@ -35,14 +36,12 @@ export default async function ProdutoPage({ params }: PageProps) {
 
   const imagemPath = getImagemPath()
 
-  // Produtos da mesma categoria
   const produtosRecomendados = PRODUTOS.categorias
     .find(c => c.id === produto.categoriaId)
     ?.produtos
     .filter(p => p.id !== produto.id)
     .slice(0, 4) || []
 
-  // Produtos de outras categorias
   const produtosRelacionados = PRODUTOS.categorias
     .filter(c => c.id !== produto.categoriaId)
     .flatMap(c => c.produtos)
@@ -51,7 +50,8 @@ export default async function ProdutoPage({ params }: PageProps) {
 
   return (
     <main>
-      <UnifiedHeader showCategories={false} />
+      {/* 🔥 USANDO O CLIENT HEADER */}
+      <ClientHeader showCategories={false} />
       
       <div className={styles.pageContainer}>
         {/* Breadcrumb */}
@@ -72,7 +72,6 @@ export default async function ProdutoPage({ params }: PageProps) {
 
         {/* Produto Principal */}
         <div className={styles.productContainer}>
-          {/* Lado Esquerdo - Imagem */}
           <div className={styles.imageContainer}>
             {temImagem && imagemPath ? (
               <Image
@@ -99,7 +98,6 @@ export default async function ProdutoPage({ params }: PageProps) {
             )}
           </div>
 
-          {/* Lado Direito - Informações + Ações */}
           <div className={styles.infoContainer}>
             <div className={styles.breadcrumbMobile}>
               <Link href={`/?categoria=${produto.categoriaId}`}>
@@ -150,7 +148,6 @@ export default async function ProdutoPage({ params }: PageProps) {
 
             <div className={styles.divider} />
 
-            {/* 🔥 BOTÃO DE ADICIONAR AO CARRINHO + WHATSAPP */}
             <ProductActions produto={produto} />
 
             <div className={styles.shippingInfo}>

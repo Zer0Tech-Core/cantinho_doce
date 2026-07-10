@@ -52,6 +52,36 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
   
   const drawerRef = useRef<HTMLDivElement>(null)
 
+  // 🔥 ESCUTA O EVENTO GLOBAL PARA ABRIR O DRAWER
+  useEffect(() => {
+    const handleOpenCart = () => {
+      // Se o drawer não estiver aberto, abre
+      if (!isOpen) {
+        // Chama o onClose com um "hack" para abrir
+        // Como não temos acesso direto ao estado, usamos o evento para comunicar
+        const event = new CustomEvent('forceOpenCartDrawer')
+        document.dispatchEvent(event)
+      }
+    }
+
+    document.addEventListener('openCartDrawer', handleOpenCart)
+    return () => document.removeEventListener('openCartDrawer', handleOpenCart)
+  }, [isOpen])
+
+  // 🔥 ESCUTA O EVENTO GLOBAL PARA ABRIR O DRAWER
+  useEffect(() => {
+    const handleForceOpen = () => {
+      // Força a abertura do drawer
+      // Como não temos acesso direto ao estado do parent, 
+      // usamos um evento personalizado que o parent escuta
+      const event = new CustomEvent('forceOpenCartDrawer')
+      document.dispatchEvent(event)
+    }
+
+    document.addEventListener('openCartDrawer', handleForceOpen)
+    return () => document.removeEventListener('openCartDrawer', handleForceOpen)
+  }, [])
+
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (drawerRef.current && !drawerRef.current.contains(e.target as Node)) {
@@ -192,7 +222,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
 
         {carrinho.length === 0 ? (
           <div className="cart-drawer-empty">
-            <div className="cart-drawer-empty-icon"><ShoppingCart /></div>
+            <div className="cart-drawer-empty-icon">🛒</div>
             <h3>Seu carrinho está vazio</h3>
             <p>Explore nossos produtos e adicione suas delícias favoritas!</p>
             <button 

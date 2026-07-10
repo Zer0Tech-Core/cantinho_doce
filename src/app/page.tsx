@@ -1,12 +1,12 @@
 // src/app/page.tsx
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { PRODUTOS } from '@/data'
 import UnifiedHeader from '@/components/UnifiedHeader'
 import ProductGrid from '@/components/ProductGrid'
 import CartFloating from '@/components/CartFloating'
-import CartDrawer from '@/components/CartDrawer' // 🔥 NOVO
+import CartDrawer from '@/components/CartDrawer'
 import Footer from '@/components/Footer'
 import styles from './page.module.css'
 
@@ -15,8 +15,17 @@ export default function Home() {
     PRODUTOS.categorias[0]?.id || 'biscoitos-doces'
   )
   const [searchTerm, setSearchTerm] = useState('')
-  const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false) // 🔥 NOVO
+  const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false)
   const [isSearching, setIsSearching] = useState(false)
+
+  // 🔥 ESCUTA O EVENTO PARA ABRIR O DRAWER
+  useEffect(() => {
+    const handleForceOpen = () => {
+      setIsCartDrawerOpen(true)
+    }
+    document.addEventListener('forceOpenCartDrawer', handleForceOpen)
+    return () => document.removeEventListener('forceOpenCartDrawer', handleForceOpen)
+  }, [])
 
   const categoria = PRODUTOS.categorias.find(c => c.id === categoriaAtiva)
   const produtos = categoria?.produtos || []
@@ -42,7 +51,7 @@ export default function Home() {
         categoriaAtiva={categoriaAtiva}
         onCategoriaChange={setCategoriaAtiva}
         isSearching={isSearching}
-        onCartClick={() => setIsCartDrawerOpen(true)} // 🔥 NOVO
+        onCartClick={() => setIsCartDrawerOpen(true)}
       />
 
       <div className={styles.container}>
@@ -53,13 +62,11 @@ export default function Home() {
         />
       </div>
 
-      {/* 🔥 NOVO - CARRINHO DRAWER */}
       <CartDrawer 
         isOpen={isCartDrawerOpen} 
         onClose={() => setIsCartDrawerOpen(false)} 
       />
 
-      {/* 🔥 CART FLUTUANTE - AGORA ABRE O DRAWER */}
       <CartFloating onCheckout={() => setIsCartDrawerOpen(true)} />
 
       <Footer />
