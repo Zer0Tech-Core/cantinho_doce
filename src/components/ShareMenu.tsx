@@ -34,7 +34,7 @@ export default function ShareMenu({ produto, className = '' }: ShareMenuProps) {
   const toast = useToast()
 
   const precoFinal = produto.precoPromocional || produto.preco
-  const produtoUrl = `https://cantinho-docecg.vercel.app/produto/${produto.id}`
+  const produtoUrl = `https://cantinho-docecg.vercel.app/${produto.id}`
   
   const getMensagem = () => {
     let msg = `🍪 ${produto.nome}\n`
