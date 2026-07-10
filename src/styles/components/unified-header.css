@@ -28,9 +28,8 @@
   min-height: 64px;
 }
 
-/* Menu */
 .unified-menu-btn {
-  background: #7d47471f;
+  background: rgba(255, 255, 255, 0);
   border: none;
   color: var(--text-white);
   width: 40px;
@@ -48,7 +47,6 @@
   background: rgba(255, 255, 255, 0.25);
 }
 
-/* Logo */
 .unified-logo {
   display: flex;
   align-items: center;
@@ -447,7 +445,7 @@
 }
 
 /* ============================================= */
-/* 📱 MENU MOBILE                               */
+/* 📱 MENU MOBILE (DRAWER) REESTILIZADO          */
 /* ============================================= */
 
 .unified-menu-overlay {
@@ -469,15 +467,15 @@
   top: 0;
   left: 0;
   bottom: 0;
-  width: 300px;
-  max-width: 80%;
-  background: var(--primary-bg-gr);
-  padding: 20px;
+  width: 290px;
+  max-width: 85%;
+  background: #1b4d22;
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  animation: unified-slide-in 0.3s ease;
-  box-shadow: var(--shadow-xl);
+  gap: 24px;
+  animation: unified-slide-in 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.25);
 }
 
 @keyframes unified-slide-in {
@@ -491,79 +489,115 @@
   }
 }
 
+/* 🔥 HEADER DO MENU */
 .unified-menu-header {
   display: flex;
   align-items: center;
-  gap: var(--radius-sm);
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--border-light);
-  color: var(--text-dark);
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.unified-menu-logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 🔥 CORREÇÃO - LOGO REDONDA SEM QUADRADO BRANCO */
+.unified-menu-logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 50% !important;
+  background: #ffffff;
+  padding: 3px;
 }
 
 .unified-menu-title {
   font-size: 18px;
   font-weight: 700;
-  color: var(--white);
-  flex: 1;
+  color: #ffffff;
 }
 
-.unified-menu-header button {
+.unified-menu-close {
   background: none;
   border: none;
-  color: var(--text-light);
+  color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
-  padding: 4px;
-  transition: color var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
 }
 
-.unified-menu-header button:hover {
-  color: var(--erro);
+.unified-menu-close:hover {
+  color: var(--secondary, #f9a825);
 }
 
+/* 🔥 NAVEGAÇÃO */
 .unified-menu-nav {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
   flex: 1;
 }
 
+/* Links padrão (Início, Sobre) */
 .unified-menu-link {
-  padding: 12px 16px;
-  border-radius: var(--radius-sm);
-  color: var(--white);
+  padding: 14px 16px;
+  border-radius: var(--radius-sm, 6px);
+  color: #ffffff;
   text-decoration: none;
   font-weight: 500;
-  transition: all var(--transition);
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  font-size: 15px;
+  transition: all var(--transition, 0.2s);
+  background: rgba(255, 255, 255, 0.05);
 }
 
-.unified-menu-link:hover {
-  background: var(--primary-fundo);
-  color: var(--primary);
-}
-
+/* 🔥 COR DE DESTAQUE ATIVA NO HOVER/ACTIVE */
+.unified-menu-link:hover,
 .unified-menu-link.active {
-  background: var(--primary);
-  color: var(--text-white);
+  background: var(--secondary, #f9a825) !important;
+  color: #1b4d22 !important;
+  font-weight: 600;
 }
 
+/* 🔥 WHATSAPP */
 .unified-menu-link.unified-menu-whatsapp {
   background: #25D366;
-  color: var(--text-white);
+  color: #ffffff !important;
+  text-align: center;
   justify-content: center;
-  margin-top: 8px;
+  font-weight: 600;
+  margin-top: 4px;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
 }
 
 .unified-menu-link.unified-menu-whatsapp:hover {
-  background: #128C7E;
+  background: #1ebe56;
+  color: #ffffff !important;
 }
 
+/* 🔥 INSTAGRAM - GRADIENTE OFICIAL */
+.unified-menu-link.unified-menu-instagram {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: #ffffff !important;
+  text-align: center;
+  justify-content: center;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(220, 39, 67, 0.2);
+}
+
+.unified-menu-link.unified-menu-instagram:hover {
+  filter: brightness(1.1);
+}
+
+/* 🔥 FOOTER */
 .unified-menu-footer {
-  padding-top: 12px;
-  border-top: 1px solid var(--border-light);
-  color: var(--white);
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 12px;
   text-align: center;
 }
@@ -572,7 +606,6 @@
 /* 📱 RESPONSIVIDADE                            */
 /* ============================================= */
 
-/* Tablets */
 @media (max-width: 768px) {
   .unified-topbar {
     padding: 8px 12px;
@@ -606,31 +639,6 @@
     padding: 8px 12px;
   }
 
-  .unified-search-mode-input {
-    font-size: 15px;
-    padding: 8px 40px 8px 38px;
-  }
-
-  .unified-search-mode-clear {
-    width: 24px;
-    height: 24px;
-  }
-
-  .unified-search-mode-clear svg {
-    width: 16px;
-    height: 16px;
-  }
-
-  .unified-search-back {
-    width: 36px;
-    height: 36px;
-  }
-
-  .unified-search-back svg {
-    width: 20px;
-    height: 20px;
-  }
-
   .unified-categories {
     padding: 6px 12px 8px;
     gap: 4px;
@@ -648,7 +656,6 @@
   }
 }
 
-/* Smartphones */
 @media (max-width: 480px) {
   .unified-topbar {
     padding: 6px 10px;
@@ -705,37 +712,6 @@
     gap: 8px;
   }
 
-  .unified-search-mode-input {
-    font-size: 14px;
-    padding: 6px 34px 6px 34px;
-  }
-
-  .unified-search-mode-icon svg {
-    width: 16px;
-    height: 16px;
-  }
-
-  .unified-search-mode-clear {
-    width: 20px;
-    height: 20px;
-    right: 8px;
-  }
-
-  .unified-search-mode-clear svg {
-    width: 14px;
-    height: 14px;
-  }
-
-  .unified-search-back {
-    width: 32px;
-    height: 32px;
-  }
-
-  .unified-search-back svg {
-    width: 18px;
-    height: 18px;
-  }
-
   .unified-categories {
     padding: 4px 10px 6px;
     gap: 3px;
@@ -755,6 +731,19 @@
 
   .unified-category-weight {
     display: none;
+  }
+
+  .unified-menu-logo {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .unified-menu-title {
+    font-size: 16px;
+  }
+
+  .unified-menu-content {
+    padding: 20px 16px;
   }
 }
 
@@ -797,90 +786,7 @@
   }
 }
 
-/* ============================================= */
-/* 🍪 MENU MOBILE - LOGO                        */
-/* ============================================= */
-
-.unified-menu-logo {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.1);
-  padding: 4px;
-  flex-shrink: 0;
-}
-
-/* Logo e título do menu */
-.unified-menu-logo-wrapper {
-  display: flex;
-  align-items: center;
-  gap: var(--radius-sm);
-  flex: 1;
-}
-
-.unified-menu-close {
-  background: none;
-  border: none;
-  color: var(--text-light);
-  cursor: pointer;
-  padding: 4px;
-  transition: color var(--transition);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.unified-menu-close:hover {
-  color: var(--erro);
-}
-
-/* Redes Sociais no menu */
-.unified-menu-social {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  padding: 16px 0;
-  border-top: 1px solid var(--border-light);
-  border-bottom: 1px solid var(--border-light);
-}
-
-.unified-menu-social-link {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-full);
-  background: var(--gray-50);
-  transition: all var(--transition-bounce);
-  color: var(--text-gray);
-}
-
-.unified-menu-social-link:hover {
-  background: var(--primary-fundo);
-  transform: scale(1.05);
-  color: var(--primary);
-}
-
-/* Responsivo */
-@media (max-width: 480px) {
-  .unified-menu-logo {
-    width: 32px;
-    height: 32px;
-  }
-  
-  .unified-menu-title {
-    font-size: 16px;
-  }
-
-  .unified-menu-social-link {
-    width: 36px;
-    height: 36px;
-  }
-
-  .unified-menu-social-link img {
-    width: 18px;
-    height: 18px;
-  }
+/* 🔥 VARIÁVEL PARA O FUNDO DO MENU */
+:root {
+  --bg-green-menu: #1b4d22;
 }

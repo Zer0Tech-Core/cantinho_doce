@@ -80,21 +80,6 @@ export default function Footer() {
                 className="footer-social-icon"
               />
             </a>
-            <a 
-              href="#" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              className="footer-social-link"
-            >
-              <Image 
-                src="/icon/facebook.svg" 
-                alt="Facebook" 
-                width={20} 
-                height={20}
-                className="footer-social-icon"
-              />
-            </a>
           </div>
         </div>
 

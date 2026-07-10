@@ -25,7 +25,7 @@ interface UnifiedHeaderProps {
   onCategoriaChange?: (id: string) => void
   isSearching?: boolean
   showCategories?: boolean
-  onCartClick?: () => void // 🔥 NOVO
+  onCartClick?: () => void
 }
 
 export default function UnifiedHeader({
@@ -36,7 +36,7 @@ export default function UnifiedHeader({
   onCategoriaChange = () => {},
   isSearching = false,
   showCategories = true,
-  onCartClick, // 🔥 NOVO
+  onCartClick,
 }: UnifiedHeaderProps) {
   const { totalItens, total } = useCart()
   const toast = useToast()
@@ -48,7 +48,6 @@ export default function UnifiedHeader({
   const prevTotalRef = useRef(totalItens)
   const searchInputRef = useRef<HTMLInputElement>(null)
 
-  // Detecta mobile
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768)
@@ -58,7 +57,6 @@ export default function UnifiedHeader({
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
-  // Detecta scroll
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10)
@@ -67,7 +65,6 @@ export default function UnifiedHeader({
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Anima badge do carrinho
   useEffect(() => {
     if (totalItens > prevTotalRef.current) {
       setBadgePulse(true)
@@ -76,7 +73,6 @@ export default function UnifiedHeader({
     prevTotalRef.current = totalItens
   }, [totalItens])
 
-  // Fecha busca ao pressionar ESC
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isSearchMode) {
@@ -87,7 +83,6 @@ export default function UnifiedHeader({
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [isSearchMode])
 
-  // Foco automático ao abrir busca
   useEffect(() => {
     if (isSearchMode && searchInputRef.current) {
       setTimeout(() => searchInputRef.current?.focus(), 50)
@@ -99,7 +94,6 @@ export default function UnifiedHeader({
       toast.aviso('🛒 Carrinho vazio! Adicione produtos.', 2500)
       return
     }
-    // 🔥 Usa onCartClick se existir, senão fallback para scroll
     if (onCartClick) {
       onCartClick()
     } else {
@@ -325,16 +319,20 @@ export default function UnifiedHeader({
         </>
       )}
 
+      {/* ========================================== */}
+      {/* 🍔 MENU MOBILE - DRAWER ATUALIZADO        */}
+      {/* ========================================== */}
       {isMenuOpen && (
         <div className="unified-menu-overlay" onClick={() => setIsMenuOpen(false)}>
           <div className="unified-menu-content" onClick={(e) => e.stopPropagation()}>
+            {/* HEADER DO MENU */}
             <div className="unified-menu-header">
               <div className="unified-menu-logo-wrapper">
                 <Image 
                   src="/logo.png" 
                   alt="Cantinho Doce" 
-                  width={40}
-                  height={40}
+                  width={42}
+                  height={42}
                   className="unified-menu-logo"
                   priority
                 />
@@ -349,6 +347,7 @@ export default function UnifiedHeader({
               </button>
             </div>
 
+            {/* NAVEGAÇÃO */}
             <nav className="unified-menu-nav">
               {menuLinks.map((link) => (
                 <Link
@@ -361,6 +360,7 @@ export default function UnifiedHeader({
                 </Link>
               ))}
               
+              {/* 🔥 WHATSAPP */}
               <a 
                 href="https://wa.me/5521972279173" 
                 target="_blank" 
@@ -370,39 +370,20 @@ export default function UnifiedHeader({
               >
                 WhatsApp
               </a>
-            </nav>
 
-            <div className="unified-menu-social">
+              {/* 🔥 INSTAGRAM - AGORA DENTRO DO NAV */}
               <a 
                 href="https://instagram.com/cantinho_doce.cg" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="unified-menu-social-link"
+                className="unified-menu-link unified-menu-instagram"
+                onClick={() => setIsMenuOpen(false)}
               >
-                <Image 
-                  src="/icon/instagram.svg" 
-                  alt="Instagram" 
-                  width={24} 
-                  height={24}
-                />
+                Instagram
               </a>
-              <a 
-                href="#" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="unified-menu-social-link"
-              >
-                <Image 
-                  src="/icon/facebook.svg" 
-                  alt="Facebook" 
-                  width={24} 
-                  height={24}
-                />
-              </a>
-            </div>
+            </nav>
 
+            {/* FOOTER */}
             <div className="unified-menu-footer">
               <small>© 2026 Cantinho Doce</small>
             </div>
