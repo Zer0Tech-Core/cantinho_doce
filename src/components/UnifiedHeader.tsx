@@ -104,11 +104,6 @@ export default function UnifiedHeader({
     }
   }
 
-  const handleLogoClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-    setIsMenuOpen(false)
-  }
-
   const handleOpenSearch = () => {
     setIsSearchMode(true)
   }
@@ -146,11 +141,11 @@ export default function UnifiedHeader({
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
 
-            <div 
-              className="unified-logo" 
-              onClick={handleLogoClick} 
-              role="button" 
-              tabIndex={0}
+            {/* 🔥 LOGO CORRIGIDA - Link envolve tudo */}
+            <Link 
+              href="/" 
+              className="unified-logo"
+              onClick={() => setIsMenuOpen(false)}
               aria-label="Voltar ao início"
             >
               <img 
@@ -164,7 +159,7 @@ export default function UnifiedHeader({
                 <span className="unified-logo-title">Cantinho Doce</span>
                 <small className="unified-logo-sub">Biscoitos Artesanais</small>
               </div>
-            </div>
+            </Link>
 
             {!isMobile && (
               <div className="unified-search-wrapper">
@@ -328,15 +323,23 @@ export default function UnifiedHeader({
             {/* HEADER DO MENU */}
             <div className="unified-menu-header">
               <div className="unified-menu-logo-wrapper">
-                <Image 
-                  src="/logo.png" 
-                  alt="Cantinho Doce" 
-                  width={42}
-                  height={42}
-                  className="unified-menu-logo"
-                  priority
-                />
-                <span className="unified-menu-title">Cantinho Doce</span>
+                <Link href="/" onClick={() => setIsMenuOpen(false)}>
+                  <Image 
+                    src="/logo.png" 
+                    alt="Cantinho Doce" 
+                    width={42}
+                    height={42}
+                    className="unified-menu-logo"
+                    priority
+                  />
+                </Link>
+                <Link 
+                  href="/" 
+                  className="unified-menu-title-link"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <span className="unified-menu-title">Cantinho Doce</span>
+                </Link>
               </div>
               <button 
                 onClick={() => setIsMenuOpen(false)} 
@@ -371,7 +374,7 @@ export default function UnifiedHeader({
                 WhatsApp
               </a>
 
-              {/* 🔥 INSTAGRAM - AGORA DENTRO DO NAV */}
+              {/* 🔥 INSTAGRAM */}
               <a 
                 href="https://instagram.com/cantinho_doce.cg" 
                 target="_blank" 
