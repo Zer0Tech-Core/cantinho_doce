@@ -5,9 +5,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import UnifiedHeader from '@/components/UnifiedHeader'
 import Footer from '@/components/Footer'
-import { ArrowLeft, Package, Star, Tag, ShoppingCart } from 'lucide-react'
+import { ArrowLeft, Package, Star, Tag, ShoppingCart, ChevronRight } from 'lucide-react'
+import styles from './page.module.css'
 
-// 🔥 CORRETO: params é uma Promise
 interface PageProps {
   params: Promise<{
     id: string
@@ -15,7 +15,6 @@ interface PageProps {
 }
 
 export default async function ProdutoPage({ params }: PageProps) {
-  // 🔥 AWAIT no params
   const { id } = await params
   const produto = PRODUTOS.getProdutoPorId(id)
   
@@ -35,192 +34,206 @@ export default async function ProdutoPage({ params }: PageProps) {
 
   const imagemPath = getImagemPath()
 
+  // 🔥 PRODUTOS RECOMENDADOS - MESMA CATEGORIA
+  const produtosRecomendados = PRODUTOS.categorias
+    .find(c => c.id === produto.categoriaId)
+    ?.produtos
+    .filter(p => p.id !== produto.id)
+    .slice(0, 4) || []
+
+  // 🔥 PRODUTOS RELACIONADOS - OUTRA CATEGORIA
+  const produtosRelacionados = PRODUTOS.categorias
+    .filter(c => c.id !== produto.categoriaId)
+    .flatMap(c => c.produtos)
+    .filter(p => p.id !== produto.id)
+    .slice(0, 4)
+
   return (
     <main>
       <UnifiedHeader showCategories={false} />
       
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '80px 20px 40px', minHeight: '70vh' }}>
-        <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#2E7D32', textDecoration: 'none', fontWeight: 600, fontSize: '14px', marginBottom: '32px' }}>
+      <div className={styles.pageContainer}>
+        {/* Breadcrumb */}
+        <div className={styles.breadcrumb}>
+          <Link href="/">Home</Link>
+          <ChevronRight size={14} />
+          <Link href={`/?categoria=${produto.categoriaId}`}>
+            {produto.categoriaNome || 'Produtos'}
+          </Link>
+          <ChevronRight size={14} />
+          <span>{produto.nome}</span>
+        </div>
+
+        <Link href="/" className={styles.backButton}>
           <ArrowLeft size={18} />
           Voltar para loja
         </Link>
 
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: '1fr 1fr', 
-          gap: '48px', 
-          background: '#FFFFFF', 
-          borderRadius: '20px', 
-          padding: '40px',
-          boxShadow: '0 4px 20px rgba(0,0,0,0.06)'
-        }}>
-          {/* Imagem */}
-          <div style={{ 
-            position: 'relative', 
-            width: '100%', 
-            aspectRatio: '1', 
-            background: 'linear-gradient(135deg, #F1F8E9, #E8F5E9)',
-            borderRadius: '16px',
-            overflow: 'hidden',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}>
+        {/* Produto Principal */}
+        <div className={styles.productContainer}>
+          <div className={styles.imageContainer}>
             {temImagem && imagemPath ? (
               <Image
                 src={imagemPath}
                 alt={produto.nome}
                 width={500}
                 height={500}
-                style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '20px' }}
+                className={styles.productImage}
                 priority
               />
             ) : (
-              <div style={{ fontSize: '80px' }}>🍪</div>
+              <div className={styles.imageFallback}>🍪</div>
             )}
             {produto.destaque && (
-              <span style={{ 
-                position: 'absolute', 
-                top: '12px', 
-                right: '12px', 
-                background: '#F9A825', 
-                color: '#1B5E20', 
-                padding: '4px 14px', 
-                borderRadius: '50px', 
-                fontSize: '12px', 
-                fontWeight: 700,
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
-              }}>
+              <span className={styles.badgeDestaque}>
                 <Star size={14} /> Destaque
               </span>
             )}
             {produto.precoPromocional && (
-              <span style={{ 
-                position: 'absolute', 
-                top: '12px', 
-                left: '12px', 
-                background: '#D32F2F', 
-                color: 'white', 
-                padding: '4px 14px', 
-                borderRadius: '50px', 
-                fontSize: '12px', 
-                fontWeight: 700,
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
-              }}>
+              <span className={styles.badgePromocao}>
                 <Tag size={14} /> 
                 {Math.round(((produto.preco - produto.precoPromocional) / produto.preco) * 100)}% OFF
               </span>
             )}
           </div>
 
-          {/* Informações */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <h1 style={{ fontSize: '28px', fontWeight: 800, color: '#1B5E20', margin: 0 }}>{produto.nome}</h1>
+          <div className={styles.infoContainer}>
+            <div className={styles.breadcrumbMobile}>
+              <Link href={`/?categoria=${produto.categoriaId}`}>
+                {produto.categoriaNome || 'Produtos'}
+              </Link>
+            </div>
+            <h1 className={styles.productName}>{produto.nome}</h1>
             {produto.categoriaNome && (
-              <span style={{ 
-                display: 'inline-block', 
-                background: '#F1F8E9', 
-                color: '#2E7D32', 
-                padding: '4px 14px', 
-                borderRadius: '50px', 
-                fontSize: '12px', 
-                fontWeight: 600,
-                alignSelf: 'flex-start'
-              }}>{produto.categoriaNome}</span>
+              <span className={styles.categoriaTag}>{produto.categoriaNome}</span>
             )}
             
-            <p style={{ fontSize: '16px', color: '#495057', lineHeight: 1.7, margin: '4px 0' }}>{produto.descricao}</p>
+            <div className={styles.ratingContainer}>
+              <div className={styles.stars}>
+                <span className={styles.star}>★</span>
+                <span className={styles.star}>★</span>
+                <span className={styles.star}>★</span>
+                <span className={styles.star}>★</span>
+                <span className={styles.star}>★</span>
+              </div>
+              <span className={styles.ratingCount}>5.0 (12 avaliações)</span>
+            </div>
             
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', margin: '4px 0' }}>
-              <span style={{ 
-                display: 'flex', 
-                alignItems: 'center', 
-                gap: '6px', 
-                fontSize: '14px', 
-                color: '#495057', 
-                background: '#F8F9FA', 
-                padding: '4px 14px', 
-                borderRadius: '50px'
-              }}>
+            <p className={styles.productDesc}>{produto.descricao}</p>
+            
+            <div className={styles.productMeta}>
+              <span className={styles.metaItem}>
                 <Package size={16} /> {produto.peso}
               </span>
               {produto.tags && produto.tags.length > 0 && (
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                <div className={styles.tagsContainer}>
                   {produto.tags.slice(0, 3).map((tag) => (
-                    <span key={tag} style={{ 
-                      fontSize: '12px', 
-                      color: '#868E96', 
-                      background: '#F8F9FA', 
-                      padding: '2px 10px', 
-                      borderRadius: '50px'
-                    }}>#{tag}</span>
+                    <span key={tag} className={styles.tag}>#{tag}</span>
                   ))}
                 </div>
               )}
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', margin: '8px 0' }}>
+            <div className={styles.priceContainer}>
               {produto.precoPromocional ? (
                 <>
-                  <span style={{ fontSize: '16px', color: '#868E96', textDecoration: 'line-through' }}>R$ {produto.preco.toFixed(2)}</span>
-                  <span style={{ fontSize: '32px', fontWeight: 800, color: '#2E7D32' }}>R$ {produto.precoPromocional.toFixed(2)}</span>
+                  <span className={styles.priceOld}>R$ {produto.preco.toFixed(2)}</span>
+                  <span className={styles.priceCurrent}>R$ {produto.precoPromocional.toFixed(2)}</span>
                 </>
               ) : (
-                <span style={{ fontSize: '32px', fontWeight: 800, color: '#2E7D32' }}>R$ {produto.preco.toFixed(2)}</span>
+                <span className={styles.priceCurrent}>R$ {produto.preco.toFixed(2)}</span>
               )}
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '8px' }}>
+            <div className={styles.actions}>
               <a
                 href={`https://wa.me/5521972279173?text=Olá!%20Gostaria%20de%20comprar%20o%20*${produto.nome}*%20por%20R$%20${precoFinal.toFixed(2)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ 
-                  display: 'inline-flex', 
-                  alignItems: 'center', 
-                  justifyContent: 'center', 
-                  gap: '10px', 
-                  background: '#25D366', 
-                  color: 'white', 
-                  padding: '14px 32px', 
-                  borderRadius: '50px', 
-                  fontWeight: 700, 
-                  fontSize: '16px', 
-                  textDecoration: 'none', 
-                  transition: 'all 0.3s',
-                  boxShadow: '0 4px 20px rgba(37,211,102,0.3)'
-                }}
+                className={styles.whatsappButton}
               >
                 <ShoppingCart size={18} />
                 Comprar pelo WhatsApp
               </a>
-              <Link 
-                href="/" 
-                style={{ 
-                  display: 'inline-flex', 
-                  alignItems: 'center', 
-                  justifyContent: 'center', 
-                  padding: '12px 32px', 
-                  border: '2px solid #DEE2E6', 
-                  borderRadius: '50px', 
-                  fontWeight: 600, 
-                  fontSize: '14px', 
-                  color: '#495057', 
-                  textDecoration: 'none', 
-                  transition: 'all 0.2s' 
-                }}
-              >
+              <Link href="/" className={styles.continueButton}>
                 Continuar comprando
               </Link>
             </div>
           </div>
         </div>
+
+        {/* 🔥 PRODUTOS RECOMENDADOS - MESMA CATEGORIA */}
+        {produtosRecomendados.length > 0 && (
+          <section className={styles.recommendedSection}>
+            <div className={styles.recommendedHeader}>
+              <h2 className={styles.recommendedTitle}>
+                Produtos <span className={styles.titleHighlight}>Relacionados</span>
+              </h2>
+              <Link href={`/?categoria=${produto.categoriaId}`} className={styles.viewAllLink}>
+                Ver todos <ChevronRight size={16} />
+              </Link>
+            </div>
+            <div className={styles.recommendedGrid}>
+              {produtosRecomendados.map((p) => (
+                <Link href={`/produto/${p.id}`} key={p.id} className={styles.recommendedCard}>
+                  <div className={styles.recommendedImage}>
+                    <Image
+                      src={`/imagens/produtos/${p.imagem.split('/').pop()?.replace(/\.[^.]+$/, '')}.webp`}
+                      alt={p.nome}
+                      width={150}
+                      height={150}
+                      className={styles.recommendedImg}
+                    />
+                  </div>
+                  <div className={styles.recommendedInfo}>
+                    <h3 className={styles.recommendedName}>{p.nome}</h3>
+                    <div className={styles.recommendedPrice}>
+                      {p.precoPromocional ? (
+                        <>
+                          <span className={styles.recommendedOldPrice}>R$ {p.preco.toFixed(2)}</span>
+                          <span className={styles.recommendedCurrentPrice}>R$ {p.precoPromocional.toFixed(2)}</span>
+                        </>
+                      ) : (
+                        <span className={styles.recommendedCurrentPrice}>R$ {p.preco.toFixed(2)}</span>
+                      )}
+                    </div>
+                    {p.destaque && (
+                      <span className={styles.recommendedBadge}>⭐ Destaque</span>
+                    )}
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* 🔥 VOCÊ TAMBÉM PODE GOSTAR */}
+        {produtosRelacionados.length > 0 && (
+          <section className={styles.relatedSection}>
+            <h2 className={styles.relatedTitle}>
+              Você também pode <span className={styles.titleHighlight}>gostar</span>
+            </h2>
+            <div className={styles.relatedGrid}>
+              {produtosRelacionados.map((p) => (
+                <Link href={`/produto/${p.id}`} key={p.id} className={styles.relatedCard}>
+                  <div className={styles.relatedImage}>
+                    <Image
+                      src={`/imagens/produtos/${p.imagem.split('/').pop()?.replace(/\.[^.]+$/, '')}.webp`}
+                      alt={p.nome}
+                      width={120}
+                      height={120}
+                      className={styles.relatedImg}
+                    />
+                  </div>
+                  <div className={styles.relatedInfo}>
+                    <h4 className={styles.relatedName}>{p.nome}</h4>
+                    <span className={styles.relatedPrice}>R$ {p.preco.toFixed(2)}</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
       </div>
       
       <Footer />
