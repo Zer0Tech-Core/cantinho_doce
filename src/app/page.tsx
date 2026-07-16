@@ -2,23 +2,21 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { PRODUTOS } from '@/data'
-import UnifiedHeader from '@/components/UnifiedHeader'
+import { PRODUTOS } from '@/core/domain/data'
+import UnifiedHeader from '@/components/Layout/UnifiedHeader'
 import ProductGrid from '@/components/ProductGrid'
+import HomePage from '@/components/HomePage'
 import CartFloating from '@/components/CartFloating'
-import CartDrawer from '@/components/CartDrawer'
-import Footer from '@/components/Footer'
+import CartDrawer from '@/components/CartDrawer/CartDrawer'
+import Footer from '@/components/Layout/Footer'
 import styles from './page.module.css'
 
 export default function Home() {
-  const [categoriaAtiva, setCategoriaAtiva] = useState(
-    PRODUTOS.categorias[0]?.id || 'biscoitos-doces'
-  )
+  const [categoriaAtiva, setCategoriaAtiva] = useState('inicio')
   const [searchTerm, setSearchTerm] = useState('')
   const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false)
   const [isSearching, setIsSearching] = useState(false)
 
-  // 🔥 ESCUTA O EVENTO PARA ABRIR O DRAWER
   useEffect(() => {
     const handleForceOpen = () => {
       setIsCartDrawerOpen(true)
@@ -42,6 +40,11 @@ export default function Home() {
     }, 300)
   }
 
+  const handleCategoriaClick = (categoriaId: string) => {
+    setCategoriaAtiva(categoriaId)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
     <main>
       <UnifiedHeader
@@ -55,11 +58,19 @@ export default function Home() {
       />
 
       <div className={styles.container}>
-        <ProductGrid
-          produtos={filteredProducts}
-          categoria={categoria}
-          isSearch={!!searchTerm}
-        />
+        {categoriaAtiva === 'inicio' && !searchTerm ? (
+          <HomePage 
+            categorias={PRODUTOS.categorias}
+            produtos={PRODUTOS}
+            onCategoriaClick={handleCategoriaClick}
+          />
+        ) : (
+          <ProductGrid
+            produtos={filteredProducts}
+            categoria={categoria}
+            isSearch={!!searchTerm}
+          />
+        )}
       </div>
 
       <CartDrawer 

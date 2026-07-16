@@ -2,58 +2,7 @@
 // =============================================
 // WHATSAPP - Integracao com API (Next.js)
 // =============================================
-
-// ===========================================
-// 📦 TIPAGEM
-// ===========================================
-
-export interface ItemCarrinho {
-  id: string
-  nome: string
-  descricao?: string
-  peso: string
-  preco: number
-  precoPromocional?: number
-  quantidade: number
-  icone?: string
-  categoria?: string
-  tags?: string[]
-}
-
-export interface DadosCliente {
-  nome: string
-  endereco: string
-  obs?: string
-  metodoPagamento?: string
-  troco?: number
-}
-
-export interface ConfigWhatsApp {
-  idioma?: string
-  timeout?: number
-  abrirNovaAba?: boolean
-  formatarNumeros?: boolean
-  incluirResumo?: boolean
-  incluirPeso?: boolean
-  incluirEconomia?: boolean
-  incluirData?: boolean
-}
-
-export interface ResultadoWhatsApp {
-  url: string
-  mensagem: string
-  total: number
-  totalItens: number
-  pesoTotal: number
-  economia: number
-  dados: DadosCliente
-  config: ConfigWhatsApp
-}
-
-export interface ValidacaoCliente {
-  valido: boolean
-  erros: string[]
-}
+import { CartItem, DadosCliente, ConfigWhatsApp, ResultadoWhatsApp, ValidacaoCliente, ParamsWhatsApp } from '@/core/domain/types'
 
 // ===========================================
 // 📦 CONFIGURAÇÕES PADRÃO
@@ -76,7 +25,7 @@ const CONFIG_PADRAO: ConfigWhatsApp = {
 
 /**
  * Gera o link do WhatsApp com a mensagem formatada
- * @param {ItemCarrinho[]} carrinho - Lista de itens no carrinho
+ * @param {CartItem[]} carrinho - Lista de itens no carrinho
  * @param {DadosCliente} dadosCliente - Dados do cliente
  * @param {string} nomeLoja - Nome da loja
  * @param {string} telefone - Número do WhatsApp
@@ -84,7 +33,7 @@ const CONFIG_PADRAO: ConfigWhatsApp = {
  * @returns {ResultadoWhatsApp} Objeto com URL e dados da mensagem
  */
 export function gerarMensagemWhatsApp(
-  carrinho: ItemCarrinho[],
+  carrinho: CartItem[],
   dadosCliente: DadosCliente = {} as DadosCliente,
   nomeLoja: string = 'Cantinho Doce',
   telefone: string = '5521972279173',
@@ -214,7 +163,7 @@ export function gerarMensagemWhatsApp(
 /**
  * Calcula o peso total do carrinho em gramas
  */
-function calcularPesoTotal(carrinho: ItemCarrinho[]): number {
+function calcularPesoTotal(carrinho: CartItem[]): number {
   let totalGramas = 0
   carrinho.forEach(item => {
     if (item.peso) {
@@ -230,7 +179,7 @@ function calcularPesoTotal(carrinho: ItemCarrinho[]): number {
 /**
  * Calcula a economia total (se houver preços promocionais)
  */
-function calcularEconomia(carrinho: ItemCarrinho[]): number {
+function calcularEconomia(carrinho: CartItem[]): number {
   let economia = 0
   carrinho.forEach(item => {
     if (item.precoPromocional && item.precoPromocional < item.preco) {
@@ -263,18 +212,6 @@ function formatarTelefone(telefone: string): string {
     return `${limpo.slice(0, 2)} ${limpo.slice(2, 7)}-${limpo.slice(7)}`
   }
   return telefone
-}
-
-// ===========================================
-// 🚀 ATALHOS
-// ===========================================
-
-interface ParamsWhatsApp {
-  carrinho: ItemCarrinho[]
-  dadosCliente: DadosCliente
-  nomeLoja?: string
-  telefone?: string
-  opcoes?: ConfigWhatsApp
 }
 
 /**
@@ -379,7 +316,7 @@ export function validarTelefone(telefone: string): boolean {
  * Gera mensagem para pedido de confirmação
  */
 export function mensagemConfirmacao(
-  carrinho: ItemCarrinho[],
+  carrinho: CartItem[],
   dadosCliente: DadosCliente,
   nomeLoja: string,
   telefone: string
@@ -396,7 +333,7 @@ export function mensagemConfirmacao(
  * Gera mensagem para pedido com entrega agendada
  */
 export function mensagemComAgendamento(
-  carrinho: ItemCarrinho[],
+  carrinho: CartItem[],
   dadosCliente: DadosCliente,
   nomeLoja: string,
   telefone: string,

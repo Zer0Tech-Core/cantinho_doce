@@ -1,0 +1,114 @@
+[
+  {
+    "id": "inicio",
+    "nome": "Inicio",
+    "descricao": "",
+    "icone": "Home",
+    "cor": "#2E7D32",
+    "destaque": true
+  },
+  {
+    "id": "biscoitos-doces",
+    "nome": "Biscoitos Doces",
+    "descricao": "Potes de 500g",
+    "icone": "Cookie",
+    "cor": "#D4A574",
+    "destaque": true
+  },
+  {
+    "id": "biscoitos-salgados",
+    "nome": "Biscoitos Salgados",
+    "descricao": "Potes 400g / Torradinhas 300g",
+    "icone": "ChefHat",
+    "cor": "#E67E22",
+    "destaque": true
+  },
+  {
+    "id": "amendoins",
+    "nome": "Amendoins Especiais",
+    "descricao": "Potes de 500g",
+    "icone": "Nut",
+    "cor": "#D4A574",
+    "destaque": true
+  },
+  {
+    "id": "potes-de-doce",
+    "nome": "Doces de Compota",
+    "descricao": "Cocadas e Doce de Leite 650g",
+    "icone": "Wine",
+    "cor": "#D4A574",
+    "destaque": true
+  },
+  {
+    "id": "compotas-frutas",
+    "nome": "Compotas de Fruta",
+    "descricao": "Potes de 650g",
+    "icone": "Wine",
+    "cor": "#E74C3C",
+    "destaque": false
+  },
+  {
+    "id": "doces-em-barra",
+    "nome": "Doces em Barra",
+    "descricao": "Tamanho Família 450g / 510g",
+    "icone": "Candy",
+    "cor": "#FF6B6B",
+    "destaque": false
+  },
+  {
+    "id": "doces-em-cubo",
+    "nome": "Doces em Cubo",
+    "descricao": "Porções de 200g",
+    "icone": "Candy",
+    "cor": "#FF6B6B",
+    "destaque": false
+  },
+  {
+    "id": "provolone",
+    "nome": "Provolone Desidratado",
+    "descricao": "Potes de 130g",
+    "icone": "ChefHat",
+    "cor": "#E67E22",
+    "destaque": true
+  },
+  {
+    "id": "doces-gourmet",
+    "nome": "Doces Gourmet (Fondant)",
+    "descricao": "Potes de 510g",
+    "icone": "Cake",
+    "cor": "#8B008B",
+    "destaque": true
+  },
+  {
+    "id": "cone-trufado",
+    "nome": "Cones Trufados",
+    "descricao": "Caixa com 6 unidades (650g)",
+    "icone": "Sparkles",
+    "cor": "#FF6B6B",
+    "destaque": true
+  },
+  {
+    "id": "trufas",
+    "nome": "Trufas Artesanais",
+    "descricao": "Caixa com 10 unidades (320g)",
+    "icone": "Candy",
+    "cor": "#8B008B",
+    "destaque": false
+  },
+  {
+    "id": "palitos-chocolate",
+    "nome": "Palitos de Chocolate",
+    "descricao": "Potes de 350g",
+    "icone": "Cookie",
+    "cor": "#D4A574",
+    "destaque": false
+  },
+  {
+    "id": "pao-mel",
+    "nome": "Pão de Mel",
+    "descricao": "Caixa com 8 unidades (400g)",
+    "icone": "Cake",
+    "cor": "#D4A574",
+    "destaque": false
+  }
+]

@@ -9,18 +9,22 @@
 /* 2. RESET E BASE */
 @import '../styles/reset.css';
 
-/* 3. COMPONENTES - UM DE CADA */
-@import '../styles/components/header.css';
-@import '../styles/components/footer.css';
-@import '../styles/components/products.css';
-@import '../styles/components/cart.css';
-@import '../styles/components/cart-drawer.css';
-@import '../styles/components/modal.css';
-@import '../styles/components/toast.css';
-@import '../styles/components/categories.css';
-@import '../styles/components/search.css';
-@import '../styles/components/unified-header.css';
-@import '../styles/components/product-modal.css';
+/* 3. COMPONENTES */
+/* Layout */
+@import '../components/Layout/Header.css';
+@import '../components/Layout/UnifiedHeader.css';
+@import '../components/Layout/Footer.css';
+
+/* CartDrawer */
+@import '../components/CartDrawer/CartDrawer.css';
+
+/* Categories */
+@import '../components/Categories/Categories.css';
+
+@import '../components/HomePage/HomePage.module.css';
+
+@import '../components/Shared/Search.css';
+@import '../components/Shared/ShareMenu.css';
 
 /* 4. UTILITÁRIOS */
 @import '../styles/utils/icons.css';
@@ -30,7 +34,7 @@
 @import '../styles/responsive/tablet.css';
 @import '../styles/responsive/mobile.css';
 @import '../styles/responsive/desktop.css';
-@import '../styles/components/share-menu.css';
+
 
 /* ============================================= */
 /* 🎯 ESTILOS GLOBAIS                           */

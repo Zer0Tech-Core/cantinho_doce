@@ -3,10 +3,7 @@
 
 import { ShoppingCart, Send, Percent, Trash2 } from 'lucide-react'
 import { useCart } from '@/hooks/useCart'
-
-interface CartFloatingProps {
-  onCheckout: () => void
-}
+import { CartFloatingProps } from '@/core/domain/types'
 
 export default function CartFloating({ onCheckout }: CartFloatingProps) {
   const { totalItens, total, resumo, limparCarrinho } = useCart()

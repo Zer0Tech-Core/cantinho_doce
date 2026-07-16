@@ -8,20 +8,31 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.9);
   
-  /* 🔄 Ajuste o padding inferior para empurrar o conteúdo acima da barra do celular */
-  padding: 12px 16px calc(12px + env(safe-area-inset-bottom)) 16px;
+  /* Proteção para notch/barra virtual do iOS/Android */
+  padding: 14px 20px calc(14px + env(safe-area-inset-bottom)) 20px;
   
-  box-shadow: var(--shadow-lg);
+  /* Sombra mais suave e moderna */
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.08);
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: var(--z-cart);
-  border-top: 3px solid var(--primary);
+  border-top: 1px solid rgba(0, 0, 0, 0.05); /* Menos agressivo que os 3px sólidos */
   backdrop-filter: blur(20px);
-  flex-wrap: wrap;
-  gap: 8px;
+  -webkit-backdrop-filter: blur(20px);
+  transition: all 0.3s ease;
+}
+
+.cart-floating::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
 }
 
 .cart-info {
@@ -115,4 +126,23 @@
 .btn-clear:hover {
   color: var(--erro);
   background: rgba(198, 40, 40, 0.06);
+}
+
+@media (max-width: 480px) {
+  .cart-floating {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom)) 16px;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0; /* Borda arredondada no topo no mobile fica lindo */
+  }
+
+  .cart-info {
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  
+  .btn-checkout {
+    width: 100%; /* Botão largo no mobile é muito mais fácil de clicar */
+  }
 }

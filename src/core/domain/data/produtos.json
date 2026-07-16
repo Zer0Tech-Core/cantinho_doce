@@ -1,0 +1,881 @@
+{
+  "biscoitos-doces": [
+    {
+      "id": "casadinho",
+      "nome": "Casadinho",
+      "descricao": "Biscoito amanteigado tradicional com goiabada, uma combinação que derrete na boca! Perfeito para o café da tarde.",
+      "imagem": "/imagens/produtos/biscoito-doce-casadinho.webp",
+      "peso": "500g",
+      "preco": 25.00,
+      "destaque": true,
+      "tags": ["tradicional", "goiabada", "amanteigado", "café da tarde"]
+    },
+    {
+      "id": "chocolate-branco",
+      "nome": "Chocolate Branco",
+      "descricao": "Biscoito crocante com generosas gotas de chocolate branco. Uma explosão de sabor em cada mordida!",
+      "imagem": "/imagens/produtos/biscoito-doce-chocolate-branco.webp",
+      "peso": "500g",
+      "preco": 25.00,
+      "tags": ["chocolate branco", "crocante", "gourmet"]
+    },
+    {
+      "id": "casadinho-leite-condensado",
+      "nome": "Casadinho de Leite Condensado",
+      "descricao": "Biscoito recheado com creme de leite condensado, uma versão ainda mais cremosa do clássico casadinho.",
+      "imagem": "/imagens/produtos/biscoito-doce-casadinho-leite-condensado.webp",
+      "peso": "500g",
+      "preco": 25.00,
+      "tags": ["recheado", "leite condensado", "cremoso"]
+    },
+    {
+      "id": "flocos",
+      "nome": "Flocos",
+      "descricao": "Biscoito com flocos de chocolate que derretem a cada mordida. O favorito da criançada (e dos adultos também!)",
+      "imagem": "/imagens/produtos/biscoito-doce-flocos.webp",
+      "peso": "500g",
+      "preco": 25.00,
+      "destaque": true,
+      "tags": ["flocos", "chocolate", "crocante", "infantil"]
+    },
+    {
+      "id": "churros",
+      "nome": "Churros",
+      "descricao": "Biscoito sabor churros com canela e açúcar. Traz aquele gostinho de festa junina o ano inteiro!",
+      "imagem": "/imagens/produtos/biscoito-doce-churros.webp",
+      "peso": "500g",
+      "preco": 25.00,
+      "tags": ["churros", "canela", "açúcar", "festivo"]
+    },
+    {
+      "id": "farinha-lactea",
+      "nome": "Farinha Láctea",
+      "descricao": "Biscoito com farinha láctea, um sabor suave e nostálgico que lembra a infância.",
+      "imagem": "/imagens/produtos/biscoito-doce-farinha-lactea.webp",
+      "peso": "500g",
+      "preco": 25.00,
+      "tags": ["farinha láctea", "suave", "nostálgico"]
+    },
+    {
+      "id": "nata",
+      "nome": "Nata",
+      "descricao": "Biscoito com nata, macio e com um sabor levemente adocicado que combina com qualquer momento.",
+      "imagem": "/imagens/produtos/biscoito-doce-nata.webp",
+      "peso": "500g",
+      "preco": 25.00,
+      "tags": ["nata", "macio", "suave"]
+    },
+    {
+      "id": "choconata",
+      "nome": "Choconata",
+      "descricao": "Biscoito com chocolate e nata, a combinação perfeita entre o cremoso e o crocante.",
+      "imagem": "/imagens/produtos/biscoito-doce-choconata.webp",
+      "peso": "500g",
+      "preco": 25.00,
+      "tags": ["chocolate", "nata", "cremoso", "crocante"]
+    },
+    {
+      "id": "coco",
+      "nome": "Coco",
+      "descricao": "Biscoito com coco ralado, uma explosão de sabor tropical que transporta para o paraíso.",
+      "imagem": "/imagens/produtos/biscoito-doce-coco.webp",
+      "peso": "500g",
+      "preco": 25.00,
+      "tags": ["coco", "tropical", "crocante"]
+    },
+    {
+      "id": "uga-uga",
+      "nome": "Uga Uga",
+      "descricao": "Biscoito crocante especial com uma textura única que vicia! Perfeito para qualquer hora do dia.",
+      "imagem": "/imagens/produtos/biscoito-doce-uga-uga.webp",
+      "peso": "500g",
+      "preco": 25.00,
+      "tags": ["crocante", "especial", "textura única"]
+    },
+    {
+      "id": "leitinho",
+      "nome": "Leitinho",
+      "descricao": "Biscoito com leite ninho, uma experiência cremosa e deliciosa que todo mundo ama.",
+      "imagem": "/imagens/produtos/biscoito-doce-leitinho.webp",
+      "peso": "500g",
+      "preco": 25.00,
+      "destaque": true,
+      "tags": ["leite ninho", "cremoso", "amado por todos"]
+    },
+    {
+      "id": "doce-de-leite-b",
+      "nome": "Doce de Leite",
+      "descricao": "Biscoito com doce de leite, uma combinação que agrada todos os paladares.",
+      "imagem": "/imagens/produtos/biscoito-doce-doce-leite.webp",
+      "peso": "500g",
+      "preco": 25.00,
+      "tags": ["doce de leite", "cremoso", "crocante"]
+    },
+    {
+      "id": "biscoito-chocolate",
+      "nome": "Chocolate",
+      "descricao": "Biscoito de chocolate intenso, para os verdadeiros amantes de cacau.",
+      "imagem": "/imagens/produtos/biscoito-doce-chocolate.webp",
+      "peso": "500g",
+      "preco": 25.00,
+      "tags": ["chocolate", "intenso", "cacau"]
+    },
+    {
+      "id": "banana-com-canela",
+      "nome": "Banana com Canela",
+      "descricao": "Biscoito com banana e canela, uma combinação clássica que aquece o coração.",
+      "imagem": "/imagens/produtos/biscoito-doce-banana-canela.webp",
+      "peso": "500g",
+      "preco": 25.00,
+      "tags": ["banana", "canela", "clássico", "aconchegante"]
+    },
+    {
+      "id": "leite-condensado",
+      "nome": "Leite Condensado",
+      "descricao": "Biscoito com leite condensado, uma delícia cremosa e doce na medida certa.",
+      "imagem": "/imagens/produtos/biscoito-doce-leite-condensado.webp",
+      "peso": "500g",
+      "preco": 25.00,
+      "tags": ["leite condensado", "cremoso", "doce"]
+    }
+  ],
+  "biscoitos-salgados": [
+    {
+      "id": "pizza",
+      "nome": "Pizza",
+      "descricao": "Biscoito sabor pizza, com o tempero irresistível que lembra a massa italiana.",
+      "imagem": "/imagens/produtos/biscoito-salgado-pizza.webp",
+      "peso": "400g",
+      "preco": 25.00,
+      "tags": ["pizza", "italiano", "salgado"]
+    },
+    {
+      "id": "queijo",
+      "nome": "Queijo",
+      "descricao": "Biscoito com queijo, um clássico salgado que não pode faltar no lanche.",
+      "imagem": "/imagens/produtos/biscoito-salgado-queijo.webp",
+      "peso": "400g",
+      "preco": 25.00,
+      "destaque": true,
+      "tags": ["queijo", "clássico", "salgado"]
+    },
+    {
+      "id": "camarao",
+      "nome": "Camarão",
+      "descricao": "Biscoito sabor camarão, com um toque marinho que surpreende o paladar.",
+      "imagem": "/imagens/produtos/biscoito-salgado-camarao.webp",
+      "peso": "400g",
+      "preco": 25.00,
+      "tags": ["camarão", "marinho", "surpreendente"]
+    },
+    {
+      "id": "bacon",
+      "nome": "Bacon",
+      "descricao": "Biscoito com bacon, um sabor defumado e irresistível para os apreciadores.",
+      "imagem": "/imagens/produtos/biscoito-salgado-bacon.webp",
+      "peso": "400g",
+      "preco": 25.00,
+      "tags": ["bacon", "defumado", "irresistível"]
+    },
+    {
+      "id": "churrasco",
+      "nome": "Churrasco",
+      "descricao": "Biscoito sabor churrasco, trazendo o tempero do churrasco gaúcho para o seu lanche.",
+      "imagem": "/imagens/produtos/biscoito-salgado-churrasco.webp",
+      "peso": "400g",
+      "preco": 25.00,
+      "tags": ["churrasco", "gaúcho", "temperado"]
+    },
+    {
+      "id": "pimenta",
+      "nome": "Pimenta",
+      "descricao": "Biscoito com pimenta, para quem gosta de um toque picante e marcante.",
+      "imagem": "/imagens/produtos/biscoito-salgado-pimenta.webp",
+      "peso": "400g",
+      "preco": 25.00,
+      "tags": ["pimenta", "picante", "marcante"]
+    },
+    {
+      "id": "torradinha-alho",
+      "nome": "Torradinha de Alho",
+      "descricao": "Torradinha crocante com alho, perfeita para acompanhar petiscos.",
+      "imagem": "/imagens/produtos/torradinha-alho.webp",
+      "peso": "300g",
+      "preco": 25.00,
+      "tags": ["torradinha", "alho", "crocante", "petisco"]
+    },
+    {
+      "id": "cheddar",
+      "nome": "Cheddar",
+      "descricao": "Biscoito sabor cheddar, com o sabor marcante do queijo amarelo.",
+      "imagem": "/imagens/produtos/biscoito-salgado-cheddar.webp",
+      "peso": "400g",
+      "preco": 25.00,
+      "tags": ["cheddar", "queijo", "marcante"]
+    }
+  ],
+  "amendoins": [
+    {
+      "id": "amendoim-caramelizado",
+      "nome": "Amendoim Caramelizado",
+      "descricao": "Amendoim caramelizado crocante, uma combinação perfeita de doce e crocante.",
+      "imagem": "/imagens/produtos/amendoim-caramelizado.webp",
+      "peso": "500g",
+      "preco": 25.00,
+      "destaque": true,
+      "tags": ["caramelizado", "crocante", "doce"]
+    },
+    {
+      "id": "amendoim-frito-natural-com-pele",
+      "nome": "Amendoim Frito Natural com Pele",
+      "descricao": "Amendoim frito natural com pele, o sabor mais puro e autêntico do amendoim.",
+      "imagem": "/imagens/produtos/amendoim-frito-natural-com-pele.webp",
+      "peso": "500g",
+      "preco": 25.00,
+      "tags": ["natural", "frito", "com pele", "autêntico"]
+    },
+    {
+      "id": "amendoim-torrado-natural-sem-pele",
+      "nome": "Amendoim Torrado Natural sem Pele",
+      "descricao": "Amendoim torrado natural sem pele, uma opção mais limpa e prática.",
+      "imagem": "/imagens/produtos/amendoim-torrado-natural-sem-pele.webp",
+      "peso": "500g",
+      "preco": 25.00,
+      "tags": ["torrado", "sem pele", "prático"]
+    },
+    {
+      "id": "amendoim-torrado-alho-bacon",
+      "nome": "Amendoim Torrado Alho e Bacon",
+      "descricao": "Amendoim torrado sabor alho e bacon, uma explosão de sabores defumados.",
+      "imagem": "/imagens/produtos/amendoim-torrado-alho-bacon.webp",
+      "peso": "500g",
+      "preco": 25.00,
+      "tags": ["alho", "bacon", "defumado", "torrado"]
+    },
+    {
+      "id": "amendoim-torrado-pimenta-mexicana",
+      "nome": "Amendoim Torrado Pimenta Mexicana",
+      "descricao": "Amendoim torrado sabor pimenta mexicana, para quem gosta de um toque picante.",
+      "imagem": "/imagens/produtos/amendoim-torrado-pimenta-mexicana.webp",
+      "peso": "500g",
+      "preco": 25.00,
+      "destaque": true,
+      "tags": ["pimenta mexicana", "picante", "exótico", "torrado"]
+    },
+    {
+      "id": "amendoim-torrado-salsa-cebola",
+      "nome": "Amendoim Torrado Salsa e Cebola",
+      "descricao": "Amendoim torrado sabor salsa e cebola, um clássico muito temperado.",
+      "imagem": "/imagens/produtos/amendoim-torrado-salsa-cebola.webp",
+      "peso": "500g",
+      "preco": 25.00,
+      "tags": ["salsa", "cebola", "clássico", "torrado"]
+    },
+    {
+      "id": "amendoim-com-pele-frito-alho",
+      "nome": "Amendoim com Pele Frito com Alho (Pele e Alho em Flocos)",
+      "descricao": "Amendoim frito crocante com casca e lâminas de alho desidratado.",
+      "imagem": "/imagens/produtos/amendoim-com-pele-frito-alho.webp",
+      "peso": "500g",
+      "preco": 25.00,
+      "tags": ["alho", "frito", "com pele", "tradicional"]
+    }
+  ],
+  "potes-de-doce": [
+    {
+      "id": "cocada-cremosa",
+      "nome": "Cocada Cremosa",
+      "descricao": "Cocada cremosa tradicional no pote de vidro, feita com leite condensado e coco ralado.",
+      "imagem": "/imagens/produtos/cocada-cremosa.webp",
+      "peso": "650g",
+      "preco": 35.00,
+      "tags": ["cocada", "cremosa", "pote", "coco"]
+    },
+    {
+      "id": "cocada-leite-condensado",
+      "nome": "Cocada com Leite Condensado",
+      "descricao": "Cocada de pote bem cremosa com leite condensado de alta qualidade.",
+      "imagem": "/imagens/produtos/cocada-leite-condensado.webp",
+      "peso": "650g",
+      "preco": 35.00,
+      "tags": ["cocada", "leite condensado", "pote"]
+    },
+    {
+      "id": "coco-abacaxi",
+      "nome": "Pote de Coco com Abacaxi (Geleia)",
+      "descricao": "Doce de coco com deliciosa geleia de abacaxi.",
+      "imagem": "/imagens/produtos/coco-abacaxi.webp",
+      "peso": "650g",
+      "preco": 35.00,
+      "tags": ["coco", "abacaxi", "geleia", "pote"]
+    },
+    {
+      "id": "coco-nozes",
+      "nome": "Pote de Coco com Nozes",
+      "descricao": "Cocada cremosa de pote com pedaços selecionados de nozes.",
+      "imagem": "/imagens/produtos/coco-nozes.webp",
+      "peso": "650g",
+      "preco": 35.00,
+      "tags": ["coco", "nozes", "pote"]
+    },
+    {
+      "id": "coco-brigadeiro",
+      "nome": "Pote de Coco com Brigadeiro",
+      "descricao": "A famosa combinação prestígio: coco cremoso com brigadeiro artesanal.",
+      "imagem": "/imagens/produtos/coco-brigadeiro.webp",
+      "peso": "650g",
+      "preco": 35.00,
+      "tags": ["coco", "brigadeiro", "pote"]
+    },
+    {
+      "id": "coco-chocolate",
+      "nome": "Pote de Coco com Chocolate",
+      "descricao": "Coco ralado cremoso mesclado com calda de chocolate.",
+      "imagem": "/imagens/produtos/coco-chocolate.webp",
+      "peso": "650g",
+      "preco": 35.00,
+      "tags": ["coco", "chocolate", "pote"]
+    },
+    {
+      "id": "coco-amendoim",
+      "nome": "Pote de Coco com Amendoim",
+      "descricao": "Doce de coco de pote com amendoim moído e torrado.",
+      "imagem": "/imagens/produtos/coco-amendoim.webp",
+      "peso": "650g",
+      "preco": 35.00,
+      "tags": ["coco", "amendoim", "pote"]
+    },
+    {
+      "id": "coco-maracuja",
+      "nome": "Pote de Coco com Geleia de Maracujá",
+      "descricao": "Doce de coco de pote equilibrado com o azedinho da geleia de maracujá.",
+      "imagem": "/imagens/produtos/coco-maracuja.webp",
+      "peso": "650g",
+      "preco": 35.00,
+      "tags": ["coco", "maracujá", "pote"]
+    },
+    {
+      "id": "coco-ameixa",
+      "nome": "Pote de Coco com Geleia de Ameixa",
+      "descricao": "Doce de coco de pote suave acompanhado por geleia de ameixa.",
+      "imagem": "/imagens/produtos/coco-ameixa.webp",
+      "peso": "650g",
+      "preco": 35.00,
+      "tags": ["coco", "ameixa", "pote"]
+    },
+    {
+      "id": "coco-morango",
+      "nome": "Pote de Coco com Geleia de Morango",
+      "descricao": "Doce de coco com geleia artesanal de morango.",
+      "imagem": "/imagens/produtos/coco-morango.webp",
+      "peso": "650g",
+      "preco": 35.00,
+      "tags": ["coco", "morango", "pote"]
+    },
+    {
+      "id": "doce-leite-compota",
+      "nome": "Doce de Leite Puro de Compota",
+      "descricao": "Doce de leite artesanal extra cremoso no pote de vidro.",
+      "imagem": "/imagens/produtos/doce-leite-compota.webp",
+      "peso": "650g",
+      "preco": 35.00,
+      "tags": ["doce de leite", "puro", "pote"]
+    },
+    {
+      "id": "doce-leite-maracuja",
+      "nome": "Doce de Leite com Maracujá",
+      "descricao": "Doce de leite de pote com um toque de geleia de maracujá.",
+      "imagem": "/imagens/produtos/doce-leite-maracuja.webp",
+      "peso": "650g",
+      "preco": 35.00,
+      "tags": ["doce de leite", "maracujá", "pote"]
+    },
+    {
+      "id": "doce-leite-ameixa",
+      "nome": "Doce de Leite com Ameixa",
+      "descricao": "Clássica união do doce de leite cremoso com pedaços de ameixa em calda.",
+      "imagem": "/imagens/produtos/doce-leite-ameixa.webp",
+      "peso": "650g",
+      "preco": 35.00,
+      "tags": ["doce de leite", "ameixa", "pote"]
+    },
+    {
+      "id": "doce-leite-nozes",
+      "nome": "Doce de Leite com Nozes",
+      "descricao": "Doce de leite de pote premium recheado com pedaços crocantes de nozes.",
+      "imagem": "/imagens/produtos/doce-leite-nozes.webp",
+      "peso": "650g",
+      "preco": 35.00,
+      "tags": ["doce de leite", "nozes", "pote"]
+    },
+    {
+      "id": "doce-leite-cereja",
+      "nome": "Doce de Leite com Cereja",
+      "descricao": "Delicioso doce de leite combinado com pedaços de cereja.",
+      "imagem": "/imagens/produtos/doce-leite-cereja.webp",
+      "peso": "650g",
+      "preco": 35.00,
+      "tags": ["doce de leite", "cereja", "pote"]
+    },
+    {
+      "id": "doce-leite-chocolate",
+      "nome": "Doce de Leite com Chocolate",
+      "descricao": "Mesclado de doce de leite de compota com creme de chocolate gourmet.",
+      "imagem": "/imagens/produtos/doce-leite-chocolate.webp",
+      "peso": "650g",
+      "preco": 35.00,
+      "tags": ["doce de leite", "chocolate", "pote"]
+    },
+    {
+      "id": "doce-leite-amendoim-pote",
+      "nome": "Doce de Leite com Amendoim",
+      "descricao": "Doce de leite cremoso de pote misturado com pedaços de amendoim torrado.",
+      "imagem": "/imagens/produtos/doce-leite-amendoim.webp",
+      "peso": "650g",
+      "preco": 35.00,
+      "tags": ["doce de leite", "amendoim", "pote"]
+    },
+    {
+      "id": "doce-leite-morango",
+      "nome": "Doce de Leite com Morango",
+      "descricao": "Doce de leite cremoso no pote com geleia de morango.",
+      "imagem": "/imagens/produtos/doce-leite-morango.webp",
+      "peso": "650g",
+      "preco": 35.00,
+      "tags": ["doce de leite", "morango", "pote"]
+    },
+    {
+      "id": "doce-leite-coco",
+      "nome": "Doce de Leite com Coco",
+      "descricao": "Doce de leite de compota bem misturado com bastante coco ralado.",
+      "imagem": "/imagens/produtos/doce-leite-coco.webp",
+      "peso": "650g",
+      "preco": 35.00,
+      "tags": ["doce de leite", "coco", "pote"]
+    },
+    {
+      "id": "doce-leite-chocolate-granulado",
+      "nome": "Doce de Leite com Brigadeiro e Granulado",
+      "descricao": "Doce de leite com cobertura deliciosa de chocolate granulado.",
+      "imagem": "/imagens/produtos/doce-leite-chocolate-granulado.webp",
+      "peso": "650g",
+      "preco": 35.00,
+      "tags": ["doce de leite", "granulado", "pote"]
+    },
+    {
+      "id": "doce-leite-cafe",
+      "nome": "Doce de Leite com Café",
+      "descricao": "Uma combinação espetacular de doce de leite artesanal com o aroma do café.",
+      "imagem": "/imagens/produtos/doce-leite-cafe.webp",
+      "peso": "650g",
+      "preco": 35.00,
+      "tags": ["doce de leite", "café", "pote"]
+    },
+    {
+      "id": "doce-leite-abacaxi",
+      "nome": "Doce de Leite com Abacaxi",
+      "descricao": "Doce de leite cremoso harmonizado com geleia ácida de abacaxi.",
+      "imagem": "/imagens/produtos/compota-doce-leite-abacaxi.webp",
+      "peso": "650g",
+      "preco": 35.00,
+      "tags": ["doce de leite", "abacaxi", "pote"]
+    }
+  ],
+  "compotas-frutas": [
+    {
+      "id": "compota-goiabada",
+      "nome": "Goiabada Cascão de Pote",
+      "descricao": "Goiabada cascão artesanal cremosa com pedaços generosos da casca da goiaba.",
+      "imagem": "/imagens/produtos/compota-goiabada.webp",
+      "peso": "650g",
+      "preco": 35.00,
+      "tags": ["goiabada", "cascão", "fruta"]
+    },
+    {
+      "id": "compota-banana",
+      "nome": "Geleia de Banana",
+      "descricao": "Doce de banana caseiro muito cremoso feito de forma tradicional.",
+      "imagem": "/imagens/produtos/compota-banana.webp",
+      "peso": "650g",
+      "preco": 35.00,
+      "tags": ["banana", "geleia", "caseira"]
+    },
+    {
+      "id": "compota-abobora",
+      "nome": "Abóbora com Coco de Compota",
+      "descricao": "Doce de abóbora ralada bem úmido misturado com coco fresco.",
+      "imagem": "/imagens/produtos/compota-abobora.webp",
+      "peso": "650g",
+      "preco": 35.00,
+      "tags": ["abóbora", "coco", "compota"]
+    },
+    {
+      "id": "compota-mamao-coco",
+      "nome": "Mamão Verde com Coco",
+      "descricao": "Tradicional doce de compota mineiro de mamão verde ralado com coco.",
+      "imagem": "/imagens/produtos/compota-mamao-coco.webp",
+      "peso": "650g",
+      "preco": 35.00,
+      "tags": ["mamão", "coco", "tradicional"]
+    }
+  ],
+  "doces-em-barra": [
+    {
+      "id": "noponto-pacocao",
+      "nome": "Paçocão em Barra",
+      "descricao": "Paçoca artesanal cremosa em barra, gigante e saborosa.",
+      "imagem": "/imagens/produtos/noponto-pacocao.webp",
+      "peso": "450g",
+      "preco": 25.00,
+      "tags": ["paçoca", "barra", "amendoim"]
+    },
+    {
+      "id": "noponto-pacoquinha",
+      "nome": "Paçoquinha em Barra",
+      "descricao": "Doce de amendoim tradicional moldado em barra generosa.",
+      "imagem": "/imagens/produtos/noponto-pacoquinha.webp",
+      "peso": "450g",
+      "preco": 25.00,
+      "tags": ["paçoquinha", "barra", "amendoim"]
+    },
+    {
+      "id": "noponto-pe-moca",
+      "nome": "Pé de Moça em Barra",
+      "descricao": "Delicioso pé de moça super macio e cremoso com amendoins inteiros.",
+      "imagem": "/imagens/produtos/noponto-pe-moca.webp",
+      "peso": "450g",
+      "preco": 25.00,
+      "tags": ["pé de moça", "amendoim", "cremoso", "barra"]
+    },
+    {
+      "id": "noponto-cajuzinho-barra",
+      "nome": "Cajuzinho em Barra",
+      "descricao": "Doce de cajuzinho macio feito com amendoim selecionado.",
+      "imagem": "/imagens/produtos/noponto-cajuzinho.webp",
+      "peso": "450g",
+      "preco": 25.00,
+      "tags": ["cajuzinho", "barra"]
+    },
+    {
+      "id": "coco-abobora-barra",
+      "nome": "Doce de Abóbora em Barra",
+      "descricao": "Coração de doce de abóbora cristalizado por fora e macio por dentro.",
+      "imagem": "/imagens/produtos/coco-abobora.webp",
+      "peso": "510g",
+      "preco": 25.00,
+      "tags": ["abóbora", "barra", "tradicional"]
+    },
+    {
+      "id": "noponto-crocante-barra",
+      "nome": "Pé de Moleque Crocante",
+      "descricao": "Tradicional quebra-queixo de amendoim caramelizado super crocante.",
+      "imagem": "/imagens/produtos/noponto-crocante.webp",
+      "peso": "400g",
+      "preco": 25.00,
+      "tags": ["crocante", "pé de moleque", "amendoim"]
+    }
+  ],
+  "doces-em-cubo": [
+    {
+      "id": "doce-cubo-cajuzinho",
+      "nome": "Cajuzinho em Cubo",
+      "descricao": "Pequenos cubos cristalizados saborosos de cajuzinho de amendoim.",
+      "imagem": "/imagens/produtos/noponto-cajuzinho.webp",
+      "peso": "200g",
+      "preco": 12.20,
+      "tags": ["cajuzinho", "cubos"]
+    },
+    {
+      "id": "doce-cubo-cocada-leite-condensado",
+      "nome": "Cocada com Leite Condensado em Cubo",
+      "descricao": "Cocadinhas em cubos perfeitas para beliscar no dia a dia.",
+      "imagem": "/imagens/produtos/cocada-leite-condensado.webp",
+      "peso": "200g",
+      "preco": 12.20,
+      "tags": ["cocada", "leite condensado", "cubos"]
+    },
+    {
+      "id": "doce-cubo-banana",
+      "nome": "Doce de Banana Cristalizado em Cubo",
+      "descricao": "Cubinhos clássicos de doce de banana cobertos com açúcar cristal.",
+      "imagem": "/imagens/produtos/compota-banana.webp",
+      "peso": "200g",
+      "preco": 12.20,
+      "tags": ["banana", "cristalizado", "cubos"]
+    },
+    {
+      "id": "doce-cubo-leite-coco",
+      "nome": "Doce de Leite com Coco em Cubo",
+      "descricao": "Pequenos cubinhos mistos de doce de leite com coco ralado.",
+      "imagem": "/imagens/produtos/doce-leite-coco.webp",
+      "peso": "200g",
+      "preco": 12.20,
+      "tags": ["doce de leite", "coco", "cubos"]
+    },
+    {
+      "id": "doce-cubo-leite-amendoim",
+      "nome": "Doce de Leite com Amendoim em Cubo",
+      "descricao": "Cubos deliciosos de doce de leite de cortar recheado com amendoim.",
+      "imagem": "/imagens/produtos/doce-leite-amendoim.webp",
+      "peso": "200g",
+      "preco": 12.20,
+      "tags": ["doce de leite", "amendoim", "cubos"]
+    },
+    {
+      "id": "doce-cubo-leite-abacaxi",
+      "nome": "Doce de Leite com Abacaxi em Cubo",
+      "descricao": "Doce de leite em cubo com o sabor refrescante do abacaxi.",
+      "imagem": "/imagens/produtos/compota-doce-leite-abacaxi.webp",
+      "peso": "200g",
+      "preco": 12.20,
+      "tags": ["doce de leite", "abacaxi", "cubos"]
+    },
+    {
+      "id": "doce-cubo-leite-chocolate",
+      "nome": "Doce de Leite com Chocolate em Cubo",
+      "descricao": "Cubinhos decorados e saborosos de doce de leite mesclado com chocolate.",
+      "imagem": "/imagens/produtos/doce-leite-chocolate.webp",
+      "peso": "200g",
+      "preco": 12.20,
+      "tags": ["doce de leite", "chocolate", "cubos"]
+    },
+    {
+      "id": "doce-cubo-leite-puro",
+      "nome": "Doce de Leite Tradicional em Cubo",
+      "descricao": "Cubinhos cremosos e cristalizados do mais puro doce de leite.",
+      "imagem": "/imagens/produtos/doce-leite-compota.webp",
+      "peso": "200g",
+      "preco": 12.20,
+      "tags": ["doce de leite", "puro", "cubos"]
+    }
+  ],
+  "provolone": [
+    {
+      "id": "provolone-tradicional",
+      "nome": "Provolone Tradicional",
+      "descricao": "Provolone desidratado tradicional, um petisco saboroso e muito crocante.",
+      "imagem": "/imagens/produtos/provolone-tradicional.webp",
+      "peso": "130g",
+      "preco": 35.00,
+      "tags": ["provolone", "desidratado", "tradicional", "petisco"]
+    },
+    {
+      "id": "provolone-alho",
+      "nome": "Provolone com Alho",
+      "descricao": "Provolone desidratado sabor alho, um toque especial para petiscar.",
+      "imagem": "/imagens/produtos/provolone-alho.webp",
+      "peso": "130g",
+      "preco": 35.00,
+      "destaque": true,
+      "tags": ["provolone", "desidratado", "alho", "especial"]
+    },
+    {
+      "id": "provolone-hot",
+      "nome": "Provolone Hot (Pimenta)",
+      "descricao": "Provolone desidratado sabor picante para quem gosta de um toque marcante.",
+      "imagem": "/imagens/produtos/provolone-hot.webp",
+      "peso": "130g",
+      "preco": 35.00,
+      "tags": ["provolone", "desidratado", "hot", "picante"]
+    },
+    {
+      "id": "provolone-lemon-pepper",
+      "nome": "Provolone Lemon Pepper",
+      "descricao": "Provolone desidratado sabor lemon pepper, combinando a acidez do limão com pimenta.",
+      "imagem": "/imagens/produtos/provolone-lemon-pepper.webp",
+      "peso": "130g",
+      "preco": 35.00,
+      "tags": ["provolone", "desidratado", "lemon pepper"]
+    },
+    {
+      "id": "provolone-3em1",
+      "nome": "Provolone 3 em 1",
+      "descricao": "Provolone desidratado contendo três variedades em um único pote.",
+      "imagem": "/imagens/produtos/provolone-3em1.webp",
+      "peso": "130g",
+      "preco": 35.00,
+      "tags": ["provolone", "desidratado", "3 em 1"]
+    },
+    {
+      "id": "provolone-bola-tradicional",
+      "nome": "Provolone Bola Tradicional",
+      "descricao": "Minis bolas de queijo provolone desidratadas de sabor marcante.",
+      "imagem": "/imagens/produtos/provolone-bola-tradicional.webp",
+      "peso": "130g",
+      "preco": 35.00,
+      "tags": ["provolone", "bola", "tradicional"]
+    },
+    {
+      "id": "provolone-bola-chimichurri",
+      "nome": "Provolone Bola Chimichurri",
+      "descricao": "Provolone tipo bola desidratado revestido com tempero chimichurri argentino.",
+      "imagem": "/imagens/produtos/provolone-bola-chimichurri.webp",
+      "peso": "130g",
+      "preco": 35.00,
+      "tags": ["provolone", "bola", "chimichurri"]
+    }
+  ],
+  "cone-trufado": [
+    {
+      "id": "cone-trufado-leitinho",
+      "nome": "Cone Trufado de Leitinho",
+      "descricao": "Embalagem contendo cones recheados com trufa cremosa sabor Leite Ninho.",
+      "imagem": "/imagens/produtos/cone-trufado-leitinho.webp",
+      "peso": "650g (6 und)",
+      "preco": 48.00,
+      "tags": ["cone trufado", "leitinho", "sobremesa"]
+    },
+    {
+      "id": "cone-trufado-tradicional",
+      "nome": "Cone Trufado Tradicional",
+      "descricao": "Casquinha de biscoito recheada com ganache clássica de chocolate ao leite.",
+      "imagem": "/imagens/produtos/cone-trufado-tradicional.webp",
+      "peso": "650g (6 und)",
+      "preco": 48.00,
+      "tags": ["cone trufado", "chocolate", "tradicional"]
+    },
+    {
+      "id": "cone-trufado-avelã",
+      "nome": "Cone Trufado de Creme de Avelã",
+      "descricao": "Deliciosa casquinha crocante com recheio denso de autêntico creme de avelã.",
+      "imagem": "/imagens/produtos/cone-trufado-avelã.webp",
+      "peso": "650g (6 und)",
+      "preco": 48.00,
+      "tags": ["cone trufado", "avelã", "chocolate"]
+    }
+  ],
+  "doces-gourmet": [
+    {
+      "id": "fondant-tradicional",
+      "nome": "Doce Gourmet: Fondant de Doce de Leite",
+      "descricao": "Fondant clássico mineiro super macio e açucarado na medida ideal.",
+      "imagem": "/imagens/produtos/fondant-tradicional.webp",
+      "peso": "510g",
+      "preco": 33.00,
+      "tags": ["fondant", "doce de leite", "gourmet"]
+    },
+    {
+      "id": "fondant-abacaxi",
+      "nome": "Doce Gourmet: Fondant com Abacaxi",
+      "descricao": "Fondant cremoso de doce de leite aromatizado com polpa de abacaxi.",
+      "imagem": "/imagens/produtos/fondant-abacaxi.webp",
+      "peso": "510g",
+      "preco": 33.00,
+      "tags": ["fondant", "abacaxi", "gourmet"]
+    },
+    {
+      "id": "fondant-amendoim",
+      "nome": "Doce Gourmet: Fondant com Amendoim",
+      "descricao": "Doce gourmet de leite tipo fondant misturado com amendoim.",
+      "imagem": "/imagens/produtos/fondant-amendoim.webp",
+      "peso": "510g",
+      "preco": 33.00,
+      "tags": ["fondant", "amendoim", "gourmet"]
+    },
+    {
+      "id": "fondant-chocolate",
+      "nome": "Doce Gourmet: Fondant com Chocolate",
+      "descricao": "Fondant cremoso sabor chocolate mesclado com doce de leite.",
+      "imagem": "/imagens/produtos/fondant-chocolate.webp",
+      "peso": "510g",
+      "preco": 33.00,
+      "tags": ["fondant", "chocolate", "gourmet"]
+    },
+    {
+      "id": "fondant-coco",
+      "nome": "Doce Gourmet: Fondant com Coco",
+      "descricao": "Combinação suave do fondant de leite com fios de coco selecionados.",
+      "imagem": "/imagens/produtos/fondant-coco.webp",
+      "peso": "510g",
+      "preco": 33.00,
+      "tags": ["fondant", "coco", "gourmet"]
+    },
+    {
+      "id": "gourmet-beijo-moca",
+      "nome": "Doce Gourmet: Beijo de Moça",
+      "descricao": "Deliciosa massa cremosa gourmet de beijinho.",
+      "imagem": "/imagens/produtos/noponto-beijinho-moca.webp",
+      "peso": "510g",
+      "preco": 33.00,
+      "tags": ["beijo de moça", "gourmet"]
+    },
+    {
+      "id": "gourmet-beijo-ninho",
+      "nome": "Doce Gourmet: Beijo de Ninho",
+      "descricao": "Docinho fino feito à base de leite em pó de qualidade e coco ralado.",
+      "imagem": "/imagens/produtos/noponto-beijinho-ninho.webp",
+      "peso": "510g",
+      "preco": 33.00,
+      "tags": ["ninho", "gourmet"]
+    },
+    {
+      "id": "gourmet-brigadeiro",
+      "nome": "Doce Gourmet: Brigadeiro de Colher",
+      "descricao": "Textura aveludada do autêntico brigadeiro de panela para comer de colher.",
+      "imagem": "/imagens/produtos/noponto-brigadeiro.webp",
+      "peso": "510g",
+      "preco": 33.00,
+      "tags": ["brigadeiro", "gourmet"]
+    },
+    {
+      "id": "gourmet-palha-italiana",
+      "nome": "Doce Gourmet: Palha Italiana",
+      "descricao": "Fatias cremosas de brigadeiro tradicional estruturadas com biscoito triturado.",
+      "imagem": "/imagens/produtos/noponto-palha-italiana.webp",
+      "peso": "510g",
+      "preco": 33.00,
+      "tags": ["palha italiana", "gourmet"]
+    }
+  ],
+  "trufas": [
+    {
+      "id": "trufas-variadas",
+      "nome": "Trufas (Sabores Sortidos)",
+      "descricao": "Caixa com trufas sortidas de fabricação artesanal extremamente recheadas.",
+      "imagem": "/imagens/produtos/TRUFAS.webp",
+      "peso": "320g (10 und)",
+      "preco": 28.00,
+      "tags": ["trufa", "chocolate", "sortido"]
+    }
+  ],
+  "palitos-chocolate": [
+    {
+      "id": "palito-chocolate-puro",
+      "nome": "Palitos de Chocolate",
+      "descricao": "Biscoito crocante em formato de palito coberto com generosa camada de chocolate.",
+      "imagem": "/imagens/produtos/palitos-chocolate.webp",
+      "peso": "350g",
+      "preco": 28.00,
+      "tags": ["palitos", "chocolate", "crocante"]
+    }
+  ],
+  "pao-mel": [
+    {
+      "id": "pao-mel-coco",
+      "nome": "Pão de Mel Recheado com Coco",
+      "descricao": "Pão de mel fofinho banhado em chocolate com delicioso recheio de coco.",
+      "imagem": "/imagens/produtos/pao-mel-coco.webp",
+      "peso": "400g (8 und)",
+      "preco": 30.00,
+      "tags": ["pão de mel", "coco", "chocolate"]
+    },
+    {
+      "id": "pao-mel-doce-leite",
+      "nome": "Pão de Mel Recheado com Doce de Leite",
+      "descricao": "Massa aromatizada com mel e especiarias recheada com o melhor doce de leite.",
+      "imagem": "/imagens/produtos/pao-mel-doce-leite.webp",
+      "peso": "400g (8 und)",
+      "preco": 30.00,
+      "tags": ["pão de mel", "doce de leite"]
+    },
+    {
+      "id": "pao-mel-trufado",
+      "nome": "Pão de Mel Trufado",
+      "descricao": "Uma versão refinada do pão de mel com recheio cremoso trufado de chocolate.",
+      "imagem": "/imagens/produtos/pao-mel-trufado.webp",
+      "peso": "400g (8 und)",
+      "preco": 30.00,
+      "tags": ["pão de mel", "trufado", "chocolate"]
+    }
+  ]
+}

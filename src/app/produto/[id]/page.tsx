@@ -1,20 +1,14 @@
 // src/app/produto/[id]/page.tsx
-// 🔥 SEM 'use client' - É um Server Component
 import { notFound } from 'next/navigation'
-import { PRODUTOS } from '@/data'
+import { PRODUTOS } from '@/core/domain/data'
 import Image from 'next/image'
 import Link from 'next/link'
-import ClientHeader from '@/components/ClientHeader' // 🔥 NOVO
-import Footer from '@/components/Footer'
+import ClientHeader from '@/components/Layout/ClientHeader' // 🔥 NOVO
+import Footer from '@/components/Layout/Footer'
 import ProductActions from '@/components/ProductActions'
 import { ArrowLeft, Package, Star, Tag, ChevronRight } from 'lucide-react'
 import styles from './page.module.css'
-
-interface PageProps {
-  params: Promise<{
-    id: string
-  }>
-}
+import { PageProps, Produto } from '@/core/domain/types'
 
 export default async function ProdutoPage({ params }: PageProps) {
   const { id } = await params
@@ -39,13 +33,13 @@ export default async function ProdutoPage({ params }: PageProps) {
   const produtosRecomendados = PRODUTOS.categorias
     .find(c => c.id === produto.categoriaId)
     ?.produtos
-    .filter(p => p.id !== produto.id)
+    .filter((p: Produto) => p.id !== produto.id)
     .slice(0, 4) || []
 
   const produtosRelacionados = PRODUTOS.categorias
     .filter(c => c.id !== produto.categoriaId)
     .flatMap(c => c.produtos)
-    .filter(p => p.id !== produto.id)
+    .filter((p: Produto) => p.id !== produto.id)
     .slice(0, 4)
 
   return (
@@ -169,7 +163,7 @@ export default async function ProdutoPage({ params }: PageProps) {
               </Link>
             </div>
             <div className={styles.recommendedGrid}>
-              {produtosRecomendados.map((p) => (
+              {produtosRecomendados.map((p:Produto) => (
                 <Link href={`/produto/${p.id}`} key={p.id} className={styles.recommendedCard}>
                   <div className={styles.recommendedImage}>
                     <Image

@@ -1,0 +1,568 @@
+/* src/components/HomePage/HomePage.module.css */
+
+/* ============================================= */
+/* 🌿 HOMEPAGE - ESTILO IFOOD                    */
+/* ============================================= */
+
+.homePage {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px 32px;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================= */
+/* 🖼️ BANNER PRINCIPAL                          */
+/* ============================================= */
+
+.bannerSection {
+  position: relative;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #F1F8E9, #E8F5E9);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.bannerContainer {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .bannerContainer {
+    height: 240px;
+  }
+}
+
+.bannerSlide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.bannerSlide.active {
+  transform: translateX(0);
+}
+
+.bannerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+}
+
+@media (max-width: 768px) {
+  .bannerContent {
+    padding: 24px;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+.bannerText {
+  flex: 1;
+  max-width: 500px;
+}
+
+.bannerBadge {
+  display: inline-block;
+  background: rgba(46, 125, 50, 0.12);
+  color: #1B5E20;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.bannerTitle {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1B5E20;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .bannerTitle {
+    font-size: 24px;
+  }
+}
+
+.bannerSubtitle {
+  font-size: 16px;
+  color: #495057;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.bannerCta {
+  display: inline-block;
+  background: #2E7D32;
+  color: white;
+  padding: 10px 32px;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.bannerCta:hover {
+  background: #1B5E20;
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+}
+
+.bannerImage {
+  flex: 0 0 240px;
+  height: 240px;
+  background: rgba(46, 125, 50, 0.06);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .bannerImage {
+    display: none;
+  }
+}
+
+/* 🔘 CONTROLES DO BANNER */
+.bannerControl {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.bannerControl:hover {
+  background: white;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.bannerControl.prev {
+  left: 12px;
+}
+
+.bannerControl.next {
+  right: 12px;
+}
+
+@media (max-width: 768px) {
+  .bannerControl {
+    width: 32px;
+    height: 32px;
+  }
+  .bannerControl.prev {
+    left: 8px;
+  }
+  .bannerControl.next {
+    right: 8px;
+  }
+}
+
+/* 📍 INDICADORES */
+.bannerIndicators {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.indicator.active {
+  width: 24px;
+  border-radius: 4px;
+  background: #2E7D32;
+}
+
+.indicator:hover {
+  background: rgba(46, 125, 50, 0.8);
+}
+
+/* ============================================= */
+/* 🧭 CATEGORIAS RÁPIDAS                        */
+/* ============================================= */
+
+.quickCategories {
+  margin-bottom: 32px;
+}
+
+.categoriesScroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 8px 4px 16px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.categoriesScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.categoryCircle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 72px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  padding: 0;
+}
+
+.categoryCircle:hover {
+  transform: translateY(-4px);
+}
+
+.categoryIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  background: #F1F8E9;
+  transition: all 0.3s ease;
+}
+
+.categoryCircle:hover .categoryIcon {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+
+.categoryName {
+  font-size: 12px;
+  font-weight: 500;
+  color: #495057;
+  text-align: center;
+  max-width: 72px;
+  line-height: 1.2;
+}
+
+/* ============================================= */
+/* 📊 SEÇÕES DE PRODUTOS                        */
+/* ============================================= */
+
+.featuredSection,
+.categorySection {
+  margin-bottom: 32px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1A1A1A;
+}
+
+.seeAll {
+  background: none;
+  border: none;
+  color: #2E7D32;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 4px 8px;
+}
+
+.seeAll:hover {
+  color: #1B5E20;
+  text-decoration: underline;
+}
+
+.horizontalScroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 4px 0 16px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.horizontalScroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.horizontalScroll::-webkit-scrollbar-track {
+  background: #F1F3F5;
+  border-radius: 4px;
+}
+
+.horizontalScroll::-webkit-scrollbar-thumb {
+  background: #2E7D32;
+  border-radius: 4px;
+}
+
+/* ============================================= */
+/* 🎴 CARD DE PRODUTO (NA HORIZONTAL)           */
+/* ============================================= */
+
+.productCard {
+  flex: 0 0 200px;
+  background: white;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+  scroll-snap-align: start;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.productCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.productImage {
+  width: 100%;
+  aspect-ratio: 1;
+  background: #F8F9FA;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.productInfo {
+  margin-top: 8px;
+}
+
+.productName {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1A1A1A;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.3;
+  min-height: 36px;
+  display: box;
+  line-clamp: 2;
+}
+
+.productWeight {
+  font-size: 12px;
+  color: #6C757D;
+  margin: 4px 0;
+}
+
+.productPrice {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2E7D32;
+  margin-top: 4px;
+}
+
+.addToCartBtn {
+  width: 100%;
+  margin-top: 8px;
+  padding: 6px;
+  background: #2E7D32;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.addToCartBtn:hover {
+  background: #1B5E20;
+  transform: scale(1.02);
+}
+
+/* ============================================= */
+/* 📱 BANNER WHATSAPP                           */
+/* ============================================= */
+
+.whatsappBanner {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  border-radius: 16px;
+  padding: 24px 32px;
+  margin-top: 32px;
+  color: white;
+}
+
+.whatsappContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.whatsappContent h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.whatsappContent p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.whatsappButton {
+  background: white;
+  color: #25D366;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.whatsappButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+  .whatsappContent {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .whatsappBanner {
+    padding: 20px;
+  }
+}
+
+/* 🎴 CARD DE PRODUTO */
+.productCard {
+  flex: 0 0 200px;
+  background: white;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+  scroll-snap-align: start;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  position: relative;
+}
+
+.productCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.productImage {
+  width: 100%;
+  aspect-ratio: 1;
+  background: #F8F9FA;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.productImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 🔥 BOTÃO DE COMPARTILHAR */
+.shareBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #25D366;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.productCard:hover .shareBtn {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.shareBtn:hover {
+  background: #25D366;
+  color: white;
+  border-color: #25D366;
+}

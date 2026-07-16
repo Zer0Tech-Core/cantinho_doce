@@ -2,59 +2,8 @@
 'use client'
 
 import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react'
-import { PRODUTOS, Produto, Categoria } from '@/data'
-
-// =============================================
-// 📦 TIPAGEM
-// =============================================
-
-export interface CartItem {
-  id: string
-  nome: string
-  descricao: string
-  peso: string
-  preco: number
-  precoPromocional?: number
-  quantidade: number
-  icone?: string
-  categoria?: string
-  dataAdicao?: string
-  tags?: string[]
-}
-
-export interface ResumoCarrinho {
-  totalItens: number
-  totalItensUnicos: number
-  subtotal: number
-  economia: number
-  temEconomia: boolean
-  itemMaisCaro: CartItem | null
-  itens: CartItem[]
-  categorias: string[]
-}
-
-export interface PesoTotal {
-  gramas: number
-  kg: number
-  formatado: string
-}
-
-interface CartContextType {
-  carrinho: CartItem[]
-  totalItens: number
-  total: number
-  pesoTotal: PesoTotal
-  resumo: ResumoCarrinho
-  getQuantidade: (id: string) => number
-  estaNoCarrinho: (id: string) => boolean
-  adicionarItem: (produtoId: string, quantidade?: number) => { success: boolean; message: string }
-  alterarQuantidade: (produtoId: string, delta: number) => { success: boolean; message: string; quantidade: number }
-  removerItem: (produtoId: string) => { success: boolean; message: string }
-  limparCarrinho: () => { success: boolean; message: string }
-  exportarCarrinho: () => string
-  importarCarrinho: (jsonString: string) => { success: boolean; message: string }
-  resetarCarrinho: () => { success: boolean; message: string }
-}
+import { Produto, Categoria, CartItem, ResumoCarrinho, PesoTotal, CartContextType } from '@/core/domain/types'
+import { PRODUTOS } from '@/core/domain/data'
 
 // =============================================
 // 📦 CONSTANTES
@@ -199,7 +148,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     let categoriaEncontrada: Categoria | null = null
     
     for (const categoria of PRODUTOS.categorias) {
-      const encontrado = categoria.produtos.find(p => p.id === produtoId)
+      const encontrado = categoria.produtos.find((p: { id: string }) => p.id === produtoId)
       if (encontrado) {
         produto = encontrado
         categoriaEncontrada = categoria
@@ -247,7 +196,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
         categoria: categoriaEncontrada?.id,
         quantidade: quantidade,
         dataAdicao: new Date().toISOString(),
-        tags: produto.tags || []
+        tags: produto.tags || [],
+        imagem: ''
       }
       
       return [...prev, novoItem]

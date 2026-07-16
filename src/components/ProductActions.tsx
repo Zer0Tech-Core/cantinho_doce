@@ -7,25 +7,7 @@ import { useCart } from '@/hooks/useCart'
 import { useToast } from '@/context/ToastContext'
 import { gerarMensagemWhatsApp } from '@/utils/whatsapp'
 import styles from '@/app/produto/[id]/page.module.css'
-
-interface Produto {
-  id: string
-  nome: string
-  descricao: string
-  imagem: string
-  peso: string
-  preco: number
-  precoPromocional?: number
-  destaque?: boolean
-  icone?: string
-  categoria?: string
-  categoriaNome?: string
-  tags?: string[]
-}
-
-interface ProductActionsProps {
-  produto: Produto
-}
+import { Produto, ProductActionsProps, CartItem } from '@/core/domain/types'
 
 export default function ProductActions({ produto }: ProductActionsProps) {
   const { getQuantidade, adicionarItem, alterarQuantidade } = useCart()
@@ -66,10 +48,11 @@ export default function ProductActions({ produto }: ProductActionsProps) {
   }
 
   const handleWhatsApp = () => {
-    const carrinho = [{
+    const carrinho: CartItem[] = [{
       id: produto.id,
       nome: produto.nome,
       descricao: produto.descricao,
+      imagem: produto.imagem,
       peso: produto.peso,
       preco: produto.preco,
       precoPromocional: produto.precoPromocional,

@@ -3,17 +3,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { Search as SearchIcon, X, Mic, Loader2 } from 'lucide-react'
-
-interface SearchProps {
-  value: string
-  onChange: (value: string) => void
-  placeholder?: string
-  className?: string
-  onSearch?: (value: string) => void
-  isLoading?: boolean
-  showClear?: boolean
-  showMic?: boolean
-}
+import { SearchProps } from '@/core/domain/types'
 
 export default function Search({
   value,

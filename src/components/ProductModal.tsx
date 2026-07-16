@@ -16,28 +16,8 @@ import {
 import Image from 'next/image'
 import { useCart } from '@/hooks/useCart'
 import { useToast } from '@/context/ToastContext'
-import ShareMenu from './ShareMenu'
-
-interface Produto {
-  id: string
-  nome: string
-  descricao: string
-  imagem: string
-  peso: string
-  preco: number
-  precoPromocional?: number
-  destaque?: boolean
-  icone?: string
-  categoria?: string
-  categoriaNome?: string
-  tags?: string[]
-}
-
-interface ProductModalProps {
-  produto: Produto | null
-  isOpen: boolean
-  onClose: () => void
-}
+import ShareMenu from './Shared/ShareMenu'
+import { Produto, ProductModalProps } from '@/core/domain/types'
 
 export default function ProductModal({ produto, isOpen, onClose }: ProductModalProps) {
   const { adicionarItem, getQuantidade, alterarQuantidade } = useCart()

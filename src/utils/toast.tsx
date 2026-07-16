@@ -8,33 +8,7 @@
 import { CheckCircle, XCircle, AlertTriangle, Info, Star } from 'lucide-react'
 import ReactDOM from 'react-dom/client'
 import { ReactNode } from 'react'
-
-// ===========================================
-// 📦 TIPAGEM
-// ===========================================
-
-export type TipoToast = 'sucesso' | 'erro' | 'aviso' | 'info' | 'destaque'
-
-export interface ToastOptions {
-  duracao?: number
-  botaoFechar?: boolean
-  barraProgresso?: boolean
-  posicao?: 'topo' | 'fundo'
-  compacto?: boolean
-  quadrado?: boolean
-  maxWidth?: string
-  minWidth?: string
-  tamanhoFonte?: string
-  iconSize?: number
-  borda?: string
-}
-
-interface ToastItem {
-  mensagem: string
-  tipo: TipoToast
-  duracao: number
-  opcoes: ToastOptions
-}
+import { ToastOptions, ToastItem, ToastComponentProps, TipoToast } from '@/core/domain/types'
 
 // ===========================================
 // 🎨 CONFIGURAÇÕES
@@ -81,18 +55,6 @@ let timeoutId: NodeJS.Timeout | null = null
 let filaToasts: ToastItem[] = []
 let toastAtivo = false
 let root: ReactDOM.Root | null = null
-
-// ===========================================
-// 🎨 COMPONENTE TOAST
-// ===========================================
-
-interface ToastComponentProps {
-  mensagem: string
-  tipo: TipoToast
-  duracao: number
-  opcoes: ToastOptions
-  onClose: () => void
-}
 
 function ToastComponent({ mensagem, tipo, duracao, opcoes, onClose }: ToastComponentProps) {
   const config = CORES_TOAST[tipo] || CORES_TOAST.info

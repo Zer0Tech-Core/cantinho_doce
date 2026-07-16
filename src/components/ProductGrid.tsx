@@ -1,30 +1,11 @@
 // src/components/ProductGrid.tsx
 'use client'
 
-import { Plus, Package, Star, Tag, Search } from 'lucide-react'
+import { Plus, Package, Star, Tag, Search, Box } from 'lucide-react'
 import Link from 'next/link'
 import { useCart } from '@/hooks/useCart'
-import ProductImage from './ProductImage'
-
-interface Produto {
-  id: string
-  nome: string
-  descricao: string
-  imagem: string
-  peso: string
-  preco: number
-  precoPromocional?: number
-  destaque?: boolean
-  icone?: string
-  categoria?: string
-  categoriaNome?: string
-}
-
-interface ProductGridProps {
-  produtos: Produto[]
-  categoria?: { nome: string; icone: string }
-  isSearch?: boolean
-}
+import ProductImage from './Shared/ProductImage'
+import { Produto, ProductGridProps } from '@/core/domain/types'
 
 export default function ProductGrid({ produtos, categoria, isSearch }: ProductGridProps) {
   const { getQuantidade, adicionarItem, alterarQuantidade } = useCart()
@@ -32,7 +13,7 @@ export default function ProductGrid({ produtos, categoria, isSearch }: ProductGr
   if (!produtos || produtos.length === 0) {
     return (
       <div className="empty-state">
-        <span className="empty-icon">📦</span>
+        <span className="empty-icon"><Box /></span>
         <p>Nenhum produto encontrado</p>
         <small>Tente buscar por outro termo</small>
       </div>

@@ -6,50 +6,7 @@
 import lojaData from './loja.json'
 import categoriasData from './categorias.json'
 import produtosData from './produtos.json'
-
-export interface Produto {
-  id: string
-  nome: string
-  descricao: string
-  imagem: string
-  peso: string
-  preco: number
-  precoPromocional?: number
-  destaque?: boolean
-  icone?: string
-  emEstoque?: boolean
-  tags?: string[]
-}
-
-export interface Categoria {
-  id: string
-  nome: string
-  descricao: string
-  icone: string
-  cor: string
-  destaque: boolean
-  produtos: Produto[]
-}
-
-export interface Loja {
-  nome: string
-  nomeCompleto: string
-  telefone: string
-  whatsapp: string
-  endereco: string
-  instagram: string
-  horario: string
-  cores: {
-    primaria: string
-    secundaria: string
-    destaque: string
-  }
-}
-
-export interface ProdutoComCategoria extends Produto {
-  categoriaId: string
-  categoriaNome: string
-}
+import { Produto, Categoria, Loja, ProdutoComCategoria } from '@/core/domain/types'
 
 // ===========================================
 // 🔧 MONTA O CATÁLOGO COMPLETO

@@ -10,11 +10,7 @@ import {
 import { useCart } from '@/hooks/useCart'
 import { useToast } from '@/context/ToastContext'
 import { gerarMensagemWhatsApp, validarDadosCliente } from '@/utils/whatsapp'
-
-interface CheckoutModalProps {
-  isOpen: boolean
-  onClose: () => void
-}
+import { CheckoutModalProps } from '@/core/domain/types'
 
 export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
   const { carrinho, total, pesoTotal, limparCarrinho, alterarQuantidade, removerItem } = useCart()
