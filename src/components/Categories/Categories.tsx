@@ -2,21 +2,7 @@
 'use client'
 
 import { Package, Cookie, ChefHat, Wine, Candy, Cake, Nut } from 'lucide-react'
-
-interface Categoria {
-  id: string
-  nome: string
-  descricao: string
-  icone: string
-  cor: string
-  destaque: boolean
-}
-
-interface CategoriesProps {
-  categorias: Categoria[]
-  categoriaAtiva: string
-  onCategoriaChange: (id: string) => void
-}
+import { Categoria, CategoriesProps } from '@/core/domain/types'
 
 export default function Categories({ 
   categorias, 

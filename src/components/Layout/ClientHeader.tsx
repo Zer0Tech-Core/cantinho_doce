@@ -2,10 +2,7 @@
 'use client'
 
 import UnifiedHeader from './UnifiedHeader'
-
-interface ClientHeaderProps {
-  showCategories?: boolean
-}
+import { ClientHeaderProps } from '@/core/domain/types'
 
 export default function ClientHeader({ showCategories = false }: ClientHeaderProps) {
   const handleCartClick = () => {

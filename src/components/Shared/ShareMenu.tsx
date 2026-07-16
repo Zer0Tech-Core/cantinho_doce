@@ -13,19 +13,7 @@ import {
 } from 'lucide-react'
 import Image from 'next/image'
 import { useToast } from '@/context/ToastContext'
-
-interface ShareMenuProps {
-  produto: {
-    id: string
-    nome: string
-    descricao: string
-    preco: number
-    precoPromocional?: number
-    imagem: string
-    peso: string
-  }
-  className?: string
-}
+import { ShareMenuProps } from '@/core/domain/types'
 
 export default function ShareMenu({ produto, className = '' }: ShareMenuProps) {
   const [isOpen, setIsOpen] = useState(false)

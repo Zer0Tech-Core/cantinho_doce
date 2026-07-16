@@ -1,32 +1,8 @@
 // =============================================
 // COUNTER - Componente Interativo (Next.js)
 // =============================================
+import { CounterConfig, CounterAPI } from "@/core/domain/types"
 
-interface CounterConfig {
-  valorInicial?: number
-  valorMinimo?: number
-  valorMaximo?: number
-  passo?: number
-  prefixo?: string
-  sufixo?: string
-  formato?: (valor: number) => string
-  onMudanca?: (novoValor: number, valorAntigo: number) => void
-  onMaximo?: (valor: number) => void
-  onMinimo?: (valor: number) => void
-}
-
-interface CounterAPI {
-  getValor: () => number
-  setValor: (novoValor: number) => CounterAPI
-  aumentar: () => CounterAPI
-  diminuir: () => CounterAPI
-  resetar: () => CounterAPI
-  onMudanca: (callback: (novoValor: number, valorAntigo: number) => void) => CounterAPI
-  removerListener: (callback: (novoValor: number, valorAntigo: number) => void) => CounterAPI
-  destroy: () => void
-  updateOptions: (novasOpcoes: Partial<CounterConfig>) => CounterAPI
-  comConfig: (opcoes: Partial<CounterConfig>) => CounterAPI
-}
 
 /**
  * Configura um contador com funcionalidades avançadas

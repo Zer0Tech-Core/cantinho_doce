@@ -14,7 +14,7 @@ import {
 } from 'lucide-react'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
-import { PRODUTOS } from '@/data'
+import { PRODUTOS } from '@/core/domain/data'
 
 export default function Footer() {
   const [showScrollTop, setShowScrollTop] = useState(false)

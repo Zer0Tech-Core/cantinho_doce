@@ -2,15 +2,8 @@
 'use client'
 
 import { createContext, useContext, useCallback, ReactNode } from 'react'
-import { toastSucesso, toastErro, toastAviso, toastInfo, toastDestaque, ToastOptions } from '@/utils/toast'
-
-interface ToastContextType {
-  sucesso: (mensagem: string, duracao?: number, opcoes?: ToastOptions) => void
-  erro: (mensagem: string, duracao?: number, opcoes?: ToastOptions) => void
-  aviso: (mensagem: string, duracao?: number, opcoes?: ToastOptions) => void
-  info: (mensagem: string, duracao?: number, opcoes?: ToastOptions) => void
-  destaque: (mensagem: string, duracao?: number, opcoes?: ToastOptions) => void
-}
+import { toastSucesso, toastErro, toastAviso, toastInfo, toastDestaque } from '@/utils/toast'
+import { ToastContextType, ToastOptions } from '@/core/domain/types'
 
 const ToastContext = createContext<ToastContextType | undefined>(undefined)
 

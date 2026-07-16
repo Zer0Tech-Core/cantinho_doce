@@ -7,26 +7,7 @@ import { useCart } from '@/hooks/useCart'
 import { useToast } from '@/context/ToastContext'
 import Image from 'next/image'
 import Link from 'next/link'
-
-interface Categoria {
-  id: string
-  nome: string
-  descricao: string
-  icone: string
-  cor: string
-  destaque: boolean
-}
-
-interface UnifiedHeaderProps {
-  searchValue?: string
-  onSearchChange?: (value: string) => void
-  categorias?: Categoria[]
-  categoriaAtiva?: string
-  onCategoriaChange?: (id: string) => void
-  isSearching?: boolean
-  showCategories?: boolean
-  onCartClick?: () => void
-}
+import { Categoria, UnifiedHeaderProps } from '@/core/domain/types'
 
 export default function UnifiedHeader({
   searchValue = '',

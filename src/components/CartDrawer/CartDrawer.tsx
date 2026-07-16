@@ -21,11 +21,7 @@ import {
 import { useCart } from '@/hooks/useCart'
 import { useToast } from '@/context/ToastContext'
 import { gerarMensagemWhatsApp, validarDadosCliente } from '@/utils/whatsapp'
-
-interface CartDrawerProps {
-  isOpen: boolean
-  onClose: () => void
-}
+import { CartDrawerProps } from '@/core/domain/types'
 
 export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
   const { 

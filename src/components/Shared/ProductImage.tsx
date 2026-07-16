@@ -3,17 +3,9 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import { ProductImageProps } from '@/core/domain/types'
 
 const BLUR_PLACEHOLDER = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=='
-
-interface ProductImageProps {
-  src: string
-  name: string
-  priority?: boolean
-  width?: number
-  height?: number
-  className?: string
-}
 
 export default function ProductImage({ 
   src, 

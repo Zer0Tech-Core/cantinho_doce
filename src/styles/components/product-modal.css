@@ -359,8 +359,11 @@
   transform: none !important;
 }
 
-.product-modal-add-btn.added {
-  background: #4CAF50;
+.product-modal-add-btn.added,
+button.added {
+  background: #2e7d32 !important; /* Verde mais escuro e sólido para indicar sucesso */
+  box-shadow: 0 4px 14px rgba(46, 125, 50, 0.4);
+  animation: successPulse 0.4s ease;
 }
 
 .product-modal-cart-indicator {
@@ -378,12 +381,23 @@
 /* ============================================= */
 
 .product-modal-spinner {
-  width: 20px;
-  height: 20px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-top-color: var(--text-white);
-  border-radius: var(--radius-full);
-  animation: productModalSpin 0.6s linear infinite;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes successPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
 @keyframes productModalSpin {
