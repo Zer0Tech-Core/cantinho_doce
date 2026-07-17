@@ -84,7 +84,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    // 🔥 ADICIONADO: data-scroll-behavior="smooth"
+    //  ADICIONADO: data-scroll-behavior="smooth"
     <html lang="pt-BR" data-scroll-behavior="smooth">
       <body>
         <ToastProvider>

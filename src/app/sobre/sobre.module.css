@@ -305,7 +305,7 @@
 }
 
 /* ============================================= */
-/* 📊 NÚMEROS                                   */
+/* NÚMEROS                                   */
 /* ============================================= */
 
 .sobreNumeros {
@@ -803,7 +803,7 @@
 
 @media (max-width: 768px) {
   .banner {
-    padding: 50px 16px 160px; /* 🔥 Espaço extra para o Flork não cobrir o texto */
+    padding: 50px 16px 160px; /*  Espaço extra para o Flork não cobrir o texto */
   }
 
   .bannerTitle {
@@ -818,7 +818,7 @@
     flex-direction: column;
     gap: var(--radius-sm);
     padding: 18px 24px;
-    margin-bottom: 24px; /* 🔥 Espaço para o Flork */
+    margin-bottom: 24px; /*  Espaço para o Flork */
   }
 
   .bannerStatDivider {
@@ -834,7 +834,7 @@
     font-size: 24px;
   }
 
-  /* 🔥 FLORK AGORA EM RELATIVE - SEGUE O FLUXO */
+  /*  FLORK AGORA EM RELATIVE - SEGUE O FLUXO */
   .bannerDecoration {
     position: relative;
     right: auto;
@@ -858,7 +858,7 @@
     object-fit: contain;
   }
 
-  /* 🔥 NOVA ANIMAÇÃO MOBILE - SEM TRANSLATE X */
+  /*  NOVA ANIMAÇÃO MOBILE - SEM TRANSLATE X */
   @keyframes floatMobile {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-6px); }

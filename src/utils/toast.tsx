@@ -152,7 +152,7 @@ function ToastComponent({ mensagem, tipo, duracao, opcoes, onClose }: ToastCompo
 }
 
 // ===========================================
-// 🔧 FUNÇÃO PRINCIPAL
+// FUNÇÃO PRINCIPAL
 // ===========================================
 
 export function mostrarToast(
@@ -316,7 +316,7 @@ function adicionarEstilosGlobais() {
 }
 
 // ===========================================
-// 🚀 ATALHOS
+//  ATALHOS
 // ===========================================
 
 export const toastSucesso = (mensagem: string, duracao?: number, opcoes?: ToastOptions) => {
@@ -340,7 +340,7 @@ export const toastDestaque = (mensagem: string, duracao?: number, opcoes?: Toast
 }
 
 // ===========================================
-// 📊 UTILITÁRIOS
+// UTILITÁRIOS
 // ===========================================
 
 export function limparToasts() {
@@ -370,8 +370,8 @@ export function getTamanhoFila(): number {
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
   console.log('🍞 Sistema de Toast carregado!')
-  console.log('📦 Atalhos: toastSucesso, toastErro, toastAviso, toastInfo, toastDestaque')
-  console.log('🔧 Use limparToasts() para remover todos')
+  console.log('Atalhos: toastSucesso, toastErro, toastAviso, toastInfo, toastDestaque')
+  console.log('Use limparToasts() para remover todos')
   
   ;(window as any).__TOAST = {
     mostrar: mostrarToast,

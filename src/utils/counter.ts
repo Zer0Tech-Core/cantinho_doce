@@ -11,7 +11,7 @@ import { CounterConfig, CounterAPI } from "@/core/domain/types"
  * @returns {CounterAPI} API do contador
  */
 export function setupCounter(element: HTMLElement, options: CounterConfig = {}): CounterAPI {
-  // 🔧 CORREÇÃO: Removemos os valores `null` e usamos `undefined`
+  // CORREÇÃO: Removemos os valores `null` e usamos `undefined`
   const config: CounterConfig = {
     valorInicial: 0,
     valorMinimo: 0,
@@ -141,7 +141,7 @@ export function setupCounter(element: HTMLElement, options: CounterConfig = {}):
   }
 
   // ===========================================
-  // 🔧 FUNÇÕES DE CONTROLE
+  // FUNÇÕES DE CONTROLE
   // ===========================================
 
   function aumentar(): void {
@@ -389,7 +389,7 @@ export function setupCounter(element: HTMLElement, options: CounterConfig = {}):
   }
 
   // ===========================================
-  // 🚀 INICIALIZAÇÃO
+  //  INICIALIZAÇÃO
   // ===========================================
 
   renderizar()
@@ -398,7 +398,7 @@ export function setupCounter(element: HTMLElement, options: CounterConfig = {}):
 }
 
 // =============================================
-// 🚀 ATALHOS PARA CRIAR CONTADORES
+//  ATALHOS PARA CRIAR CONTADORES
 // =============================================
 
 /**
@@ -460,7 +460,7 @@ export function criarContadorPreco(
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
   console.log('🔢 Módulo Counter carregado!')
-  console.log('📦 Atalhos: criarContador, criarContadorQuantidade, criarContadorPreco')
+  console.log('Atalhos: criarContador, criarContadorQuantidade, criarContadorPreco')
   
   ;(window as any).__COUNTER = {
     setup: setupCounter,

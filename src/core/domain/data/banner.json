@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Biscoitos",
+    "subtitle": "para saborear na hora do seu lanche.",
+    "imagem": "/imagens/produtos/biscoito-doce-casadinho.webp",
+    "cta": "Ver Destaques"
+  },
+  {
+    "id": 2,
+    "title": "Doces",
+    "subtitle": "Para adoçar o seu dia.",
+    "imagem": "/imagens/produtos/noponto-pe-moca.webp",
+    "cta": "Explorar Doces"
+  },
+  {
+    "id": 3,
+    "title": "Doces em compota",
+    "subtitle": "Doces para comer de colher ou incluir em receitas.",
+    "imagem": "/imagens/produtos/cocada-cremosa.webp",
+    "cta": "Ver Sabores"
+  }
+]

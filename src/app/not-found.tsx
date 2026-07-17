@@ -1,6 +1,6 @@
 // src/app/not-found.tsx
 import Link from 'next/link'
-import UnifiedHeader from '@/components/Layout/UnifiedHeader'
+import UnifiedHeader from '@/components/Layout/Header'
 import Footer from '@/components/Layout/Footer'
 
 export default function NotFound() {

@@ -3,7 +3,7 @@ const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
 
-// 🔥 MUDE AQUI O CAMINHO
+//  MUDE AQUI O CAMINHO
 const inputFile = './public/sobre/Flork.png';
 
 // Verifica se o arquivo existe
@@ -28,7 +28,7 @@ sharp(inputFile)
     const reduction = ((1 - newSize / originalSize) * 100).toFixed(0);
     
     console.log(`✅ Convertido com sucesso!`);
-    console.log(`📊 ${originalSize.toFixed(1)}KB → ${newSize.toFixed(1)}KB (${reduction}% menor)`);
+    console.log(`${originalSize.toFixed(1)}KB → ${newSize.toFixed(1)}KB (${reduction}% menor)`);
   })
   .catch(err => {
     console.error('❌ Erro:', err.message);

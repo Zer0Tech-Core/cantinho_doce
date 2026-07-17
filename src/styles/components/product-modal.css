@@ -162,7 +162,7 @@
 }
 
 /* ============================================= */
-/* 📝 INFORMAÇÕES - LADO DIREITO                */
+/* INFORMAÇÕES - LADO DIREITO                */
 /* ============================================= */
 
 .product-modal-info {
@@ -420,20 +420,20 @@ button.added {
   }
 
   .product-modal-image {
-    min-height: auto; /* 🔥 Remove a altura mínima rígida */
-    padding: 0;       /* 🔥 Remove o padding para a imagem encostar nas bordas */
+    min-height: auto; /*  Remove a altura mínima rígida */
+    padding: 0;       /*  Remove o padding para a imagem encostar nas bordas */
     width: 100%;
     aspect-ratio: 16 / 10; /* Garante uma proporção retangular agradável */
   }
 
   .product-modal-image-wrapper {
-    max-width: 100%; /* 🔥 Permite expandir por toda a largura do modal */
+    max-width: 100%; /*  Permite expandir por toda a largura do modal */
     width: 100%;
     height: 100%;
   }
 
   .product-modal-image-img {
-    object-fit: cover; /* 🔥 Preenche o espaço cortando as rebarbas transparentes */
+    object-fit: cover; /*  Preenche o espaço cortando as rebarbas transparentes */
     width: 100%;
     height: 100%;
   }
@@ -494,19 +494,19 @@ button.added {
   }
 
   .product-modal-image {
-    min-height: auto; /* 🔥 Remove o limite antigo */
-    padding: 0;       /* 🔥 Encosta a foto nas laterais */
-    aspect-ratio: 4 / 3; /* 🔥 Define uma proporção perfeita para o produto aparecer grande */
+    min-height: auto; /*  Remove o limite antigo */
+    padding: 0;       /*  Encosta a foto nas laterais */
+    aspect-ratio: 4 / 3; /*  Define uma proporção perfeita para o produto aparecer grande */
   }
 
   .product-modal-image-wrapper {
-    max-width: 100%;  /* 🔥 Ocupa o topo inteiro do modal */
+    max-width: 100%;  /*  Ocupa o topo inteiro do modal */
     width: 100%;
     height: 100%;
   }
 
   .product-modal-image-img {
-    object-fit: contain; /* 🔥 Mantém o "contain" se as suas imagens tiverem fundo transparente, ou "cover" se tiverem cenário */
+    object-fit: contain; /*  Mantém o "contain" se as suas imagens tiverem fundo transparente, ou "cover" se tiverem cenário */
     padding: 12px;       /* Um leve respiro apenas para o pote não colar no teto */
     width: 100%;
     height: 100%;
@@ -525,7 +525,7 @@ button.added {
   .product-modal-name {
     font-size: 18px;
     font-weight: 800;
-    white-space: normal; /* 🔥 Permite que o nome quebre linha se for grande */
+    white-space: normal; /*  Permite que o nome quebre linha se for grande */
     overflow: visible;
     text-overflow: clip;
   }

@@ -11,20 +11,19 @@
 
 /* 3. COMPONENTES */
 /* Layout */
-@import '../components/Layout/Header.css';
-@import '../components/Layout/UnifiedHeader.css';
-@import '../components/Layout/Footer.css';
+@import '../components/Layout/Header.module.css';
+@import '../components/Layout/Footer.module.css';
 
-/* CartDrawer */
-@import '../components/CartDrawer/CartDrawer.css';
+/* Cart */
+@import '../components/Cart/CartDrawer.module.css';
 
 /* Categories */
-@import '../components/Categories/Categories.css';
+@import '../components/Categories/Categories.module.css';
 
 @import '../components/HomePage/HomePage.module.css';
 
-@import '../components/Shared/Search.css';
-@import '../components/Shared/ShareMenu.css';
+@import '../components/Shared/Search.module.css';
+@import '../components/Shared/ShareMenu.module.css';
 
 /* 4. UTILITÁRIOS */
 @import '../styles/utils/icons.css';

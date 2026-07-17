@@ -8,7 +8,7 @@
   margin: 0 auto;
   padding: 16px;
   padding-top: 8px;
-  padding-bottom: 100px; /* 🔥 Espaço para o carrinho flutuante */
+  padding-bottom: 100px; /*  Espaço para o carrinho flutuante */
   position: relative;
   z-index: 1;
 }
@@ -192,7 +192,7 @@
 }
 
 /* ============================================= */
-/* 📝 INFORMAÇÕES DO PRODUTO                    */
+/* INFORMAÇÕES DO PRODUTO                    */
 /* ============================================= */
 
 .product-info {

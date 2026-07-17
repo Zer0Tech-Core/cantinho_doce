@@ -3,9 +3,9 @@ import { notFound } from 'next/navigation'
 import { PRODUTOS } from '@/core/domain/data'
 import Image from 'next/image'
 import Link from 'next/link'
-import ClientHeader from '@/components/Layout/ClientHeader' // 🔥 NOVO
+import ClientHeader from '@/components/Layout/ClientHeader' //  NOVO
 import Footer from '@/components/Layout/Footer'
-import ProductActions from '@/components/ProductActions'
+import ProductActions from '@/components/Product/ProductActions'
 import { ArrowLeft, Package, Star, Tag, ChevronRight } from 'lucide-react'
 import styles from './page.module.css'
 import { PageProps, Produto } from '@/core/domain/types'
@@ -44,7 +44,7 @@ export default async function ProdutoPage({ params }: PageProps) {
 
   return (
     <main>
-      {/* 🔥 USANDO O CLIENT HEADER */}
+      {/*  USANDO O CLIENT HEADER */}
       <ClientHeader showCategories={false} />
       
       <div className={styles.pageContainer}>
@@ -146,7 +146,7 @@ export default async function ProdutoPage({ params }: PageProps) {
 
             <div className={styles.shippingInfo}>
               <span>🚚 Entrega em Campo Grande - RJ</span>
-              <span>📦 Retirada disponível</span>
+              <span>Retirada disponível</span>
             </div>
           </div>
         </div>
