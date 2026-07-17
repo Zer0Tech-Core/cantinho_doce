@@ -34,7 +34,7 @@ export function useShare(produto: Produto) {
     }
   }
 
-  const ejecutarCopiaLink = async () => {
+  const executarCopiaLink = async () => {
     const copiou = await copyToClipboard(`${mensagemCompartilhamento}${produtoUrl}`)
     if (copiou) {
       setCopied(true)
