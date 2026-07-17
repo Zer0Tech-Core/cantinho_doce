@@ -290,7 +290,7 @@ export default function HomePage({
             <p>Faça seu pedido direto pelo WhatsApp e receba em casa com toda comodidade.</p>
           </div>
           <a 
-            href={`https://wa.me/${whatsappLoja}`}
+            href={`https://wa.me/${whatsappLoja}?text=${encodeURIComponent("Olá! Gostaria de fazer um pedido.")}`}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.whatsappButton}
