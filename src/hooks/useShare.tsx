@@ -8,7 +8,7 @@ export function useShare(produto: Produto) {
   const toast = useToast()
 
   const precoFinal = produto.precoPromocional || produto.preco
-  const produtoUrl = `https://cantinho-docecg.vercel.app/${produto.id}`
+  const produtoUrl = `https://cantinho-docecg.vercel.app/produto/${produto.id}`
   
   const mensagemCompartilhamento = `🍪 ${produto.nome}\n${produto.descricao}\n💰 Preço: R$ ${precoFinal.toFixed(2)}\nPeso: ${produto.peso}\n\n👀 Veja mais: ${produtoUrl}`
 
