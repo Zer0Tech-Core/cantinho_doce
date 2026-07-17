@@ -23,7 +23,7 @@ import {
 } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
-import UnifiedHeader from '@/components/Layout/UnifiedHeader'
+import UnifiedHeader from '@/components/Layout/Header'
 import Footer from '@/components/Layout/Footer'
 import styles from './sobre.module.css'
 

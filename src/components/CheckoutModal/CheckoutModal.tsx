@@ -9,7 +9,7 @@ import {
 } from 'lucide-react'
 import { useCart } from '@/hooks/useCart'
 import { useToast } from '@/context/ToastContext'
-import { gerarMensagemWhatsApp, validarDadosCliente } from '@/utils/whatsapp'
+import { gerarMensagemWhatsApp } from '@/core/use-cases/formatarPedidoWhatsapp'
 import { CheckoutModalProps } from '@/core/domain/types'
 
 export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
@@ -46,18 +46,12 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
     }
   }, [metodoPagamento])
 
-  const handleSubmit = (e: React.FormEvent) => {
+const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
-    // Valida os dados do cliente
-    const validacao = validarDadosCliente({ 
-      nome, 
-      endereco, 
-      troco: troco ? parseFloat(troco) : undefined 
-    })
-    
-    if (!validacao.valido) {
-      toast.erro(validacao.erros[0])
+    // 1. Validação manual simples (ajustada para não depender de funções removidas)
+    if (!nome.trim() || !endereco.trim()) {
+      toast.erro('Por favor, preencha o seu nome e o endereço de entrega.')
       return
     }
 
@@ -70,7 +64,8 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
       }
     }
 
-    // Gera a mensagem do WhatsApp
+    // 2. Chamada limpa: passamos apenas carrinho e dados do cliente.
+    // O nome da loja e o número são resolvidos direto de forma interna!
     const resultado = gerarMensagemWhatsApp(
       carrinho,
       {
@@ -79,9 +74,7 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
         obs,
         metodoPagamento,
         troco: troco ? parseFloat(troco) : undefined
-      },
-      'Cantinho Doce',
-      '5521972279173'
+      }
     )
 
     // Abre o WhatsApp
@@ -100,7 +93,6 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
     setMetodoPagamento('')
     setTroco('')
   }
-
   if (!isOpen) return null
 
   return (
@@ -235,7 +227,7 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
                 value={troco}
                 onChange={(e) => setTroco(e.target.value)}
               />
-              <small>💡 Digite o valor que você vai pagar para calcular o troco</small>
+              <small>Digite o valor que você vai pagar para calcular o troco</small>
             </div>
           )}
 

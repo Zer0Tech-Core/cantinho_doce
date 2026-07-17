@@ -117,7 +117,7 @@ export default function Search({
           </div>
           <div className="search-suggestion-divider" />
           <div className="search-suggestion-item">
-            <span className="search-suggestion-hint">🔍 Pressione Enter para buscar</span>
+            <span className="search-suggestion-hint"> Pressione Enter para buscar</span>
           </div>
         </div>
       )}

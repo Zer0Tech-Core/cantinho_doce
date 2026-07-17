@@ -44,7 +44,7 @@ export interface ProdutoComCategoria extends Produto {
 }
 
 export interface Categoria {
-  produtos: any
+  produtos: Produto[]
   id: string
   nome: string
   descricao: string

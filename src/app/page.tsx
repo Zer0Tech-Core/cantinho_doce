@@ -3,11 +3,11 @@
 
 import { useState, useEffect } from 'react'
 import { PRODUTOS } from '@/core/domain/data'
-import UnifiedHeader from '@/components/Layout/UnifiedHeader'
-import ProductGrid from '@/components/ProductGrid'
-import HomePage from '@/components/HomePage'
-import CartFloating from '@/components/CartFloating'
-import CartDrawer from '@/components/CartDrawer/CartDrawer'
+import Header from '@/components/Layout/Header'
+import ProductGrid from '@/components/Product/ProductGrid'
+import HomePage from '@/components/HomePage/HomePage'
+import CartFloating from '@/components/Cart/CartFloating'
+import CartDrawer from '@/components/Cart/CartDrawer'
 import Footer from '@/components/Layout/Footer'
 import styles from './page.module.css'
 
@@ -47,7 +47,7 @@ export default function Home() {
 
   return (
     <main>
-      <UnifiedHeader
+      <Header
         searchValue={searchTerm}
         onSearchChange={handleSearch}
         categorias={PRODUTOS.categorias}

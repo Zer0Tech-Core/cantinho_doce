@@ -1,25 +1,35 @@
 // src/data/index.ts
 // =============================================
-// 📦 DATA - Arquivo Principal
+// DATA - Arquivo Principal
 // =============================================
 
 import lojaData from './loja.json'
 import categoriasData from './categorias.json'
 import produtosData from './produtos.json'
-import { Produto, Categoria, Loja, ProdutoComCategoria } from '@/core/domain/types'
+import bannerData from './banner.json'
+import { Produto, Categoria, Loja, ProdutoComCategoria, CategoriaComProdutos } from '@/core/domain/types'
+
+
+export {
+  produtosData as produtos,
+  lojaData as loja,
+  bannerData as banners
+};
+
+// Única Fonte de Verdade para configurações institucionis da loja
+export const LOJA: Loja = lojaData
 
 // ===========================================
-// 🔧 MONTA O CATÁLOGO COMPLETO
+// MONTA O CATÁLOGO COMPLETO
 // ===========================================
 
-const loja: Loja = lojaData
-const categorias: Categoria[] = categoriasData.map((cat: any) => ({
+const categorias: CategoriaComProdutos[] = categoriasData.map((cat: any) => ({
   ...cat,
   produtos: produtosData[cat.id as keyof typeof produtosData] || []
 }))
 
 // ===========================================
-// 🔧 FUNÇÃO AUXILIAR PARA NORMALIZAR IDs
+// FUNÇÃO AUXILIAR PARA NORMALIZAR IDs
 // ===========================================
 
 function normalizarId(id: string): string {
@@ -31,19 +41,18 @@ function normalizarId(id: string): string {
 }
 
 // ===========================================
-// 📦 OBJETO PRINCIPAL
+// OBJETO PRINCIPAL
 // ===========================================
 
 export const PRODUTOS = {
-  loja,
-
+  loja: LOJA,
   categorias,
 
   // ===========================================
-  // 🔍 MÉTODOS UTILITÁRIOS
+  // MÉTODOS UTILITÁRIOS
   // ===========================================
 
-  // 🔥 CORRIGIDO: Busca normalizada
+  //  CORRIGIDO: Busca normalizada
   getProdutoPorId(id: string): ProdutoComCategoria | null {
     if (!id || typeof id !== 'string') return null
     
@@ -98,7 +107,7 @@ export const PRODUTOS = {
     return this.categorias.reduce((total, cat) => total + cat.produtos.length, 0)
   },
 
-  // 🔥 CORRIGIDO: Busca normalizada
+  //  CORRIGIDO: Busca normalizada
   buscarProdutos(termo: string): ProdutoComCategoria[] {
     if (!termo || typeof termo !== 'string' || termo.trim() === '') return []
     
@@ -190,15 +199,15 @@ export const PRODUTOS = {
 }
 
 // ===========================================
-// 🚀 EXPORTAÇÃO PARA DEBUG
+//  EXPORTAÇÃO PARA DEBUG
 // ===========================================
 
 if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
-  console.log('📦 Catálogo Cantinho Doce carregado!')
-  console.log(`📊 ${PRODUTOS.getTotalProdutos()} produtos em ${PRODUTOS.categorias.length} categorias`)
-  console.log('🔍 Use PRODUTOS.buscarProdutos("termo") para pesquisar')
-  console.log('📊 Use PRODUTOS.getEstatisticas() para ver estatísticas')
-  console.log('⭐ Destaques: ' + PRODUTOS.getProdutosEmDestaque().length + ' produtos')
+  console.log('Catálogo Cantinho Doce carregado!')
+  console.log(`${PRODUTOS.getTotalProdutos()} produtos em ${PRODUTOS.categorias.length} categorias`)
+  console.log('Use PRODUTOS.buscarProdutos("termo") para pesquisar')
+  console.log('Use PRODUTOS.getEstatisticas() para ver estatísticas')
+  console.log('Destaques: ' + PRODUTOS.getProdutosEmDestaque().length + ' produtos')
   
   ;(window as any).__PRODUTOS = PRODUTOS
 }

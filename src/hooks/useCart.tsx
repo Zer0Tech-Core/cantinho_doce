@@ -6,27 +6,27 @@ import { Produto, Categoria, CartItem, ResumoCarrinho, PesoTotal, CartContextTyp
 import { PRODUTOS } from '@/core/domain/data'
 
 // =============================================
-// 📦 CONSTANTES
+// CONSTANTES
 // =============================================
 
 const STORAGE_KEY = 'carrinho_cantinho_doce'
 const LIMITE_MAXIMO = 10
 
 // =============================================
-// 🔧 CONTEXT
+// CONTEXT
 // =============================================
 
 const CartContext = createContext<CartContextType | undefined>(undefined)
 
 // =============================================
-// 🚀 PROVIDER
+//  PROVIDER
 // =============================================
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [carrinho, setCarrinho] = useState<CartItem[]>([])
 
   // ===========================================
-  // 📦 CARREGAR DO LOCALSTORAGE
+  // CARREGAR DO LOCALSTORAGE
   // ===========================================
   
   useEffect(() => {
@@ -53,7 +53,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, [carrinho])
 
   // ===========================================
-  // 📊 FUNÇÕES DE ANÁLISE
+  // FUNÇÕES DE ANÁLISE
   // ===========================================
   
   const getTotalItens = useCallback(() => {
@@ -312,7 +312,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, [])
 
   // ===========================================
-  // 📦 VALORES DO CONTEXT
+  // VALORES DO CONTEXT
   // ===========================================
   
   const value: CartContextType = {

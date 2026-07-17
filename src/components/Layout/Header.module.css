@@ -1,0 +1,890 @@
+/* src/components/Layout/Header.module.css */
+
+/* ============================================= */
+/*  UNIFIED HEADER - TEMA CLARO               */
+/* ============================================= */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header, 100);
+  background: linear-gradient(135deg, var(--primary-dark, #1B5E20), var(--primary, #2E7D32));
+  border-bottom: 3px solid var(--secondary, #F9A825);
+  transition: box-shadow 0.5s ease;
+}
+
+.headerScrolled {
+  box-shadow: var(--shadow-md, 0 4px 16px rgba(0, 0, 0, 0.06));
+}
+
+/* ============================================= */
+/* 📱 TOP BAR                                   */
+/* ============================================= */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  min-height: 64px;
+}
+
+/* --- Menu Button --- */
+.menuBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-white, #FFFFFF);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+  flex-shrink: 0;
+}
+
+.menuBtn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* --- Logo --- */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-decoration: none;
+}
+
+.logo:hover {
+  transform: scale(1.02);
+}
+
+.logoImg {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 8px;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.logoTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-white, #FFFFFF);
+  letter-spacing: -0.3px;
+}
+
+.logoSub {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 300;
+}
+
+/* --- Search Desktop --- */
+.searchWrapper {
+  flex: 1;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.searchInputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.12);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.searchInputWrapper:focus-within {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--secondary, #F9A825);
+  box-shadow: 0 0 0 4px rgba(249, 168, 37, 0.15);
+}
+
+.searchIcon {
+  position: absolute;
+  left: 14px;
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+}
+
+.searchSpinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top-color: var(--secondary, #F9A825);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 44px 10px 42px;
+  border: none;
+  background: transparent;
+  color: var(--text-white, #FFFFFF);
+  font-size: 14px;
+  outline: none;
+  font-family: var(--font-family, 'Inter', sans-serif);
+}
+
+.searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.searchClear {
+  position: absolute;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  color: var(--text-white, #FFFFFF);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.searchClear:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.1);
+}
+
+/* --- Cart --- */
+.cart {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  flex-shrink: 0;
+}
+
+.cart:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.02);
+}
+
+.cart.hasItems {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--secondary, #F9A825);
+}
+
+.cartIconWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: var(--text-white, #FFFFFF);
+}
+
+.cartBadge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: var(--secondary, #F9A825);
+  color: var(--primary-dark, #1B5E20);
+  border-radius: 50px;
+  padding: 1px 7px;
+  font-size: 10px;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cartBadge.pulse {
+  animation: badgePulse 0.4s ease;
+}
+
+@keyframes badgePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.4); }
+}
+
+.cartTotal {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-white, #FFFFFF);
+  white-space: nowrap;
+}
+
+/* --- Search Toggle Mobile --- */
+.searchToggle {
+  display: none;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: var(--text-white, #FFFFFF);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+  flex-shrink: 0;
+}
+
+.searchToggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ============================================= */
+/*  MODO BUSCA MOBILE                         */
+/* ============================================= */
+
+.searchMode {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  min-height: 64px;
+  background: linear-gradient(135deg, var(--primary-dark, #1B5E20), var(--primary, #2E7D32));
+  animation: searchSlide 0.25s ease;
+}
+
+@keyframes searchSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.searchBack {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: var(--text-white, #FFFFFF);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+  flex-shrink: 0;
+}
+
+.searchBack:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.searchModeWrapper {
+  flex: 1;
+}
+
+.searchModeInputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.searchModeInputWrapper:focus-within {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--secondary, #F9A825);
+  box-shadow: 0 0 0 4px rgba(249, 168, 37, 0.15);
+}
+
+.searchModeIcon {
+  position: absolute;
+  left: 14px;
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+}
+
+.searchModeInput {
+  width: 100%;
+  padding: 10px 44px 10px 42px;
+  border: none;
+  background: transparent;
+  color: var(--text-white, #FFFFFF);
+  font-size: 16px;
+  outline: none;
+  font-family: var(--font-family, 'Inter', sans-serif);
+}
+
+.searchModeInput::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.searchModeClear {
+  position: absolute;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  color: var(--text-white, #FFFFFF);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.searchModeClear:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.1);
+}
+
+/* ============================================= */
+/* 📂 CATEGORIAS                                */
+/* ============================================= */
+
+.categories {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 8px 16px 10px;
+  background: rgba(0, 0, 0, 0.15);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.categories::-webkit-scrollbar {
+  display: none;
+}
+
+.categoryBtn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.75);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  height: 32px;
+}
+
+.categoryBtn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text-white, #FFFFFF);
+  transform: translateY(-1px);
+}
+
+.categoryBtn.active {
+  background: var(--secondary, #F9A825);
+  color: var(--primary-dark, #1B5E20);
+  border-color: var(--secondary, #F9A825);
+  box-shadow: 0 4px 12px rgba(249, 168, 37, 0.3);
+  font-weight: 600;
+}
+
+.categoryBtn.active:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(249, 168, 37, 0.4);
+}
+
+.categoryWeight {
+  font-size: 9px;
+  font-weight: 400;
+  opacity: 0.6;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1px 6px;
+  border-radius: 50px;
+}
+
+.categoryBtn.active .categoryWeight {
+  background: rgba(0, 0, 0, 0.15);
+  opacity: 0.8;
+}
+
+/* ============================================= */
+/* 🍔 MENU MOBILE                               */
+/* ============================================= */
+
+.menuOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.menuContent {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 290px;
+  max-width: 85%;
+  background: var(--bg-green-menu, #1b4d22);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.25);
+  
+  /* --- ESSAS SÃO AS LINHAS QUE RESOLVEM O SEU PROBLEMA --- */
+  height: 100vh;           /* Garante que o menu ocupe toda a altura da tela */
+  overflow-y: auto;        /* Ativa a rolagem vertical apenas se o conteúdo passar da tela */
+  -webkit-overflow-scrolling: touch; /* Melhora a rolagem em dispositivos mobile */
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.menuHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menuLogoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.menuLogo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 50% !important;
+  background: #ffffff;
+  padding: 3px;
+}
+
+.menuTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.menuTitleLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.menuTitleLink:hover {
+  opacity: 0.8;
+}
+
+.menuClose {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.menuClose:hover {
+  color: var(--secondary, #f9a825);
+}
+
+.menuNav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.menuLink {
+  padding: 14px 16px;
+  border-radius: 6px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  transition: all 0.2s;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.menuLink:hover,
+.menuLink.active {
+  background: var(--secondary, #f9a825) !important;
+  color: #1b4d22 !important;
+  font-weight: 600;
+}
+
+.menuDivider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 4px 0;
+}
+
+.menuCategory {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.menuCategory:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.menuCategory.active {
+  background: var(--secondary, #f9a825) !important;
+  color: #1b4d22 !important;
+}
+
+.menuCategoryIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.menuCategory.active .menuCategoryIcon {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.menuWhatsapp {
+  background: #25D366;
+  color: #ffffff !important;
+  text-align: center;
+  justify-content: center;
+  font-weight: 600;
+  margin-top: 4px;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+}
+
+.menuWhatsapp:hover {
+  background: #1ebe56;
+  color: #ffffff !important;
+}
+
+.menuInstagram {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: #ffffff !important;
+  text-align: center;
+  justify-content: center;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(220, 39, 67, 0.2);
+}
+
+.menuInstagram:hover {
+  filter: brightness(1.1);
+}
+
+.menuFooter {
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  text-align: center;
+}
+
+/* ============================================= */
+/* 📱 RESPONSIVIDADE                            */
+/* ============================================= */
+
+/* Tablets e Mobile */
+@media (max-width: 768px) {
+  .topbar {
+    padding: 8px 12px;
+    min-height: 56px;
+    gap: 8px;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .cart {
+    margin: 0 auto;
+    padding: 6px 14px;
+  }
+
+  .cartTotal {
+    font-size: 13px;
+  }
+
+  .searchToggle {
+    display: flex;
+  }
+
+  .searchWrapper {
+    display: none;
+  }
+
+  .searchMode {
+    min-height: 56px;
+    padding: 8px 12px;
+  }
+
+  .categories {
+    padding: 6px 12px 8px;
+    gap: 4px;
+  }
+
+  .categoryBtn {
+    font-size: 11px;
+    padding: 4px 10px;
+    height: 28px;
+  }
+
+  .categoryWeight {
+    font-size: 8px;
+    padding: 1px 4px;
+  }
+}
+
+/* Tablets (mostra logo) */
+@media (max-width: 768px) and (min-width: 481px) {
+  .logo {
+    display: flex !important;
+  }
+  
+  .logoTitle {
+    font-size: 16px;
+  }
+  
+  .logoSub {
+    font-size: 9px;
+  }
+  
+  .cartTotal {
+    font-size: 13px;
+  }
+}
+
+/* Mobile pequeno */
+@media (max-width: 480px) {
+  .topbar {
+    padding: 6px 10px;
+    min-height: 48px;
+    gap: 6px;
+  }
+
+  .menuBtn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .menuBtn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .cart {
+    padding: 4px 10px;
+    gap: 6px;
+  }
+
+  .cartTotal {
+    font-size: 12px;
+  }
+
+  .cartIconWrapper svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .cartBadge {
+    top: -6px;
+    right: -8px;
+    font-size: 9px;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 5px;
+  }
+
+  .searchToggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .searchToggle svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .searchMode {
+    min-height: 48px;
+    padding: 6px 10px;
+    gap: 8px;
+  }
+
+  .categories {
+    padding: 4px 10px 6px;
+    gap: 3px;
+  }
+
+  .categoryBtn {
+    font-size: 10px;
+    padding: 3px 8px;
+    height: 24px;
+    gap: 4px;
+  }
+
+  .categoryBtn svg {
+    width: 12px !important;
+    height: 12px !important;
+  }
+
+  .categoryWeight {
+    display: none;
+  }
+
+  .menuLogo {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .menuTitle {
+    font-size: 16px;
+  }
+
+  .menuContent {
+    padding: 20px 16px;
+  }
+}
+
+/* Mobile muito pequeno - esconde valor do carrinho */
+@media (max-width: 380px) {
+  .cartTotal {
+    display: none;
+  }
+  
+  .cart {
+    padding: 6px 10px;
+  }
+  
+  .categoryBtn {
+    font-size: 9px;
+    padding: 2px 6px;
+    height: 20px;
+  }
+}
+
+/* Desktop - esconde toggle e modo busca */
+@media (min-width: 769px) {
+  .searchToggle {
+    display: none;
+  }
+
+  .searchMode {
+    display: none !important;
+  }
+}
+
+/* Desktop Grande */
+@media (min-width: 1400px) {
+  .topbar {
+    padding: 14px 24px;
+    min-height: 72px;
+  }
+
+  .searchWrapper {
+    max-width: 600px;
+  }
+
+  .searchInput {
+    font-size: 16px;
+    padding: 12px 48px 12px 48px;
+  }
+
+  .categories {
+    padding: 10px 24px 12px;
+    gap: 10px;
+  }
+
+  .categoryBtn {
+    font-size: 14px;
+    padding: 8px 20px;
+    height: 38px;
+  }
+}
+
+/* ============================================= */
+/*  SCROLLBAR PERSONALIZADA                   */
+/* ============================================= */
+
+.categories::-webkit-scrollbar {
+  height: 2px;
+}
+
+.categories::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.categories::-webkit-scrollbar-thumb {
+  background: var(--secondary, #f9a825);
+  border-radius: 4px;
+}
+
+/* ============================================= */
+/*  VARIÁVEL PARA O FUNDO DO MENU             */
+/* ============================================= */
+
+:root {
+  --bg-green-menu: #1b4d22;
+}
